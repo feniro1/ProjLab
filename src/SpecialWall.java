@@ -1,59 +1,45 @@
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class SpecialWall extends Wall {
 
-    /**
-     * Default constructor
-     */
+
     public SpecialWall() {
+
     }
 
-    /**
-     * 
-     */
     public WormHole wormhole;
-
-    /**
-     * 
-     */
     public Portal yport;
-
-    /**
-     * 
-     */
     public Portal bport;
 
 
-
-
-    /**
-     * @return
-     */
     public WormHole getWormHole() {
-        // TODO implement here
-        return null;
+        return wormhole;
     }
 
-    /**
-     * @param bullet 
-     * @return
-     */
     public boolean hit(Bullet bullet) {
-        // TODO implement here
+        Color color = bullet.color;
+        Direction dir = bullet.lookDirection.reverse();
+
+        if (color == Color.Yellow) {
+            wormhole.setYportal(dir, this);
+            yport = wormhole.getYPortal();
+        }
+        else {
+            wormhole.setBportal(dir, this);
+            bport = wormhole.getBPortal();
+        }
+
         return false;
     }
 
-    /**
-     * @param colonel 
-     * @return
-     */
     public boolean stepOn(Colonel colonel) {
-        // TODO implement here
-        return false;
+        Direction dir = colonel.lookDirection.reverse();
+        if (yport.getDirection() == dir | bport.getDirection() == dir)
+            return true;
+        else
+            return false;
     }
 
 }

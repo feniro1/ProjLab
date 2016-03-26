@@ -6,53 +6,41 @@ import java.util.*;
  */
 public class WormHole {
 
-    /**
-     * Default constructor
-     */
     public WormHole() {
+        yportal = new Portal();
+        bportal = new Portal();
     }
 
-    /**
-     * 
-     */
     public Portal yportal;
-
-    /**
-     * 
-     */
     public Portal bportal;
 
-
-
-
-    /**
-     * @param bull
-     */
+/*
     public void setYPortal(Bullet bull) {
         // TODO implement here
     }
 
-    /**
-     * @param bull
-     */
     public void setBPortal(Bullet bull) {
         // TODO implement here
     }
-
-    /**
-     * @return
-     */
-    public Portal getYPortal() {
-        // TODO implement here
-        return null;
+*/
+    public void setYportal(Direction dir, SpecialWall swall){
+        yportal.getSpecWall().yport = null;
+        yportal.setDirection(dir);
+        yportal.setSpecWall(swall);
     }
 
-    /**
-     * @return
-     */
+    public void setBportal(Direction dir, SpecialWall swall){
+        bportal.getSpecWall().bport = null;
+        bportal.setDirection(dir);
+        bportal.setSpecWall(swall);
+    }
+
+    public Portal getYPortal() {
+        return yportal;
+    }
+
     public Portal getBPortal() {
-        // TODO implement here
-        return null;
+        return bportal;
     }
 
 }

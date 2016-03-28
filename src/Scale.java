@@ -1,70 +1,49 @@
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class Scale extends MapElement {
 
-    /**
-     * Default constructor
-     */
-    public Scale() {
-    }
-
-    /**
-     * 
-     */
     public Box box;
-
-    /**
-     * 
-     */
     public Door door;
 
 
+    public Scale() {
+
+    }
 
 
-
-
-    /**
-     * 
-     */
     public void removeBox() {
-        // TODO implement here
+       box = null;
     }
 
-    /**
-     * 
-     */
+
     public void createBox() {
-        // TODO implement here
+        box = new Box();
     }
 
-    /**
-     * @param colonel 
-     * @return
-     */
+
     public boolean stepOn(Colonel colonel) {
-        // TODO implement here
-        return false;
+        if(box == null)
+            return true;
+        else
+            return false;
     }
 
-    /**
-     * @return
-     */
     public Box pickUp() {
-        // TODO implement here
-        return null;
+        Box boxtemp = box;
+        box = null;
+        return boxtemp;
     }
 
-    /**
-     * @param b 
-     * @return
-     */
+
     public boolean putDown(Box b) {
-        // TODO implement here
-        return false;
+       if (box == null){
+           box = b;
+           return true;
+       }
+       else
+           return false;
     }
 
 }

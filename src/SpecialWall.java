@@ -13,6 +13,10 @@ public class SpecialWall extends Wall {
 
     }
 
+    public SpecialWall(WormHole wormHole) {
+        this.wormhole = wormHole;
+    }
+
 
     public WormHole getWormHole() {
         return wormhole;

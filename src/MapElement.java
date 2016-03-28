@@ -56,6 +56,7 @@ public abstract class MapElement {
      * @return
      */
     public boolean hit(Bullet bullet) {
+        System.out.println("Meg lett hívva a hit függvény");
         // TODO implement here
         return false;
     }
@@ -65,8 +66,8 @@ public abstract class MapElement {
      * @return
      */
     public MapElement getNextElement(Direction dir) {
-        // TODO implement here
-        return null;
+        System.out.println("Le lett kérve a következő elem");
+        return neighbours[dir.getValue()];
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Rift extends Ground {
+public class Rift extends MapElement {
 
     /**
      * Default constructor

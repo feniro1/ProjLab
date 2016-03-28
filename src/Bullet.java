@@ -13,9 +13,10 @@ public class Bullet {
 
 
     public void move() {
+        System.out.println("Meghívódott a golyó move függvénye");
         boolean free = true;
         while (free) {
-            free = baseElement.neighbours[lookDirection.getValue()].hit(this);
+            free = baseElement.getNextElement(lookDirection).hit(this);
         }
     }
 

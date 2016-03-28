@@ -6,13 +6,12 @@ import java.util.*;
  */
 public class WormHole {
 
-    public WormHole() {
-
-    }
-
     private Portal yportal;
     private Portal bportal;
 
+    public WormHole() {
+
+    }
 /*
     public void setYPortal(Bullet bull) {
         // TODO implement here
@@ -26,12 +25,14 @@ public class WormHole {
         yportal.getSpecWall().setYPortal(null);
         yportal.setDirection(dir);
         yportal.setSpecWall(swall);
+        System.out.println("Létrejött egy sárga portál.");
     }
 
     public void setBPortal(Direction dir, SpecialWall swall){
         bportal.getSpecWall().setBPortal(null);
         bportal.setDirection(dir);
         bportal.setSpecWall(swall);
+        System.out.println("Létrejött egy kék portál.");
     }
 
     public Portal getYPortal() {

@@ -5,13 +5,13 @@ import java.util.*;
 public class SpecialWall extends Wall {
 
 
-    public SpecialWall() {
-
-    }
-
     private WormHole wormhole;
     private Portal yport;
     private Portal bport;
+
+    public SpecialWall() {
+
+    }
 
 
     public WormHole getWormHole() {
@@ -19,6 +19,7 @@ public class SpecialWall extends Wall {
     }
 
     public boolean hit(Bullet bullet) {
+        System.out.println("A golyó egy SpecialWall objektumnak ütközött");
         Color color = bullet.color;
         Direction dir = bullet.lookDirection.reverse();
 
@@ -35,11 +36,16 @@ public class SpecialWall extends Wall {
     }
 
     public boolean stepOn(Colonel colonel) {
-        Direction dir = colonel.lookDirection.reverse();
-        if (yport.getDirection() == dir | bport.getDirection() == dir)
+        System.out.println("Meghívódott a SpecWall stepOn függvénye");
+        Direction dir = colonel.getLookDirection().reverse();
+        if (yport.getDirection() == dir | bport.getDirection() == dir) {
+            System.out.println("Van portál");
             return true;
-        else
+        }
+        else {
+            System.out.println("Nincs portál");
             return false;
+        }
     }
 
     public Portal getYPortal(){

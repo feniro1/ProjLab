@@ -14,7 +14,7 @@ public class Portal {
 
 
     public void setDirection(Direction dir) {
-       this.dir = dir;
+        this.dir = dir;
     }
 
     public Direction getDirection() {

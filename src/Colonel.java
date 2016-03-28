@@ -43,15 +43,16 @@ public class Colonel {
 
 
     /**
-     * @param dir
+     * @param dir - elmozdulas iranya
      */
     public void move(Direction dir) {
         // TODO implement here
-        changeLookDirection(dir);
-        MapElement nextElement = baseElement.getNextElement(dir);
 
-        if(nextElement.stepOn(this))
-            stepOff(nextElement);
+        changeLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
+        MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet
+
+        if(nextElement.stepOn(this))//ha a kovetkezo elemre ra lehet lepni
+            stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
             System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
     }
 
@@ -81,7 +82,7 @@ public class Colonel {
     public void pickUp() {
         // TODO implement here
         System.out.println("Meghivodott az ezredes pickUp fuggvenye");
-        MapElement nextElement = baseElement.getNextElement(lookDirection);
+        MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
         box = nextElement.pickUp();
     }
 
@@ -98,11 +99,11 @@ public class Colonel {
     public void putDown() {
         // TODO implement here
         System.out.println("Meghivodott az ezredes putDown fuggvenye");
-        MapElement nextElement = baseElement.getNextElement(lookDirection);
+        MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
         if(box != null) {
             System.out.println("Az ezredesnel van doboz");
-            if (nextElement.putDown(box)) {
-                removeBox();
+            if (nextElement.putDown(box)) { //ha a kovetkezo elemre leteheto a doboz,
+                removeBox();                //akkor leteszi.
                 System.out.println("A doboz le lett teve");
             }
         } else {
@@ -131,7 +132,7 @@ public class Colonel {
      */
     public void removeBox() {
         // TODO implement here
-
+        System.out.println("A doboz le lett teve");
     }
 
     /**

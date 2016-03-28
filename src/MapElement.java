@@ -14,10 +14,10 @@ public abstract class MapElement {
     public MapElement[] neighbours;
 
 
-    public Colonel col;
+    private Colonel col;
 
 
-    public Bullet bul;
+    private Bullet bul;
 
 
 
@@ -25,49 +25,42 @@ public abstract class MapElement {
         // TODO implement here
     }
 
-    /**
-     * @param colonel 
-     * @return
-     */
+
     public boolean stepOn(Colonel colonel) {
         // TODO implement here
         return false;
     }
 
-    /**
-     * @return
-     */
+
     public Box pickUp() {
         // TODO implement here
         return null;
     }
 
-    /**
-     * @param b 
-     * @return
-     */
+
     public boolean putDown(Box b) {
         // TODO implement here
         return false;
     }
 
-    /**
-     * @param bullet 
-     * @return
-     */
     public boolean hit(Bullet bullet) {
         System.out.println("Meg lett hívva a hit függvény");
         // TODO implement here
         return false;
     }
 
-    /**
-     * @param dir 
-     * @return
-     */
+
     public MapElement getNextElement(Direction dir) {
         System.out.println("Le lett kérve a következő elem");
         return neighbours[dir.getValue()];
+    }
+
+    public void setColonel(Colonel colonel){
+        col = colonel;
+    }
+
+    public  void setBullet (Bullet bullet){
+        bul = bullet;
     }
 
 }

@@ -3,7 +3,6 @@ import java.util.*;
 
 
 public class Scale extends MapElement {
-    
 
     public Box box;
     public Door door;
@@ -32,7 +31,7 @@ public class Scale extends MapElement {
     }
 
     public Box pickUp() {
-        Box boxtemp = new Box();
+        Box boxtemp = box;
         box = null;
         return boxtemp;
     }

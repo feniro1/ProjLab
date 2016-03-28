@@ -7,12 +7,11 @@ import java.util.*;
 public class WormHole {
 
     public WormHole() {
-        yportal = new Portal();
-        bportal = new Portal();
+
     }
 
-    public Portal yportal;
-    public Portal bportal;
+    private Portal yportal;
+    private Portal bportal;
 
 /*
     public void setYPortal(Bullet bull) {
@@ -23,14 +22,14 @@ public class WormHole {
         // TODO implement here
     }
 */
-    public void setYportal(Direction dir, SpecialWall swall){
-        yportal.getSpecWall().yport = null;
+    public void setYPortal(Direction dir, SpecialWall swall){
+        yportal.getSpecWall().setYPortal(null);
         yportal.setDirection(dir);
         yportal.setSpecWall(swall);
     }
 
-    public void setBportal(Direction dir, SpecialWall swall){
-        bportal.getSpecWall().bport = null;
+    public void setBPortal(Direction dir, SpecialWall swall){
+        bportal.getSpecWall().setBPortal(null);
         bportal.setDirection(dir);
         bportal.setSpecWall(swall);
     }

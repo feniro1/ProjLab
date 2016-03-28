@@ -1,6 +1,12 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("zsonglőr");
+        Colonel oneill = new Colonel();
+        WormHole wh = new WormHole();
+
+        GameEngine ge = new GameEngine(oneill, wh);
+
+        //ge.loadMap(f);
+        ge.startGame();
     }
 }

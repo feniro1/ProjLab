@@ -38,7 +38,13 @@ public class Colonel {
     public boolean isAlive;
 
 
-
+    public Colonel(MapElement _baseElement){
+        lookDirection = Direction.valueOf("Up");
+        baseElement = _baseElement;
+        ZPMNumber = 0;
+        box = null;
+        isAlive = true;
+    }
 
 
     /**
@@ -46,6 +52,12 @@ public class Colonel {
      */
     public void move(Direction dir) {
         // TODO implement here
+        changeLookDirection(dir);
+        MapElement nextElement = baseElement.getNextElement(dir);
+
+        if(nextElement.stepOn(this))
+            stepOff(nextElement);
+            System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
     }
 
     /**
@@ -67,6 +79,9 @@ public class Colonel {
      */
     public void pickUp() {
         // TODO implement here
+        System.out.println("Meghivodott az ezredes pickUp fuggvenye");
+        MapElement nextElement = baseElement.getNextElement(lookDirection);
+        box = nextElement.pickUp();
     }
 
     /**
@@ -102,6 +117,7 @@ public class Colonel {
      */
     public void changeLookDirection(Direction dir) {
         // TODO implement here
+        System.out.println("Meghivodott az ezredes changeLookDircetion fuggvenye");
     }
 
     /**
@@ -116,6 +132,7 @@ public class Colonel {
      */
     public void stepOff(MapElement me) {
         // TODO implement here
+        System.out.println("Meghivodott az ezredes stepOff fuggvenye");
     }
 
 }

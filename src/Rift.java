@@ -1,33 +1,25 @@
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class Rift extends MapElement {
 
-    /**
-     * Default constructor
-     */
+
     public Rift() {
+        System.out.println("Létrejön egy szakadék objektum.");
     }
 
-    /**
-     * @param colonel 
-     * @return
-     */
+
     public boolean stepOn(Colonel colonel) {
-        // TODO implement here
-        return false;
+        colonel.kill();
+        System.out.println("Az ezredes ráléphet a szakadékra és meghal.");
+        return true;
     }
 
-    /**
-     * @param b 
-     * @return
-     */
+
     public boolean putDown(Box b) {
-        // TODO implement here
-        return false;
+        System.out.println("Az ezredes dobhat dobozt a szakadékba.");
+        return true;
     }
 
 }

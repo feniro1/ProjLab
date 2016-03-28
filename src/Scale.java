@@ -1,49 +1,66 @@
 
 import java.util.*;
 
-
+/**
+ * 
+ */
 public class Scale extends MapElement {
 
-    public Box box;
-    public Door door;
+    private Box box;
+    private Door door;
 
+    public Scale(Door door) {
+        this.box = null;
+        this.door = door;
+        System.out.println("Sikerült létrehozni egy mérleg objektumot.");
+    }
 
-    public Scale() {
-
+    public boolean hasBox() {
+        if (box != null) {
+            System.out.println("A mérlegen van doboz.");
+            return true;
+        }
+        System.out.println("A mérlegen nincs doboz.");
+        return false;
     }
 
 
     public void removeBox() {
-       box = null;
+        box = null;
+        System.out.println("A mérlegen nincs többé doboz.");
     }
 
-
-    public void createBox() {
-        box = new Box();
-    }
 
 
     public boolean stepOn(Colonel colonel) {
-        if(box == null)
-            return true;
-        else
+        if (hasBox()) {
+            System.out.println("Az ezredes nem léphet rá a mérlegre, mert azon van doboz.");
             return false;
+        }
+        System.out.println("Az ezredes ráléphet a mérlegre.");
+        return true;
     }
 
+
     public Box pickUp() {
-        Box boxtemp = box;
-        box = null;
-        return boxtemp;
+        if (hasBox()) {
+            System.out.println("");
+            return box;
+        }
+
+        return null;
     }
 
 
     public boolean putDown(Box b) {
-       if (box == null){
-           box = b;
-           return true;
-       }
-       else
-           return false;
+        if(!hasBox()) {
+            box = b; // TODO: Refactor
+            System.out.println("Sikerült új doboz elemet letenni a mérlegre.");
+            return true;
+        } else {
+            System.out.println("A mérlegen már van doboz, így nem sikerült új doboz elemet letenni rá.");
+            return false;
+        }
     }
 
 }

@@ -23,7 +23,7 @@ public abstract class MapElement {
 
 
     public boolean stepOn(Colonel colonel) {
-        System.out.println("Nem léphetsz rá a MapElementre.")
+        System.out.println("Nem léphetsz rá a MapElementre.");
         return false;
     }
 

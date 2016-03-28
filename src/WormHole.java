@@ -25,12 +25,14 @@ public class WormHole {
         yportal.getSpecWall().setYPortal(null);
         yportal.setDirection(dir);
         yportal.setSpecWall(swall);
+        System.out.println("Létrejött egy sárga portál.");
     }
 
     public void setBPortal(Direction dir, SpecialWall swall){
         bportal.getSpecWall().setBPortal(null);
         bportal.setDirection(dir);
         bportal.setSpecWall(swall);
+        System.out.println("Létrejött egy kék portál.");
     }
 
     public Portal getYPortal() {

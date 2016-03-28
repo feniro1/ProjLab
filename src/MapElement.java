@@ -66,6 +66,7 @@ public abstract class MapElement {
      * @return
      */
     public MapElement getNextElement(Direction dir) {
+        System.out.println("Le lett kérve a következő elem");
         return neighbours[dir.getValue()];
     }
 

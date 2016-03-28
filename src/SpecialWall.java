@@ -9,9 +9,9 @@ public class SpecialWall extends Wall {
 
     }
 
-    public WormHole wormhole;
-    public Portal yport;
-    public Portal bport;
+    private WormHole wormhole;
+    private Portal yport;
+    private Portal bport;
 
 
     public WormHole getWormHole() {
@@ -23,11 +23,11 @@ public class SpecialWall extends Wall {
         Direction dir = bullet.lookDirection.reverse();
 
         if (color == Color.Yellow) {
-            wormhole.setYportal(dir, this);
+            wormhole.setYPortal(dir, this);
             yport = wormhole.getYPortal();
         }
         else {
-            wormhole.setBportal(dir, this);
+            wormhole.setBPortal(dir, this);
             bport = wormhole.getBPortal();
         }
 
@@ -41,5 +41,22 @@ public class SpecialWall extends Wall {
         else
             return false;
     }
+
+    public Portal getYPortal(){
+        return yport;
+    }
+
+    public Portal getBPortal(){
+        return bport;
+    }
+
+    public void setYPortal(Portal port){
+        yport = port;
+    }
+
+    public void setBPortal(Portal port){
+        bport = port;
+    }
+
 
 }

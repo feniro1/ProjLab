@@ -1,5 +1,7 @@
 
 import java.io.Console;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * 
@@ -39,19 +41,30 @@ public class GameEngine {
      * 
      */
     public void startGame() {
-        // TODO implement here
 
-        Console c = System.console();
+        System.out.println("Udvozlunk a LiskovTheorem Oneill's Adventure nevu jatekaban!");
+        System.out.println("Kerlek valassz egy tesztesetet!");
+        System.out.println();
+        System.out.println("0: Oneill ralep egy talajelemre");
+        System.out.println("1: Oneill lelep egy merlegrol");
+        System.out.println("2: Oneill nekimegy egy nyitott ajtonak");
+        System.out.println("3: Oneill szakadekba lep");
+        System.out.println("4: Oneill ralep egy merlegre");
+        System.out.println("5: Oneill falnak megy");
+        System.out.println("6: Oneill felvesz egy dobozt a talajrol");
+        System.out.println("7: Oneill felvesz egy dobozt a merlegrol");
+        System.out.println("8: Oneill letesz egy dobozt a talajra");
+        System.out.println("9: Oneill letesz egy dobozt a merlegre");
+        System.out.println("10: Oneill beletesz egy dobozt a szakadekba");
+        System.out.println("11: Oneill specialis falra lo");
+        System.out.println("12: Oneill belemegy a fereglyukba");
+        System.out.println();
+        System.out.println("Valasztott teszteset: ");
 
-        if (c == null) {
-            System.err.println("No console.");
-            System.exit(1);
-        }
+        Scanner s = new Scanner(System.in);
+        String i = s.nextLine();
 
-
-        String i = c.readLine();
-
-        switch (i){
+        switch (i) {
             //movement on ground
             case "0":
                 oneill.move(Direction.Up);

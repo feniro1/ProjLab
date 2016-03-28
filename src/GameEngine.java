@@ -1,5 +1,5 @@
 
-import java.util.*;
+import java.io.Console;
 
 /**
  * 
@@ -29,7 +29,10 @@ public class GameEngine {
 
 
 
-
+    public GameEngine(Colonel _oneill, WormHole _wh){
+        oneill = _oneill;
+        wormhole = _wh;
+    }
 
 
     /**
@@ -37,6 +40,49 @@ public class GameEngine {
      */
     public void startGame() {
         // TODO implement here
+
+        Console c = System.console();
+
+        if (c == null) {
+            System.err.println("No console.");
+            System.exit(1);
+        }
+
+
+        String i = c.readLine();
+
+        switch (i){
+            //movement on ground
+            case "0":
+                oneill.move(Direction.Up);
+                break;
+            //movement from scale
+            case "1":
+                oneill.move(Direction.Up);
+                break;
+
+            case "2":
+                oneill.move(Direction.Up);
+                break;
+
+            case "3":
+                oneill.move(Direction.Up);
+                break;
+
+            case "4":
+                oneill.move(Direction.Up);
+                break;
+
+            case "5":
+                oneill.move(Direction.Up);
+                break;
+
+            case "6":
+                oneill.pickUp();
+                break;
+
+        }
+
     }
 
     /**

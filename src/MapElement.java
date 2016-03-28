@@ -6,41 +6,21 @@ import java.util.*;
  */
 public abstract class MapElement {
 
-    /**
-     * Default constructor
-     */
+
     public MapElement() {
+
     }
 
-    /**
-     * 
-     */
     public MapElement[] neighbours;
 
-    /**
-     * 
-     */
+
     public Colonel col;
 
-    /**
-     * 
-     */
+
     public Bullet bul;
 
 
 
-
-
-
-
-
-
-
-
-
-    /**
-     * 
-     */
     public void draw() {
         // TODO implement here
     }

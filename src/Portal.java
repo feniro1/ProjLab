@@ -1,9 +1,7 @@
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class Portal {
 
     public Portal() {

@@ -12,30 +12,25 @@ public class Colonel {
     public Colonel() {
     }
 
-    /**
-     * 
-     */
-    public Direction lookDirection;
+    private Direction lookDirection;
 
-    /**
-     * 
-     */
-    public Box box;
+    private Box box;
 
-    /**
-     * 
-     */
-    public int ZPMNumber;
+    private int ZPMNumber;
 
-    /**
-     * 
-     */
-    public MapElement baseElement;
+    private MapElement baseElement;
 
-    /**
-     * 
-     */
-    public boolean isAlive;
+    private boolean isAlive;
+
+
+    public Direction getLookDirection(){
+        return lookDirection;
+    }
+
+    public void setLookDirection(Direction dir){
+        lookDirection = dir;
+    }
+
 
 
     public Colonel(MapElement _baseElement){
@@ -65,6 +60,11 @@ public class Colonel {
      */
     public void shoot(Color color) {
         // TODO implement here
+        System.out.println("Meghivodott az ezredes shoot fuggvenye");
+        Bullet b = new Bullet();
+        System.out.println("Letrejott egy golyo");
+        b.move();
+
     }
 
     /**
@@ -72,6 +72,7 @@ public class Colonel {
      */
     public void kill() {
         // TODO implement here
+        System.out.println("Meghivodott az ezredes kill fuggvenye");
     }
 
     /**
@@ -96,6 +97,18 @@ public class Colonel {
      */
     public void putDown() {
         // TODO implement here
+        System.out.println("Meghivodott az ezredes putDown fuggvenye");
+        MapElement nextElement = baseElement.getNextElement(lookDirection);
+        if(box != null) {
+            System.out.println("Az ezredesnel van doboz");
+            if (nextElement.putDown(box)) {
+                removeBox();
+                System.out.println("A doboz le lett teve");
+            }
+        } else {
+            System.out.println("Az ezredesnel nincs doboz");
+        }
+
     }
 
     /**
@@ -103,6 +116,7 @@ public class Colonel {
      */
     public void incZPMNumber() {
         // TODO implement here
+        System.out.println("Nott a ZPM szam");
     }
 
     /**
@@ -125,6 +139,14 @@ public class Colonel {
      */
     public void createBox() {
         // TODO implement here
+    }
+
+    /**
+     *
+     */
+    public void removeBox() {
+        // TODO implement here
+
     }
 
     /**

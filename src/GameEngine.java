@@ -60,25 +60,49 @@ public class GameEngine {
             case "1":
                 oneill.move(Direction.Up);
                 break;
-
+            //movement to door
             case "2":
                 oneill.move(Direction.Up);
                 break;
-
+            //movement to rift
             case "3":
                 oneill.move(Direction.Up);
                 break;
-
+            //movement to scale
             case "4":
                 oneill.move(Direction.Up);
                 break;
-
+            //movement to wall
             case "5":
                 oneill.move(Direction.Up);
                 break;
-
+            //pick up box from ground
             case "6":
                 oneill.pickUp();
+                break;
+            //pick up box from scale
+            case "7":
+                oneill.pickUp();
+                break;
+            //put down box to ground
+            case "8":
+                oneill.putDown();
+                break;
+            //put down box to scale
+            case "9":
+                oneill.putDown();
+                break;
+            //put down box to rift
+            case "10":
+                oneill.putDown();
+                break;
+            //shoot bullet
+            case "11":
+                oneill.shoot(Color.Yellow);
+                break;
+            //walk into wormhole
+            case "12":
+                oneill.move(Direction.Up);
                 break;
 
         }

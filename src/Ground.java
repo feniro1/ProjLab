@@ -12,47 +12,30 @@ public class Ground extends MapElement {
     public Ground() {
     }
 
-    /**
-     * 
-     */
     public Box box;
-
-    /**
-     * 
-     */
     public ZPM zpm;
 
 
-
-
-
-    /**
-     * 
-     */
     public void removeZPM() {
-        // TODO implement here
+        zpm = null;
     }
 
-    /**
-     * 
-     */
     public void removeBox() {
-        // TODO implement here
+        box = null;
     }
 
-    /**
-     * 
-     */
     public void createBox() {
-        // TODO implement here
+        box = new Box();
+        System.out.print("");
     }
 
     /**
      * @param colonel 
      * @return
      */
+
     public boolean stepOn(Colonel colonel) {
-        // TODO implement here
+        if (box!)
         return false;
     }
 

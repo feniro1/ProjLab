@@ -1,9 +1,7 @@
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class Scale extends MapElement {
 
     private Box box;
@@ -30,6 +28,10 @@ public class Scale extends MapElement {
         System.out.println("A mérlegen nincs többé doboz.");
     }
 
+    public void createBox(Box box) {
+        this.box = box;
+        System.out.println("A mérlegre rákerült egy doboz");
+    }
 
 
     public boolean stepOn(Colonel colonel) {
@@ -44,17 +46,17 @@ public class Scale extends MapElement {
 
     public Box pickUp() {
         if (hasBox()) {
-            System.out.println("");
+            System.out.println("Sikerült felvenni a dobozt a mérlegről.");
             return box;
         }
-
+        System.out.println("A mérlegen nem volt doboz, így nem volt mit felvenni a mérlegről.");
         return null;
     }
 
 
-    public boolean putDown(Box b) {
+    public boolean putDown(Box box) {
         if(!hasBox()) {
-            box = b; // TODO: Refactor
+            this.box = box; // TODO: Refactor
             System.out.println("Sikerült új doboz elemet letenni a mérlegre.");
             return true;
         } else {

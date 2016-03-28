@@ -35,7 +35,7 @@ public class SpecialWall extends Wall {
     }
 
     public boolean stepOn(Colonel colonel) {
-        Direction dir = colonel.lookDirection.reverse();
+        Direction dir = colonel.getLookDirection().reverse();
         if (yport.getDirection() == dir | bport.getDirection() == dir)
             return true;
         else

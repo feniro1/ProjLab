@@ -6,13 +6,12 @@ import java.util.*;
  */
 public class WormHole {
 
-    public WormHole() {
-
-    }
-
     private Portal yportal;
     private Portal bportal;
 
+    public WormHole() {
+
+    }
 /*
     public void setYPortal(Bullet bull) {
         // TODO implement here

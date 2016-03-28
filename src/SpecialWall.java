@@ -5,13 +5,13 @@ import java.util.*;
 public class SpecialWall extends Wall {
 
 
-    public SpecialWall() {
-
-    }
-
     private WormHole wormhole;
     private Portal yport;
     private Portal bport;
+
+    public SpecialWall() {
+
+    }
 
 
     public WormHole getWormHole() {

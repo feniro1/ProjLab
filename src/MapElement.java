@@ -7,66 +7,47 @@ import java.util.*;
 public abstract class MapElement {
 
 
-    public MapElement() {
-
-    }
-
     public MapElement[] neighbours;
-
-
     public Colonel col;
-
-
     public Bullet bul;
 
 
-
-    public void draw() {
-        // TODO implement here
+    public MapElement() {
+        System.out.println("Sikeresen létrehoztál egy MapElement objektumot.");
     }
 
-    /**
-     * @param colonel 
-     * @return
-     */
+
+    public void draw() {
+
+    }
+
+
     public boolean stepOn(Colonel colonel) {
-        // TODO implement here
+        System.out.println("Nem léphetsz rá a MapElementre.")
         return false;
     }
 
-    /**
-     * @return
-     */
+
     public Box pickUp() {
-        // TODO implement here
+        System.out.println("Nincs mit felvenni.");
         return null;
     }
 
-    /**
-     * @param b 
-     * @return
-     */
+
     public boolean putDown(Box b) {
-        // TODO implement here
+        System.out.println("Nem tudod letenni a dobozt a MapElementre.");
         return false;
     }
 
-    /**
-     * @param bullet 
-     * @return
-     */
+
     public boolean hit(Bullet bullet) {
-        System.out.println("Meg lett hívva a hit függvény");
-        // TODO implement here
+        System.out.println("Meg lett hívva a hit függvény.");
         return false;
     }
 
-    /**
-     * @param dir 
-     * @return
-     */
+
     public MapElement getNextElement(Direction dir) {
-        System.out.println("Le lett kérve a következő elem");
+        System.out.println("Le lett kérve a következő elem.");
         return neighbours[dir.getValue()];
     }
 

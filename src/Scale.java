@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Scale extends Ground {
+public class Scale extends MapElement {
 
     /**
      * Default constructor

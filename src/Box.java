@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Box extends Ground {
+public class Box {
 
     public Box() {
     }

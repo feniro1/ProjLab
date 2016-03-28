@@ -21,15 +21,12 @@ public enum Direction {
     public Direction reverse(){
         switch(value){
             case 0: return Down;
-                    break;
             case 1: return Left;
-                    break;
             case 2: return Up;
-                    break;
             case 3: return Right;
-                    break;
             default:
                     break;
         }
+        return this;
     }
 }

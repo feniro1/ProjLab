@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Door extends Wall {
+public class Door extends MapElement {
 
     private boolean isOpen;
     // szerintem private kellene legyen ... es max egy getter .. setter nem kell, ugyis belul allitgat mindent a csavo

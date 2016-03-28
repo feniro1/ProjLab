@@ -108,7 +108,6 @@ public class Colonel {
         } else {
             System.out.println("Az ezredesnel nincs doboz");
         }
-
     }
 
     /**
@@ -122,23 +121,9 @@ public class Colonel {
     /**
      * @param dir
      */
-    public void changePos(Direction dir) {
-        // TODO implement here
-    }
-
-    /**
-     * @param dir
-     */
     public void changeLookDirection(Direction dir) {
         // TODO implement here
         System.out.println("Meghivodott az ezredes changeLookDircetion fuggvenye");
-    }
-
-    /**
-     * 
-     */
-    public void createBox() {
-        // TODO implement here
     }
 
     /**

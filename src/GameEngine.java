@@ -1,5 +1,6 @@
 
-import java.io.Console;
+import java.io.*;
+import java.util.*;
 
 /**
  * 
@@ -112,9 +113,10 @@ public class GameEngine {
     /**
      * @param f
      */
-   // public void loadMap(File f) {
-        // TODO implement here
-   // }
+    public void loadMap(File f) {
+         // TODO implement here
+
+    }
 
     /**
      * 

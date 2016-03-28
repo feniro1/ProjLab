@@ -6,18 +6,22 @@ import java.util.*;
  */
 public class Door extends Wall {
 
-    public boolean isOpen;
+    private boolean isOpen;
     // szerintem private kellene legyen ... es max egy getter .. setter nem kell, ugyis belul allitgat mindent a csavo
     public Door() {
         isOpen = false;
+        System.out.print("Ajtó létrehozása sikeres");
     }
 
+    public boolean getIfItsOpened() {
+        System.out.print("Az ajtó állapotával sikerült visszatérni");
+        return isOpen;
+    }
 
     public void open() {
         isOpen = true;
         System.out.print("Az ajtó kinyílt.");
     }
-
 
     public void close() {
         isOpen = false;

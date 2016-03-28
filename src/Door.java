@@ -32,7 +32,7 @@ public class Door extends MapElement {
     @Override
     public boolean stepOn(Colonel colonel) {
         if (isOpen) {
-            System.out.println("Az ajtó nyitva van.");  
+            System.out.println("Az ajtó nyitva van.");
             return true;
             }
         System.out.println("Az ajtó zárva van.");

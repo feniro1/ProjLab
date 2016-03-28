@@ -6,59 +6,30 @@ import java.util.*;
  */
 public class Portal {
 
-    /**
-     * Default constructor
-     */
     public Portal() {
+
     }
 
-    /**
-     * 
-     */
     public Color color;
-
-    /**
-     * 
-     */
     public Direction dir;
-
-    /**
-     * 
-     */
     public SpecialWall specwall;
 
 
-
-
-
-    /**
-     * @param dir
-     */
     public void setDirection(Direction dir) {
-        // TODO implement here
+       this.dir = dir;
     }
 
-    /**
-     * @return
-     */
-    public SpecialWall getSpecWall() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
     public Direction getDirection() {
-        // TODO implement here
-        return null;
+        return dir;
     }
 
-    /**
-     * @param swall
-     */
+    public SpecialWall getSpecWall() {
+        return specwall;
+    }
+
+
     public void setSpecWall(SpecialWall swall) {
-        // TODO implement here
+        this.specwall = swall;
     }
 
 }

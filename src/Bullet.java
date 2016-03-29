@@ -4,7 +4,7 @@ import java.util.*;
 public class Bullet {
 
     public Bullet() {
-
+        System.out.println("Létrejön egy lövedék objektum.");
     }
 
     public Direction lookDirection;

@@ -211,8 +211,41 @@ public class GameEngine {
     }
 
 
-    public void setNeighbours() {
-        // TODO implement here
+    public void setNeighbours(MapElement[][] table, int row, int column) {
+        table[0][0].setNeighbour(Direction.Right, table[0][1]);
+        table[0][0].setNeighbour(Direction.Down, table[1][0]);
+        for(int i = 1; i < column - 1; i++){
+            table[0][i].setNeighbour(Direction.Right, table[0][i + 1]);
+            table[0][i].setNeighbour(Direction.Down, table[1][i]);
+            table[0][i].setNeighbour(Direction.Left, table[0][i - 1]);
+        }
+        table[0][column - 1].setNeighbour(Direction.Down, table[1][column - 1]);
+        table[0][column - 1].setNeighbour(Direction.Left, table[0][column - 2]);
+
+        for(int j = 1; j < row - 1; j ++){
+            table[j][0].setNeighbour(Direction.Up, table[j - 1][0]);
+            table[j][0].setNeighbour(Direction.Right, table[j][1]);
+            table[j][0].setNeighbour(Direction.Down, table[j + 1][0]);
+            for(int i = 1; i < column - 1; i++){
+                table[j][i].setNeighbour(Direction.Up, table[j - 1][i]);
+                table[j][i].setNeighbour(Direction.Right, table[j][i + 1]);
+                table[j][i].setNeighbour(Direction.Down, table[j + 1][i]);
+                table[j][i].setNeighbour(Direction.Left, table[j][i - 1]);
+            }
+            table[j][column - 1].setNeighbour(Direction.Up, table[j - 1][column - 1]);
+            table[j][column - 1].setNeighbour(Direction.Down, table[j + 1][column - 1]);
+            table[j][column - 1].setNeighbour(Direction.Left, table[j][column - 2]);
+        }
+
+        table[row - 1][0].setNeighbour(Direction.Up, table[row - 2][0]);
+        table[row - 1][0].setNeighbour(Direction.Right, table[row - 1][1]);
+        for(int i = 1; i < column - 1; i++){
+            table[row - 1][i].setNeighbour(Direction.Up, table[row - 2][i]);
+            table[row - 1][i].setNeighbour(Direction.Right, table[row - 1][i + 1]);
+            table[row - 1][i].setNeighbour(Direction.Left, table[row - 1][i - 1]);
+        }
+        table[row - 1][column - 1].setNeighbour(Direction.Up, table[row - 2][column - 1]);
+        table[row - 1][column - 1].setNeighbour(Direction.Left, table[row - 1][column - 2]);
     }
 
 }

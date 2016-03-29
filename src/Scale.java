@@ -22,6 +22,7 @@ public class Scale extends MapElement {
     }
 
     public void setDoor(Door d) {
+        System.out.println("A merlegnek az ajtoeleres be lett allitva.");
         door = d;
     }
 

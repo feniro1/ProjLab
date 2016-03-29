@@ -47,15 +47,10 @@ public class Ground extends MapElement {
     }
 
     public void createBox() {
-        if(!hasBox()) {
-            box = new Box(); // TODO: Refactor
-            System.out.println("Sikerült új doboz elemet letenni a talajra.");
-        } else {
-            System.out.println("A talajon már van doboz, így nem sikerült új doboz elemet letenni rá.");
-        }
+        this.box = box;
+        System.out.println("A talajra rákerült egy doboz");
 
     }
-
 
     public boolean stepOn(Colonel colonel) {
         if (!hasBox()) {
@@ -76,12 +71,10 @@ public class Ground extends MapElement {
             return tmp;
         }
         System.out.println("Nincs mit felvegyél, mivel nincs előtted doboz");
-        // valamit kell csavozni itt, mivel csak a neighbournak kell legyen doboza direction szerint stb de neki nem... es csak ha a neighbourje is ground .. yooooooo
         return null;
     }
 
     public boolean putDown(Box b) {
-        // itt is neighbour ... keletibe vagyok, megirom ha SCH
         if (hasBox()) {
             System.out.println("A talajon már van doboz, így nem teheted le.");
             return false;

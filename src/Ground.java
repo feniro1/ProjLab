@@ -85,12 +85,11 @@ public class Ground extends MapElement {
         if (hasBox()) {
             System.out.println("A talajon már van doboz, így nem teheted le.");
             return false;
+        } else {
+            box = b;
+            System.out.println("Leteheted a dobozt.");
+            return true;
         }
-
-        box = b;
-        System.out.println("Leteheted a dobozt.");
-        return true;
-
     }
 
 }

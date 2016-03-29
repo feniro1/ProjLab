@@ -56,7 +56,7 @@ public class Scale extends MapElement {
 
     public boolean putDown(Box box) {
         if(!hasBox()) {
-            this.box = box; // TODO: Refactor
+            this.box = box;
             System.out.println("Sikerült új doboz elemet letenni a mérlegre.");
             return true;
         } else {

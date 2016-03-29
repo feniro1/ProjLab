@@ -133,79 +133,97 @@ public class GameEngine {
 
     }
 
-
+    //Fájlból betölti, és létrehozza a mapelementeket
     public void loadMap(int testNumber) throws IOException {
+        //A tesztesettől függően betölti a megfelelő txt file-t
         FileReader fr = new FileReader(Integer.toString(testNumber) + ".txt");
         BufferedReader br = new BufferedReader(fr);
-
+        // Az első két sora a textnek a sor-, és oszlopszám
         int row = Integer.parseInt(br.readLine());
         int column = Integer.parseInt(br.readLine());
         int thisLine = 0;
+        //Létrehozza az ideiglenes segédmátrixot
         MapElement table[][] = new MapElement[row][column];
+        //Az ajtókat és mérlegeket külön listában tároljuk a pároztatás miatt
         ArrayList<Door> doors = new ArrayList<Door>(20);
         ArrayList<Scale> scales = new ArrayList<Scale>(20);
         int db = 0;
+        //Végigfutunk a fájlon és létrehozzuk a megfelelő mapelementeket és eltároljuk a mátrixban
         for(int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 thisLine = Integer.parseInt(br.readLine());
                 switch (thisLine) {
+                    //Létrehoz egy talaj elemet
                     case 1:
                         table[i][j] = new Ground(null, null);
                         break;
+                    //Létrehoz egz talaj elemet egy ZPM-mel
                     case 2:
                         ZPM z = new ZPM();
                         table[i][j] = new Ground(null, z);
                         break;
+                    //Létrehoz egy talaj elemet egy dobozzal
                     case 3:
                         Box b = new Box();
                         table[i][j] = new Ground(b, null);
                         break;
+                    //Létrehoz egy talaj elemet rajta O'Neill-lel
                     case 4:
                         table[i][j] = new Ground(null, null);
                         oneill.setBaseElement(table[i][j]);
                         table[i][j].setColonel(oneill);
                         break;
+                    //Létrehoz egy szakadék elemet
                     case 5:
                         table[i][j] = new Rift();
                         break;
+                    //Létrehoz egy fal elemet
                     case 6:
                         table[i][j] = new Wall();
                         break;
+                    //Létrehoz egy különleges falat
                     case 7:
                         table[i][j] = new SpecialWall(wormhole);
                         break;
+                    //Létrehoz egz kinyitott állású ajtót
                     case 501:
                         Door d1 = new Door();
                         d1.open();
                         table[i][j] = d1;
                         break;
+                    //Létrehoz egy zárt állású ajtót
                     case 502:
                         Door d2 = new Door();
                         d2.close();
                         table[i][j] = d2;
                         break;
+                    //Létrehoz egy mérleget rajta O'Neillel
                     case 503:
                         table[i][j] = new Scale();
                         oneill.setBaseElement(table[i][j]);
                         table[i][j].setColonel(oneill);
                         break;
+                    //Létrehoz egy mérleget egy dobozzal
                     case 504:
                         Scale s1 = new Scale();
                         s1.createBox(new Box());
                         table[i][j] = s1;
                         break;
+                    //Létrehoz egy különleges falat rajta lefelé néző kék portállal
                     case 505:
                         SpecialWall sw1 = new SpecialWall(wormhole);
                         wormhole.setBPortal(Direction.Down, sw1);
                         sw1.setBPortal(wormhole.getBPortal());
                         table[i][j] = sw1;
                         break;
+                    //Létrehoz egy különlege falat rajta lefelé néző sárga portállal
                     case 506:
                         SpecialWall sw2 = new SpecialWall(wormhole);
                         wormhole.setBPortal(Direction.Down, sw2);
                         sw2.setBPortal(wormhole.getBPortal());
                         table[i][j] = sw2;
                         break;
+                    //Létrehoz egy talaj elemet rajta O'Neill-el, akinél egy doboz van
                     case 507:
                         Ground g = new Ground(null, null);
                         oneill.createBox(new Box());
@@ -216,12 +234,14 @@ public class GameEngine {
                     default:
                         break;
                 }
+                //Létrehoz egy mérleget
                 if (thisLine / 100 == 2) {
                     Scale s2 = new Scale();
                     table[i][j] = s2;
                     scales.add(thisLine % 100 - 1, s2);
                     db++;
                 }
+                //Létrehoy egy ajtót
                 if (thisLine / 100 == 3) {
                     Door d3 = new Door();
                     table[i][j] = d3;
@@ -230,15 +250,17 @@ public class GameEngine {
                 }
             }
         }
+        //A mérlegeknek beálltja az ajtót
         for(int k = 0; k < db; k++){
             scales.get(k).setDoor(doors.get(k));
         }
 
         br.close();
+        //Beálltja a szomszédokat
         setNeighbours(table, row, column);
     }
 
-
+    //Beálltja a szomszédokat
     public void setNeighbours(MapElement[][] table, int row, int column) {
         table[0][0].setNeighbour(Direction.Right, table[0][1]);
         table[0][0].setNeighbour(Direction.Down, table[1][0]);

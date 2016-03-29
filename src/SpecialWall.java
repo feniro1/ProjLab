@@ -43,7 +43,7 @@ public class SpecialWall extends Wall {
     public boolean stepOn(Colonel colonel) {
         System.out.println("Meghívódott a SpecWall stepOn függvénye");
         Direction dir = colonel.getLookDirection().reverse();
-        if (yport.getDirection() == dir | bport.getDirection() == dir) {
+/*        if (yport.getDirection() == dir | bport.getDirection() == dir) {
             System.out.println("Van portál");
             return true;
         }
@@ -51,6 +51,8 @@ public class SpecialWall extends Wall {
             System.out.println("Nincs portál");
             return false;
         }
+        */
+        return true;
     }
 
     public Portal getYPortal() {

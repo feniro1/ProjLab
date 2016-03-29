@@ -30,4 +30,11 @@ public class Portal {
         this.specwall = swall;
     }
 
+    public void setColor(Color c) {
+        color = c;
+    }
+
+    public Color getColor() {
+        return color;
+    }
 }

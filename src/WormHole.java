@@ -8,6 +8,10 @@ public class WormHole {
     private Portal bportal;
 
     public WormHole() {
+        yportal = new Portal();
+        bportal = new Portal();
+        yportal.setColor(Color.Yellow);
+        bportal.setColor(Color.Blue);
         System.out.println("Létrejön egy féregjárat.");
     }
 /*
@@ -27,7 +31,7 @@ public class WormHole {
     }
 
     public void setBPortal(Direction dir, SpecialWall swall){
-        bportal.getSpecWall().setBPortal(null);
+        //bportal.getSpecWall().setBPortal(null);
         bportal.setDirection(dir);
         bportal.setSpecWall(swall);
         System.out.println("Létrejött egy kék portál.");

@@ -9,7 +9,7 @@ public class SpecialWall extends Wall {
     private Portal yport;
     private Portal bport;
 
-
+    //Konstruktor wormhole paraméterrel
     public SpecialWall(WormHole wormHole) {
         this.wormhole = wormHole;
         yport = null;
@@ -17,17 +17,20 @@ public class SpecialWall extends Wall {
         System.out.println("Létrejön egy speciális fal objektum.");
     }
 
-
+    //wormhole attribútumhoz tartozó getter
     public WormHole getWormHole() {
         System.out.println("Visszaadjuk a speciális falon lévő féregjáratot.");
         return wormhole;
     }
 
+    //Speciális fal hit függvénye. A beérkező töltény színével megegyező portált állítja be a féregjáraton.
     public boolean hit(Bullet bullet) {
         System.out.println("A golyó egy SpecialWall objektumnak ütközött");
         Color color = bullet.color;
         Direction dir = bullet.lookDirection.reverse();
 
+        //a féregjárat portáljának beállításához át kell adni a portál irányát, ami a beérkező tölténnyel ellentétes irányú
+        //illetve saját magát, mert a portálhoz be kell állítani a hozzá tartoz speciális falat
         if (color == Color.Yellow) {
             wormhole.setYPortal(dir, this);
             yport = wormhole.getYPortal();

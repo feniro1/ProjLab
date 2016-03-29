@@ -7,6 +7,7 @@ public class Wall extends MapElement {
         System.out.println("Létrejön egy fal objektum");
     }
 
+    //Ideiglenes, csak a kiírás miatt van felüldefiniálva
     @Override
     public boolean stepOn(Colonel colonel) {
         System.out.println("Meghívódott a visszakapott Wall objektum stepOn függvénye." +

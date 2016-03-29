@@ -7,6 +7,8 @@ public class Bullet {
     public Color color;
     public MapElement baseElement;
 
+    //Konstruktor. A töltény irányát színét és a kilövés pillanatában hozzá tartozó
+    // saját pozícióját kell átadni.
     public Bullet(Direction dir, MapElement mapElement, Color col) {
         lookDirection = dir;
         baseElement = mapElement;
@@ -14,7 +16,9 @@ public class Bullet {
         System.out.println("Létrejön egy lövedék objektum.");
     }
 
-
+    //Addig megy a töltény, amíg tud, tehát amíg true-t kap a következő elemtől.
+    // A következő elemet a bullet iránya alapján tudjuk lekérni a getNextElement segítségével.
+    // A bullet próbálja eltalálni a következő elemet és addig megy amíg valamit nem talál el.
     public void move() {
         System.out.println("A lövedék mozgott egyet.");
         boolean free = true;

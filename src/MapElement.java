@@ -53,4 +53,22 @@ public abstract class MapElement {
         return neighbours[dir.getValue()];
     }
 
+    public void setNeighbour(Direction dir, MapElement me){
+        switch (dir){
+            case Up:
+                neighbours[0] = me;
+                break;
+            case Right:
+                neighbours[1] = me;
+                break;
+            case Down:
+                neighbours[2] = me;
+                break;
+            case Left:
+                neighbours[3] = me;
+                break;
+        }
+    }
+
+
 }

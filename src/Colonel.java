@@ -19,7 +19,7 @@ public class Colonel {
         ZPMNumber = 0;
         box = null;
         isAlive = true;
-        System.out.println("Létrejön az egy ezredes példánya.");
+        System.out.println("Létrejön ezredes egy példánya.");
     }
 
     public Direction getLookDirection(){
@@ -52,10 +52,11 @@ public class Colonel {
 
 
     public void shoot(Color color) {
-        System.out.println("Meghivodott az ezredes shoot fuggvenye");
+
         Bullet b = new Bullet(lookDirection, baseElement, color);
-        System.out.println("Letrejott egy golyo");
+
         b.move();
+        System.out.println("Egy bizonyos szin");
 
     }
 

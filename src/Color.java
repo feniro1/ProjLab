@@ -1,6 +1,6 @@
 
 
-public enum Color {
+public enum Color { // Color felsorolás definiálása
     Yellow,
     Blue
 }

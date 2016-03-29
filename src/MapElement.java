@@ -7,9 +7,9 @@ import java.util.*;
 public abstract class MapElement {
 
 
-    public MapElement[] neighbours;
-    public Colonel col;
-    public Bullet bul;
+    protected MapElement[] neighbours;
+    protected Colonel col;
+    protected Bullet bul;
 
 
     public MapElement() {

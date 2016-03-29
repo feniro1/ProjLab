@@ -4,12 +4,12 @@ import java.util.*;
 
 public class Portal {
 
-    public Color color;
-    public Direction dir;
-    public SpecialWall specwall;
+    private Color color;
+    private Direction dir;
+    private SpecialWall specwall;
 
     public Portal() {
-
+        System.out.println("Létrejön egy csillagkapu.");
     }
 
 

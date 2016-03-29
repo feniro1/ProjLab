@@ -9,7 +9,7 @@ public class Ground extends MapElement {
 
 
     public  Ground() {
-
+S       System.out.println("Létrejött egy talaj objektum.");
     }
 
     public Ground(Box box, ZPM zpm) {

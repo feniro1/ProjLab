@@ -6,18 +6,17 @@ import java.util.*;
  */
 public class Colonel {
 
-    public Colonel() {
-    }
+
 
     private Direction lookDirection;
     private Box box;
-
     private int ZPMNumber;
-
     private MapElement baseElement;
-
     private boolean isAlive;
 
+    public Colonel() {
+        System.out.println("Létrejön az egy ezredes példánya.");
+    }
 
     public Direction getLookDirection(){
         return lookDirection;
@@ -26,7 +25,6 @@ public class Colonel {
     public void setLookDirection(Direction dir){
         lookDirection = dir;
     }
-
 
 
     public Colonel(MapElement _baseElement){
@@ -47,9 +45,7 @@ public class Colonel {
             System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
     }
 
-    /**
-     * @param color
-     */
+
     public void shoot(Color color) {
         System.out.println("Meghivodott az ezredes shoot fuggvenye");
         Bullet b = new Bullet();
@@ -58,33 +54,25 @@ public class Colonel {
 
     }
 
-    /**
-     * 
-     */
+
     public void kill() {
         isAlive = false;
         System.out.println("Meghivodott az ezredes kill fuggvenye");
     }
 
-    /**
-     * 
-     */
+
     public void pickUp() {
         System.out.println("Meghivodott az ezredes pickUp fuggvenye");
         MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
         box = nextElement.pickUp();
     }
 
-    /**
-     * 
-     */
+
     public void turn() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
+
     public void putDown() {
         System.out.println("Meghivodott az ezredes putDown fuggvenye");
         MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
@@ -99,41 +87,31 @@ public class Colonel {
         }
     }
 
-    /**
-     * 
-     */
+
     public void incZPMNumber() {
         ZPMNumber++;
         System.out.println("Nott a ZPM szam");
     }
 
-    /**
-     * @param dir
-     */
+
     public void changeLookDirection(Direction dir) {
         lookDirection = dir;
         System.out.println("Meghivodott az ezredes changeLookDircetion fuggvenye");
     }
 
-    /**
-     * Ez a fuggveny csak a teszteleshez kell, hogy egyertelmu legyen
-     */
+
     public void createBox(Box b) {
         box = b;
         System.out.println("Az ezredesnel van doboz");
     }
 
-    /**
-     *
-     */
+
     public void removeBox() {
         box = null;
         System.out.println("A doboz le lett teve");
     }
 
-    /**
-     * @param me
-     */
+
     public void stepOff(MapElement me) {
         me.setColonel(this);
         baseElement.setColonel(null);

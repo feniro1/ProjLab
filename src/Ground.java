@@ -52,7 +52,7 @@ public class Ground extends MapElement {
 
     }
 
-    public boolean stepOn(Colonel colonel) { //visszaadja, hogy az ezredes ráléphet-e a doboz 
+    public boolean stepOn(Colonel colonel) { //visszaadja, hogy az ezredes ráléphet-e a talaj objektumra
         if (!hasBox()) {
             System.out.println("A talajon nincs doboz, így az ezredes ráléphet.");
             return true;
@@ -63,7 +63,7 @@ public class Ground extends MapElement {
 
     }
 
-    public Box pickUp() {
+    public Box pickUp() { // visszaad egy doboz objektumot, ha van neki
         if (hasBox()) {
             Box tmp = box;
             removeBox();
@@ -74,7 +74,7 @@ public class Ground extends MapElement {
         return null;
     }
 
-    public boolean putDown(Box b) {
+    public boolean putDown(Box b) { // visszaadja, hogy tehet le dobozt az ezredes és ha igen leteszi azt, és visszaad egy booleant, hogy sikerült-e
         if (hasBox()) {
             System.out.println("A talajon már van doboz, így nem teheted le.");
             return false;

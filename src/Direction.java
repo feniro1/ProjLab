@@ -1,5 +1,6 @@
-
-
+/**
+ * Az iranyok tarolasa egy enum-ban a konnyebb es egyertelmubb navigalas miatt
+ */
 public enum Direction {
 
     Up(0),
@@ -7,6 +8,7 @@ public enum Direction {
     Down(2),
     Left(3);
 
+    //Ertek szerint is taroljuk
     private final int value;
     private Direction(int value) {
         this.value = value;
@@ -16,6 +18,7 @@ public enum Direction {
         return value;
     }
 
+    //Visszafele is haladhatunk rajtuk
     public Direction reverse(){
         switch(value){
             case 0: return Down;

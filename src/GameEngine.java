@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -104,7 +105,7 @@ public class GameEngine {
 
             }
         } catch (IOException e) {
-            System.err.println("Hiba");
+            e.printStackTrace();
         }
 
     }
@@ -118,10 +119,13 @@ public class GameEngine {
         int column = Integer.parseInt(br.readLine());
         int thisLine = 0;
         MapElement table[][] = new MapElement[row][column];
+        ArrayList<Door> doors = new ArrayList(20);
+        ArrayList<Scale> scales = new ArrayList(20);
+        int db = 0;
         for(int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 thisLine = Integer.parseInt(br.readLine());
-                switch(thisLine){
+                switch (thisLine) {
                     case 1:
                         table[i][j] = new Ground(null, null);
                         break;
@@ -134,9 +138,8 @@ public class GameEngine {
                         table[i][j] = new Ground(b, null);
                         break;
                     case 4:
-                        Door d1 = new Door();
-                        d1.open();
-                        table[i][j] = d1;
+                        table[i][j] = new Ground(null, null);
+                        table[i][j].setColonel(oneill);
                         break;
                     case 5:
                         table[i][j] = new Rift();
@@ -147,37 +150,38 @@ public class GameEngine {
                     case 7:
                         table[i][j] = new SpecialWall(wormhole);
                         break;
-                    case 8:
-                        table[i][j] = new Ground(null, null);
-                        table[i][j].setColonel(oneill);
-                        break;
                     case 501:
+                        Door d1 = new Door();
+                        d1.open();
+                        table[i][j] = d1;
+                        break;
+                    case 502:
                         Door d2 = new Door();
                         d2.close();
                         table[i][j] = d2;
                         break;
-                    case 502:
+                    case 503:
                         table[i][j] = new Scale();
                         table[i][j].setColonel(oneill);
                         break;
-                    case 503:
-                        Scale s = new Scale();
-                        s.createBox(new Box());
-                        table[i][j] = new Scale();
-                        break;
                     case 504:
+                        Scale s1 = new Scale();
+                        s1.createBox(new Box());
+                        table[i][j] = s1;
+                        break;
+                    case 505:
                         SpecialWall sw1 = new SpecialWall(wormhole);
                         wormhole.setBPortal(Direction.Down, sw1);
                         sw1.setBPortal(wormhole.getBPortal());
                         table[i][j] = sw1;
                         break;
-                    case 505:
+                    case 506:
                         SpecialWall sw2 = new SpecialWall(wormhole);
                         wormhole.setBPortal(Direction.Down, sw2);
                         sw2.setBPortal(wormhole.getBPortal());
                         table[i][j] = sw2;
                         break;
-                    case 506:
+                    case 507:
                         Ground g = new Ground(null, null);
                         oneill.createBox(new Box());
                         g.setColonel(oneill);
@@ -186,10 +190,24 @@ public class GameEngine {
                     default:
                         break;
                 }
+                if (thisLine / 100 == 2) {
+                    Scale s2 = new Scale();
+                    table[i][j] = s2;
+                    scales.set(thisLine % 100 - 1, s2);
+                    db++;
+                }
+                if (thisLine / 100 == 3) {
+                    Door d3 = new Door();
+                    table[i][j] = d3;
+                    doors.set(thisLine % 100 - 1, d3);
+                }
             }
         }
+        for(int k = 0; k < db; k++){
+            scales.get(k).setDoor(doors.get(k));
+        }
         br.close();
-        setNeighbours();
+        setNeighbours(table, row, column);
     }
 
 

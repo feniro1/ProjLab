@@ -11,8 +11,8 @@ public class Rift extends MapElement {
 
 
     public boolean stepOn(Colonel colonel) {
-        colonel.kill();
         System.out.println("Az ezredes ráléphet a szakadékra és meghal.");
+        colonel.kill();
         return true;
     }
 

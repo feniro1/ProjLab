@@ -210,8 +210,8 @@ public class GameEngine {
                         Ground g = new Ground(null, null);
                         oneill.createBox(new Box());
                         g.setColonel(oneill);
-                        oneill.setBaseElement(table[i][j]);
                         table[i][j] = g;
+                        oneill.setBaseElement(table[i][j]);
                         break;
                     default:
                         break;

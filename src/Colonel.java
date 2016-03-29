@@ -15,6 +15,10 @@ public class Colonel {
     private boolean isAlive;
 
     public Colonel() {
+        lookDirection = Direction.Up;
+        ZPMNumber = 0;
+        box = null;
+        isAlive = true;
         System.out.println("Létrejön az egy ezredes példánya.");
     }
 
@@ -28,7 +32,7 @@ public class Colonel {
 
 
     public Colonel(MapElement _baseElement){
-        lookDirection = Direction.valueOf("Up");
+        lookDirection = Direction.Up;
         baseElement = _baseElement;
         ZPMNumber = 0;
         box = null;
@@ -48,7 +52,7 @@ public class Colonel {
 
     public void shoot(Color color) {
         System.out.println("Meghivodott az ezredes shoot fuggvenye");
-        Bullet b = new Bullet();
+        Bullet b = new Bullet(lookDirection, baseElement, color);
         System.out.println("Letrejott egy golyo");
         b.move();
 

@@ -44,9 +44,10 @@ public class Colonel {
         changeLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
         MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet
 
-        if(nextElement.stepOn(this)) //ha a kovetkezo elemre ra lehet lepni
+        if(nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
             stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
             System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
+        }
     }
 
 

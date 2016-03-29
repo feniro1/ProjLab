@@ -10,7 +10,6 @@ public class Colonel {
     }
 
     private Direction lookDirection;
-
     private Box box;
 
     private int ZPMNumber;
@@ -39,9 +38,6 @@ public class Colonel {
     }
 
 
-    /**
-     * @param dir - elmozdulas iranya
-     */
     public void move(Direction dir) {
         changeLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
         MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet

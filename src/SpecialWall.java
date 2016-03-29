@@ -9,16 +9,15 @@ public class SpecialWall extends Wall {
     private Portal yport;
     private Portal bport;
 
-    public SpecialWall() {
-
-    }
 
     public SpecialWall(WormHole wormHole) {
         this.wormhole = wormHole;
+        System.out.println("Létrejön egy speciális fal objektum.");
     }
 
 
     public WormHole getWormHole() {
+        System.out.println("Visszaadjuk a speciális falon lévő féregjáratot.");
         return wormhole;
     }
 
@@ -52,19 +51,23 @@ public class SpecialWall extends Wall {
         }
     }
 
-    public Portal getYPortal(){
+    public Portal getYPortal() {
+        System.out.println("Visszaadjuk a sárga csillagkaput.");
         return yport;
     }
 
-    public Portal getBPortal(){
+    public Portal getBPortal() {
+        System.out.println("Visszaadjuk a kék csillagkaput.");
         return bport;
     }
 
-    public void setYPortal(Portal port){
+    public void setYPortal(Portal port) {
+        System.out.println("Beállítjuk a sárga csillagkaput.");
         yport = port;
     }
 
-    public void setBPortal(Portal port){
+    public void setBPortal(Portal port) {
+        System.out.println("Beállítjuk a kék csillagkaput.");
         bport = port;
     }
 

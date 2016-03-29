@@ -6,9 +6,6 @@ import java.util.*;
  */
 public class Colonel {
 
-    /**
-     * Default constructor
-     */
     public Colonel() {
     }
 
@@ -46,8 +43,6 @@ public class Colonel {
      * @param dir - elmozdulas iranya
      */
     public void move(Direction dir) {
-        // TODO implement here
-
         changeLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
         MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet
 
@@ -60,7 +55,6 @@ public class Colonel {
      * @param color
      */
     public void shoot(Color color) {
-        // TODO implement here
         System.out.println("Meghivodott az ezredes shoot fuggvenye");
         Bullet b = new Bullet();
         System.out.println("Letrejott egy golyo");
@@ -72,7 +66,7 @@ public class Colonel {
      * 
      */
     public void kill() {
-        // TODO implement here
+        isAlive = false;
         System.out.println("Meghivodott az ezredes kill fuggvenye");
     }
 
@@ -80,7 +74,6 @@ public class Colonel {
      * 
      */
     public void pickUp() {
-        // TODO implement here
         System.out.println("Meghivodott az ezredes pickUp fuggvenye");
         MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
         box = nextElement.pickUp();
@@ -97,7 +90,6 @@ public class Colonel {
      * 
      */
     public void putDown() {
-        // TODO implement here
         System.out.println("Meghivodott az ezredes putDown fuggvenye");
         MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
         if(box != null) {
@@ -115,7 +107,7 @@ public class Colonel {
      * 
      */
     public void incZPMNumber() {
-        // TODO implement here
+        ZPMNumber++;
         System.out.println("Nott a ZPM szam");
     }
 
@@ -123,15 +115,23 @@ public class Colonel {
      * @param dir
      */
     public void changeLookDirection(Direction dir) {
-        // TODO implement here
+        lookDirection = dir;
         System.out.println("Meghivodott az ezredes changeLookDircetion fuggvenye");
+    }
+
+    /**
+     * Ez a fuggveny csak a teszteleshez kell, hogy egyertelmu legyen
+     */
+    public void createBox(Box b) {
+        box = b;
+        System.out.println("Az ezredesnel van doboz");
     }
 
     /**
      *
      */
     public void removeBox() {
-        // TODO implement here
+        box = null;
         System.out.println("A doboz le lett teve");
     }
 
@@ -139,7 +139,9 @@ public class Colonel {
      * @param me
      */
     public void stepOff(MapElement me) {
-        // TODO implement here
+        me.setColonel(this);
+        baseElement.setColonel(null);
+        baseElement = me;
         System.out.println("Meghivodott az ezredes stepOff fuggvenye");
     }
 

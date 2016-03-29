@@ -21,6 +21,10 @@ public abstract class MapElement {
 
     }
 
+    public void setColonel(Colonel colonel) {
+        col = colonel;
+    }
+
 
     public boolean stepOn(Colonel colonel) {
         System.out.println("Nem léphetsz rá a MapElementre.");

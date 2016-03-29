@@ -4,13 +4,13 @@ import java.util.*;
 
 public class Portal {
 
-    public Portal() {
-
-    }
-
     public Color color;
     public Direction dir;
     public SpecialWall specwall;
+
+    public Portal() {
+
+    }
 
 
     public void setDirection(Direction dir) {

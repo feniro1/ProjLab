@@ -8,32 +8,38 @@ public class Portal {
     private Direction dir;
     private SpecialWall specwall;
 
+    //Konstruktor. Portál létrejön. Alapértelmezett esetben nem tartozik speciális falhoz.
     public Portal() {
         specwall = null;
         System.out.println("Létrejön egy csillagkapu.");
     }
 
-
+    //Portál irányának beállítása
     public void setDirection(Direction dir) {
         this.dir = dir;
     }
 
+    //Portál irányának lekérdezése
     public Direction getDirection() {
         return this.dir;
     }
 
+    //Portálhoz tartozó speciális fal lekérdezése
     public SpecialWall getSpecWall() {
         return this.specwall;
     }
-    
+
+    //Portálhoz tartozó speciális fal beállítása
     public void setSpecWall(SpecialWall swall) {
         this.specwall = swall;
     }
 
+    //Portál színének beállítása
     public void setColor(Color c) {
         color = c;
     }
 
+    //Portál színének lekérdezése
     public Color getColor() {
         return color;
     }

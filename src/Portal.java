@@ -18,14 +18,13 @@ public class Portal {
     }
 
     public Direction getDirection() {
-        return dir;
+        return this.dir;
     }
 
     public SpecialWall getSpecWall() {
-        return specwall;
+        return this.specwall;
     }
-
-
+    
     public void setSpecWall(SpecialWall swall) {
         this.specwall = swall;
     }

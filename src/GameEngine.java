@@ -25,87 +25,110 @@ public class GameEngine {
 
     public void startGame() {
 
-        System.out.println("Udvozlunk a LiskovTheorem Oneill's Adventure nevu jatekaban!");
-        System.out.println("Kerlek valassz egy tesztesetet!");
-        System.out.println();
-        System.out.println("0: Oneill ralep egy talajelemre");
-        System.out.println("1: Oneill lelep egy merlegrol");
-        System.out.println("2: Oneill nekimegy egy nyitott ajtonak");
-        System.out.println("3: Oneill szakadekba lep");
-        System.out.println("4: Oneill ralep egy merlegre");
-        System.out.println("5: Oneill falnak megy");
-        System.out.println("6: Oneill felvesz egy dobozt a talajrol");
-        System.out.println("7: Oneill felvesz egy dobozt a merlegrol");
-        System.out.println("8: Oneill letesz egy dobozt a talajra");
-        System.out.println("9: Oneill letesz egy dobozt a merlegre");
-        System.out.println("10: Oneill beletesz egy dobozt a szakadekba");
-        System.out.println("11: Oneill specialis falra lo");
-        System.out.println("12: Oneill belemegy a fereglyukba");
-        System.out.println();
-        System.out.println("Valasztott teszteset: ");
+        boolean test = true;
+        while(test) {
+            System.out.println("Udvozlunk a LiskovTheorem Oneill's Adventure nevu jatekaban!");
+            System.out.println("Kerlek valassz egy tesztesetet!");
+            System.out.println();
+            System.out.println("0: Oneill ralep egy talajelemre");
+            System.out.println("1: Oneill lelep egy merlegrol");
+            System.out.println("2: Oneill nekimegy egy nyitott ajtonak");
+            System.out.println("3: Oneill szakadekba lep");
+            System.out.println("4: Oneill ralep egy merlegre");
+            System.out.println("5: Oneill falnak megy");
+            System.out.println("6: Oneill felvesz egy dobozt a talajrol");
+            System.out.println("7: Oneill felvesz egy dobozt a merlegrol");
+            System.out.println("8: Oneill letesz egy dobozt a talajra");
+            System.out.println("9: Oneill letesz egy dobozt a merlegre");
+            System.out.println("10: Oneill beletesz egy dobozt a szakadekba");
+            System.out.println("11: Oneill specialis falra lo");
+            System.out.println("12: Oneill belemegy a fereglyukba");
+            System.out.println();
+            System.out.println("Valasztott teszteset: ");
 
-        Scanner s = new Scanner(System.in);
-        String i = s.nextLine();
+            Scanner s = new Scanner(System.in);
+            String i = s.nextLine();
 
-        try {
-            switch (i) {
-                //movement on ground
-                case "0":
-                    loadMap(0);
-                    oneill.move(Direction.Up);
-                    break;
-                //movement from scale
-                case "1":
-                    oneill.move(Direction.Up);
-                    break;
-                //movement to door
-                case "2":
-                    oneill.move(Direction.Up);
-                    break;
-                //movement to rift
-                case "3":
-                    oneill.move(Direction.Up);
-                    break;
-                //movement to scale
-                case "4":
-                    oneill.move(Direction.Up);
-                    break;
-                //movement to wall
-                case "5":
-                    oneill.move(Direction.Up);
-                    break;
-                //pick up box from ground
-                case "6":
-                    oneill.pickUp();
-                    break;
-                //pick up box from scale
-                case "7":
-                    oneill.pickUp();
-                    break;
-                //put down box to ground
-                case "8":
-                    oneill.putDown();
-                    break;
-                //put down box to scale
-                case "9":
-                    oneill.putDown();
-                    break;
-                //put down box to rift
-                case "10":
-                    oneill.putDown();
-                    break;
-                //shoot bullet
-                case "11":
-                    oneill.shoot(Color.Yellow);
-                    break;
-                //walk into wormhole
-                case "12":
-                    oneill.move(Direction.Up);
-                    break;
-
+            try {
+                switch (i) {
+                    //movement on ground
+                    case "0":
+                        loadMap(0);
+                        oneill.move(Direction.Up);
+                        break;
+                    //movement from scale
+                    case "1":
+                        loadMap(1);
+                        oneill.move(Direction.Up);
+                        break;
+                    //movement to door
+                    case "2":
+                        loadMap(2);
+                        oneill.move(Direction.Up);
+                        break;
+                    //movement to rift
+                    case "3":
+                        loadMap(3);
+                        oneill.move(Direction.Up);
+                        break;
+                    //movement to scale
+                    case "4":
+                        loadMap(4);
+                        oneill.move(Direction.Up);
+                        break;
+                    //movement to wall
+                    case "5":
+                        loadMap(5);
+                        oneill.move(Direction.Up);
+                        break;
+                    //pick up box from ground
+                    case "6":
+                        loadMap(6);
+                        oneill.pickUp();
+                        break;
+                    //pick up box from scale
+                    case "7":
+                        loadMap(7);
+                        oneill.pickUp();
+                        break;
+                    //put down box to ground
+                    case "8":
+                        loadMap(8);
+                        oneill.putDown();
+                        break;
+                    //put down box to scale
+                    case "9":
+                        loadMap(9);
+                        oneill.putDown();
+                        break;
+                    //put down box to rift
+                    case "10":
+                        loadMap(10);
+                        oneill.putDown();
+                        break;
+                    //shoot bullet
+                    case "11":
+                        loadMap(11);
+                        oneill.shoot(Color.Yellow);
+                        break;
+                    //walk into wormhole
+                    case "12":
+                        loadMap(12);
+                        oneill.move(Direction.Up);
+                        break;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            System.out.println();
+            System.out.println("Szeretnel meg egy tesztesetet futtatni?");
+            System.out.println("igen/nem");
+            String answer = s.nextLine();
+
+            if (answer.equals("igen"))
+                test = true;
+            else test = false;
         }
 
     }
@@ -119,8 +142,8 @@ public class GameEngine {
         int column = Integer.parseInt(br.readLine());
         int thisLine = 0;
         MapElement table[][] = new MapElement[row][column];
-        ArrayList<Door> doors = new ArrayList(20);
-        ArrayList<Scale> scales = new ArrayList(20);
+        ArrayList<Door> doors = new ArrayList<Door>(20);
+        ArrayList<Scale> scales = new ArrayList<Scale>(20);
         int db = 0;
         for(int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
@@ -139,6 +162,7 @@ public class GameEngine {
                         break;
                     case 4:
                         table[i][j] = new Ground(null, null);
+                        oneill.setBaseElement(table[i][j]);
                         table[i][j].setColonel(oneill);
                         break;
                     case 5:
@@ -162,6 +186,7 @@ public class GameEngine {
                         break;
                     case 503:
                         table[i][j] = new Scale();
+                        oneill.setBaseElement(table[i][j]);
                         table[i][j].setColonel(oneill);
                         break;
                     case 504:
@@ -185,6 +210,7 @@ public class GameEngine {
                         Ground g = new Ground(null, null);
                         oneill.createBox(new Box());
                         g.setColonel(oneill);
+                        oneill.setBaseElement(table[i][j]);
                         table[i][j] = g;
                         break;
                     default:
@@ -193,19 +219,21 @@ public class GameEngine {
                 if (thisLine / 100 == 2) {
                     Scale s2 = new Scale();
                     table[i][j] = s2;
-                    scales.set(thisLine % 100 - 1, s2);
+                    scales.add(thisLine % 100 - 1, s2);
                     db++;
                 }
                 if (thisLine / 100 == 3) {
                     Door d3 = new Door();
                     table[i][j] = d3;
-                    doors.set(thisLine % 100 - 1, d3);
+                    int index = thisLine % 100 - 1;
+                    doors.add(index, d3);
                 }
             }
         }
         for(int k = 0; k < db; k++){
             scales.get(k).setDoor(doors.get(k));
         }
+
         br.close();
         setNeighbours(table, row, column);
     }

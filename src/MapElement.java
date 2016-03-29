@@ -5,7 +5,7 @@ import java.util.*;
 public abstract class MapElement {
 
 
-    protected MapElement[] neighbours;
+    protected MapElement[] neighbours = new MapElement[4];
     protected Colonel col;
     protected Bullet bul;
 

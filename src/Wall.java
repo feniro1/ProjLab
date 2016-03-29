@@ -4,7 +4,7 @@ import java.util.*;
 public class Wall extends MapElement {
 
     public Wall() {
-
+        System.out.println("Létrejön egy fal objektum");
     }
 
     @Override

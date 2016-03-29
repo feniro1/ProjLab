@@ -3,33 +3,16 @@ import java.io.Console;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- * 
- */
+
 public class GameEngine {
 
-    /**
-     * Default constructor
-     */
-    public GameEngine() {
-    }
-
-    /**
-     * 
-     */
     public Colonel oneill;
-
-    /**
-     * 
-     */
     public WormHole wormhole;
-
-    /**
-     * 
-     */
     public MapElement firstElement;
 
-
+    public GameEngine() {
+        System.out.println("Létrejön egy játékkezelő példánya.");
+    }
 
     public GameEngine(Colonel _oneill, WormHole _wh){
         oneill = _oneill;
@@ -37,9 +20,6 @@ public class GameEngine {
     }
 
 
-    /**
-     * 
-     */
     public void startGame() {
 
         System.out.println("Udvozlunk a LiskovTheorem Oneill's Adventure nevu jatekaban!");
@@ -122,16 +102,12 @@ public class GameEngine {
 
     }
 
-    /**
-     * @param f
-     */
+
    // public void loadMap(File f) {
         // TODO implement here
    // }
 
-    /**
-     * 
-     */
+
     public void setNeighbours() {
         // TODO implement here
     }

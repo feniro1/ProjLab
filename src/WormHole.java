@@ -1,16 +1,14 @@
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class WormHole {
 
     private Portal yportal;
     private Portal bportal;
 
     public WormHole() {
-
+        System.out.println("Létrejön egy féregjárat.");
     }
 /*
     public void setYPortal(Bullet bull) {
@@ -36,10 +34,12 @@ public class WormHole {
     }
 
     public Portal getYPortal() {
+        System.out.println("Visszaadja a sárga portált");
         return yportal;
     }
 
     public Portal getBPortal() {
+        System.out.println("Visszaadja a kék portált");
         return bportal;
     }
 

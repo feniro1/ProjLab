@@ -1,9 +1,7 @@
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class Door extends MapElement {
 
     private boolean isOpen;

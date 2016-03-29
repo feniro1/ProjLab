@@ -116,6 +116,9 @@ public class GameEngine {
                         loadMap(12);
                         oneill.move(Direction.Up);
                         break;
+                    default:
+                        System.out.println("Nem letezo teszteset!");
+                        break;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -125,6 +128,7 @@ public class GameEngine {
             System.out.println("Szeretnel meg egy tesztesetet futtatni?");
             System.out.println("igen/nem");
             String answer = s.nextLine();
+            System.out.println();
 
             if (answer.equals("igen"))
                 test = true;

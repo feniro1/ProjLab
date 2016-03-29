@@ -9,6 +9,7 @@ public class Portal {
     private SpecialWall specwall;
 
     public Portal() {
+        specwall = null;
         System.out.println("Létrejön egy csillagkapu.");
     }
 

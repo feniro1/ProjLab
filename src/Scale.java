@@ -7,9 +7,8 @@ public class Scale extends MapElement {
     private Box box;
     private Door door;
 
-    public Scale(Door door) {
+    public Scale() {
         this.box = null;
-        this.door = door;
         System.out.println("Sikerült létrehozni egy mérleg objektumot.");
     }
 
@@ -22,6 +21,9 @@ public class Scale extends MapElement {
         return false;
     }
 
+    public void setDoor(Door d) {
+        door = d;
+    }
 
     public void removeBox() {
         box = null;

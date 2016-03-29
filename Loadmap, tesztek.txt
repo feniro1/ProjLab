@@ -1,0 +1,95 @@
+g	Ground
+z	Ground with ZPM
+b	Ground with Box
+do	Door opened
+dc	Door closed
+r	Rift
+w	Wall
+s	Special Wall
+cg	Ground with Colonel
+20X	Scale with Colonel
+30X	Scale with Box
+swb	Special Wall with blue portal
+swy	Special Wall with yellow portal
+X	Scale
+cgb     Ground with Colonel with Box
+10X	Door
+
+elsõ sor a sorok száma
+második sor az oszlopok száma
+további oszlopok a mapelementek
+
+O'Neill	- Scalerõl
+
+g   g   g
+g  201  g
+g   g   g
+
+O'Neill - Door
+
+g  do g
+g  cg g
+g  g  g
+
+O'Neill - Rift
+
+g  r  g
+g  cg g
+g  g  g
+
+O'Neill - Scalere
+
+g  1  g
+g  cg g
+g  g  g
+
+O'Neill - Wall
+
+g  w  g
+g  cg g
+g  g  g
+
+O'Neill - Box pick up from Ground
+
+g  b  g
+g  cg g
+g  g  g
+
+O'Neill - Box pick up from Scale
+
+g  30X  g
+g  cg   g
+g   g   g
+
+O'Neill - Box put down to Ground
+
+g   g   g
+g  cgb  g
+g   g   g
+
+O'Neill - Box put down to Scale
+
+g   s   g
+g  cgb  g
+g   g   g
+
+O'Neill - Box put down to Rift
+
+g   r   g
+g  cgb  g
+g   g   g
+
+O'Neill - Special Wall shoot bullet
+
+g  sw  g
+g  g  g
+g  c  g
+
+O'Neill - Wormhole
+
+swb g  swy
+cg  g   g
+g   g   g
+
+
+

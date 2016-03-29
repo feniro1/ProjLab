@@ -12,6 +12,8 @@ public class SpecialWall extends Wall {
 
     public SpecialWall(WormHole wormHole) {
         this.wormhole = wormHole;
+        yport = null;
+        bport = null;
         System.out.println("Létrejön egy speciális fal objektum.");
     }
 

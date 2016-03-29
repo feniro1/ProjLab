@@ -11,7 +11,7 @@ public abstract class MapElement {
 
 
     public MapElement() {
-        System.out.println("Sikeresen létrehoztál egy MapElement objektumot.");
+        //System.out.println("Sikeresen létrehoztál egy MapElement objektumot.");
     }
 
 

@@ -7,7 +7,7 @@ public class Main {
 
         //GameEngine-nek atadjuk az ezredesunket es a fereglyukat
         GameEngine ge = new GameEngine(oneill, wh);
-
+        //csavo
         //Jatek kezdete
         ge.startGame();
     }

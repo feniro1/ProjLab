@@ -9,6 +9,8 @@ public class Main {
         GameEngine ge = new GameEngine(oneill, wh);
         //csavo
         //Jatek kezdete
+        //valami2
+        //krisz ari
         ge.startGame();
     }
 }

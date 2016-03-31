@@ -14,7 +14,7 @@ public class GameEngine {
     public MapElement firstElement;
 
     public GameEngine() {
-        System.out.println("Létrejön egy játékkezelő példánya.");
+        System.out.println("Letrejon egy jatekkezelo peldanya.");
     }
 
     public GameEngine(Colonel _oneill, WormHole _wh){

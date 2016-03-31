@@ -9,7 +9,7 @@ public class Main {
         GameEngine ge = new GameEngine(oneill, wh);
 
         //Jatek kezdete
-        //valami
+        //valami2
         ge.startGame();
     }
 }

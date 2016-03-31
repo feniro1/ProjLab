@@ -6,26 +6,25 @@ public class SpecialWall extends Wall {
 
 
     private WormHole wormhole;
-    private Portal yport;
-    private Portal bport;
+    private HashMap<Color, Portal> portals;
+    protected boolean isSpecWall = true;
 
     //Konstruktor wormhole paraméterrel
     public SpecialWall(WormHole wormHole) {
         this.wormhole = wormHole;
-        yport = null;
-        bport = null;
-        System.out.println("Létrejön egy speciális fal objektum.");
+        portals = new HashMap<Color, Portal>();
+        System.out.println("Letrejon egy specialis fal objektum.");
     }
 
     //wormhole attribútumhoz tartozó getter
     public WormHole getWormHole() {
-        System.out.println("Visszaadjuk a speciális falon lévő féregjáratot.");
+        System.out.println("Visszaadjuk a specialis falon levo feregjaratot.");
         return wormhole;
     }
 
     //Speciális fal hit függvénye. A beérkező töltény színével megegyező portált állítja be a féregjáraton.
     public boolean hit(Bullet bullet) {
-        System.out.println("A golyó egy SpecialWall objektumnak ütközött");
+        System.out.println("A golyo egy SpecialWall objektumnak utkozott");
         Color color = bullet.color;
         Direction dir = bullet.lookDirection.reverse();
 
@@ -44,7 +43,7 @@ public class SpecialWall extends Wall {
     }
 
     public boolean stepOn(Colonel colonel) {
-        System.out.println("Meghívódott a SpecWall stepOn függvénye");
+        System.out.println("Meghivodott a SpecWall stepOn fuggvenye");
         Direction dir = colonel.getLookDirection().reverse();
 /*        if (yport.getDirection() == dir | bport.getDirection() == dir) {
             System.out.println("Van portál");
@@ -58,24 +57,13 @@ public class SpecialWall extends Wall {
         return true;
     }
 
-    public Portal getYPortal() {
-        System.out.println("Visszaadjuk a sárga csillagkaput.");
-        return yport;
+    public Portal getPortal(Color col) {
+        return portals.get(col);
     }
 
-    public Portal getBPortal() {
-        System.out.println("Visszaadjuk a kék csillagkaput.");
-        return bport;
-    }
-
-    public void setYPortal(Portal port) {
-        System.out.println("Beállítjuk a sárga csillagkaput.");
-        yport = port;
-    }
-
-    public void setBPortal(Portal port) {
-        System.out.println("Beállítjuk a kék csillagkaput.");
-        bport = port;
+    public void setPortal(Color col, Portal port) {
+        portals.remove(col);
+        portals.put(col, port);
     }
 
 

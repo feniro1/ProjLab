@@ -8,6 +8,8 @@ public abstract class MapElement {
     protected MapElement[] neighbours = new MapElement[4]; // az adott mapElement szomszedait tarolja
     protected Colonel col; // ezredesre mutato pointert tarol, ha az van rajta
     protected Bullet bul; // lovedekre mutato pointert tarol, ha az van rajta
+    protected boolean isSpecWall = false;
+    protected boolean isScale = false;
 
 
     public MapElement() { // letrehoz egy mapElement objektumot

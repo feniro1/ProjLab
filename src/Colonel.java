@@ -117,9 +117,17 @@ public class Colonel {
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
-        me.setColonel(this);
-        baseElement.setColonel(null);
-        baseElement = me;
+        if(me.isSpecWall) {
+
+        }
+        else if(me.isScale){
+
+        }
+        else {
+            me.setColonel(this);
+            baseElement.setColonel(null);
+            baseElement = me;
+        }
         System.out.println("Az ezredes a kovetkezo elemre lepett");
     }
 

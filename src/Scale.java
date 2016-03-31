@@ -6,6 +6,7 @@ public class Scale extends MapElement {
 
     private Box box;
     private Door door;
+    protected boolean isScale = true;
 
     //Konstruktor. Alapértelmezettben nincs rajta doboz.
     public Scale() {

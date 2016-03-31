@@ -13,5 +13,6 @@ public class Main {
         //krisz ari
         ge.startGame();
         //kecske
+        //lsakhg laks.gl;adfkz
     }
 }

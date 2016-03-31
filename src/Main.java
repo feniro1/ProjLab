@@ -10,5 +10,6 @@ public class Main {
 
         //Jatek kezdete
         ge.startGame();
+        //valtoztatas
     }
 }

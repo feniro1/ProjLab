@@ -10,16 +10,16 @@ public class Scale extends MapElement {
     //Konstruktor. Alapértelmezettben nincs rajta doboz.
     public Scale() {
         this.box = null;
-        System.out.println("Sikerült létrehozni egy mérleg objektumot.");
+        System.out.println("Sikerult letrehozni egy merleg objektumot.");
     }
 
     //Ha van doboza, akkor igazzal tér vissza, ha nincs hamissal
     public boolean hasBox() {
         if (box != null) {
-            System.out.println("A mérlegen van doboz.");
+            System.out.println("A merlegen van doboz.");
             return true;
         }
-        System.out.println("A mérlegen nincs doboz.");
+        System.out.println("A merlegen nincs doboz.");
         return false;
     }
 
@@ -32,22 +32,22 @@ public class Scale extends MapElement {
     //Eltávolítja a dobozt a mérlegről
     public void removeBox() {
         box = null;
-        System.out.println("A mérlegen nincs többé doboz.");
+        System.out.println("A merlegen nincs tobbe doboz.");
     }
 
     //Ezzel állítható be a mérlegnek doboz
     public void createBox(Box box) {
         this.box = box;
-        System.out.println("A mérlegre rákerült egy doboz");
+        System.out.println("A merlegre rakerult egy doboz");
     }
 
     //A colonel alapértelmezett esetben ráléphet a mérlegre, de ha van rajta doboz, akkor nem
     public boolean stepOn(Colonel colonel) {
         if (hasBox()) {
-            System.out.println("Az ezredes nem léphet rá a mérlegre, mert azon van doboz.");
+            System.out.println("Az ezredes nem lephet ra a merlegre, mert azon van doboz.");
             return false;
         }
-        System.out.println("Az ezredes ráléphet a mérlegre.");
+        System.out.println("Az ezredes ralephet a merlegre.");
         return true;
     }
 

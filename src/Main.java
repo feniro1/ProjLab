@@ -12,5 +12,6 @@ public class Main {
         //valami2
         //krisz ari
         ge.startGame();
+        //kecske
     }
 }

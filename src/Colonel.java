@@ -18,7 +18,7 @@ public class Colonel {
         ZPMNumber = 0;
         box = null;
         isAlive = true;
-        System.out.println("Létrejön ezredes egy példánya.");
+        System.out.println("Letrejon ezredes egy peldanya.");
     }
 
     public Colonel(MapElement _baseElement){
@@ -41,7 +41,7 @@ public class Colonel {
 
     //Az ezredes mozgatasa a parameterben kapott irany szerint
     public void move(Direction dir) {
-        changeLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
+        setLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
         MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet
 
         if(nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
@@ -99,12 +99,6 @@ public class Colonel {
     public void incZPMNumber() {
         ZPMNumber++;
         System.out.println("Nott a ZPM szam");
-    }
-
-
-    //Az ezredes nezopontjanak valtozasa
-    public void changeLookDirection(Direction dir) {
-        lookDirection = dir;
     }
 
 

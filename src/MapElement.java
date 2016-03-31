@@ -30,7 +30,7 @@ public abstract class MapElement {
     }
 
 
-    public Box pickUp() { // visszaadja, hogy van-e doboz a mapElementen ... alapbol nincs
+    public Box pickUp() { // visszaadja, hogy van-e doboz a mapElementen. alapbol nincs
         System.out.println("Nincs mit felvenni.");
         return null;
     }

@@ -4,66 +4,54 @@ import java.util.*;
 
 public class SpecialWall extends Wall {
 
-
     private WormHole wormhole;
-    private HashMap<Color, Portal> portals;
-    protected boolean isSpecWall = true;
 
     //Konstruktor wormhole paraméterrel
     public SpecialWall(WormHole wormHole) {
         this.wormhole = wormHole;
-        portals = new HashMap<Color, Portal>();
-        System.out.println("Letrejon egy specialis fal objektum.");
-    }
-
-    //wormhole attribútumhoz tartozó getter
-    public WormHole getWormHole() {
-        System.out.println("Visszaadjuk a specialis falon levo feregjaratot.");
-        return wormhole;
+        System.out.println("Létrejön egy speciális fal objektum.");
     }
 
     //Speciális fal hit függvénye. A beérkező töltény színével megegyező portált állítja be a féregjáraton.
+    //Most akkor elvileg a hit akkor ter vissza trueval, amikor eltalt valamit
     public boolean hit(Bullet bullet) {
-        System.out.println("A golyo egy SpecialWall objektumnak utkozott");
+        System.out.println("A golyó egy SpecialWall objektumnak ütközött");
         Color color = bullet.color;
         Direction dir = bullet.lookDirection.reverse();
 
         //a féregjárat portáljának beállításához át kell adni a portál irányát, ami a beérkező tölténnyel ellentétes irányú
-        //illetve saját magát, mert a portálhoz be kell állítani a hozzá tartoz speciális falat
-        if (color == Color.Yellow) {
-            wormhole.setYPortal(dir, this);
-            yport = wormhole.getYPortal();
-        }
-        else {
-            wormhole.setBPortal(dir, this);
-            bport = wormhole.getBPortal();
-        }
+        //illetve saját magát, mert a portálhoz be kell állítani a hozzá tartoz speciális falat, tovabba a fal szinet
+        wormhole.setPortal(dir, this, color);
 
-        return false;
-    }
-
-    public boolean stepOn(Colonel colonel) {
-        System.out.println("Meghivodott a SpecWall stepOn fuggvenye");
-        Direction dir = colonel.getLookDirection().reverse();
-/*        if (yport.getDirection() == dir | bport.getDirection() == dir) {
-            System.out.println("Van portál");
-            return true;
-        }
-        else {
-            System.out.println("Nincs portál");
-            return false;
-        }
-        */
         return true;
     }
 
-    public Portal getPortal(Color col) {
-        return portals.get(col);
-    }
+    //akkor ter vissza trueval, ha letezik feregjarat abban az iranyban ahonnan a jatekos jon, egyebkent false
+    public boolean stepOn(Colonel player) {
+        System.out.println("Meghívódott a SpecWall stepOn függvénye");
+        Direction dir = player.getLookDirection().reverse();
 
-    public void setPortal(Color col, Portal port) {
-        portals.remove(col);
-        portals.put(col, port);
+        Portal myportal = wormhole.getThisPortal(dir, this);
+        Portal otherportal = wormhole.getOtherPortal(dir, this);
+
+        if (myportal != null && otherportal != null) {
+            System.out.println("Letezik feregjarat johet a jatekos");
+            return true;
+        }
+        else {
+            System.out.println("Ezen a falon nem jutsz at");
+            return false;
+        }
+    }
+    //ez azert van mert ha van feregjarat akkor a jatekosnak nem a steponban lekerdezett elem kovetkezo elemere kell lepnie
+    //hanem oda ahol a feregjarat masik portalja van
+    //na ezt ay elemet kapjuk meg ezzel a fuggvennyel MapElementtel ter tehat vissza
+    public MapElement walkthroughWormHole(Colonel player){
+        System.out.println("Meghívódott a SpecWall  walkthroughWormHole függvénye");
+        Direction dir = player.getLookDirection().reverse();
+
+        MapElement wheretoGo = wormhole.getOtherPortal(dir, this).getDestinationElement();
+        return wheretoGo;
     }
 
 

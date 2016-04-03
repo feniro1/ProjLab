@@ -45,8 +45,19 @@ public class Colonel {
         MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet
 
         if(nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
-            stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-            System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
+            if (nextElement.getClass() == SpecialWall.class){
+                SpecialWall sw = (SpecialWall)nextElement;
+                nextElement = sw.walkthroughWormHole(this);
+                if (nextElement.stepOn(this)) {
+                    stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
+                    System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
+                }
+            }
+            else {
+                stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
+                System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
+            }
+
         }
     }
 
@@ -56,7 +67,6 @@ public class Colonel {
         Bullet b = new Bullet(lookDirection, baseElement, color);
 
         b.move();
-        System.out.println("Egy bizonyos szin");
 
     }
 
@@ -117,6 +127,10 @@ public class Colonel {
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
+        me.setColonel(this);
+        baseElement.setColonel(null);
+        baseElement = me;
+        System.out.println("Az ezredes lelepett az aktualis elemrol");
         if(me.isSpecWall) {
 
         }

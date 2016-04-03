@@ -43,4 +43,8 @@ public class Portal {
     public Color getColor() {
         return color;
     }
+
+    public MapElement getDestinationElement(){
+        return specwall.getNextElement(dir);
+    }
 }

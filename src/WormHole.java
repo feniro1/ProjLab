@@ -73,7 +73,6 @@ public class WormHole {
         else
             return null;
     }
-
     //megadja, hogy adott specwallhoz adott iranyba letezik-e feregjarat es ha igen visszater a masik portallal, ha nem akkor null
     public Portal getOtherPortal(Direction dir, SpecialWall swall){
         if (yportal.getSpecWall() == swall && yportal.getDirection() == dir && bportal.getSpecWall() != null)

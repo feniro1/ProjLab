@@ -216,15 +216,13 @@ public class GameEngine {
                     //Létrehoz egy különleges falat rajta lefelé néző kék portállal
                     case 505:
                         SpecialWall sw1 = new SpecialWall(wormhole);
-                        wormhole.setBPortal(Direction.Down, sw1);
-                        sw1.setBPortal(wormhole.getBPortal());
+                        wormhole.setPortal(Direction.Down, sw1, Color.Blue);
                         table[i][j] = sw1;
                         break;
                     //Létrehoz egy különlege falat rajta lefelé néző sárga portállal
                     case 506:
                         SpecialWall sw2 = new SpecialWall(wormhole);
-                        wormhole.setBPortal(Direction.Down, sw2);
-                        sw2.setBPortal(wormhole.getBPortal());
+                        wormhole.setPortal(Direction.Down, sw2, Color.Yellow);
                         table[i][j] = sw2;
                         break;
                     //Létrehoz egy talaj elemet rajta O'Neill-el, akinél egy doboz van

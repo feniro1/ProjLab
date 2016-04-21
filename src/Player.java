@@ -11,6 +11,8 @@ public class Player {
     private int ZPMNumber;
     private MapElement baseElement;
     private boolean isAlive;
+    private boolean hasToPlaceDownZPM;
+    private int weight;
 
     //Az ezredes inicializalasa, attributumainak alapertelmezett ertekekre allitasa
     public Player() {
@@ -18,7 +20,6 @@ public class Player {
         ZPMNumber = 0;
         box = null;
         isAlive = true;
-        System.out.println("Letrejon ezredes egy peldanya.");
     }
 
     public Player(MapElement _baseElement){
@@ -50,12 +51,10 @@ public class Player {
                 nextElement = sw.walkthroughWormHole(this);
                 if (nextElement.stepOn(this)) {
                     stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-                    System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
                 }
             }
             else {
                 stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-                System.out.println("Az ezredes sikeresen ralepett a kivant mezore");
             }
 
         }
@@ -73,12 +72,10 @@ public class Player {
     //Az ezredes ongyilkossaga
     public void kill() {
         isAlive = false;
-        System.out.println("Az ezredes ongyilkos lett");
     }
 
     //Doboz felvetele
     public void pickUp() {
-        System.out.println("Az ezredes fel szeretne venni a dobozt");
         MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
         box = nextElement.pickUp();
     }
@@ -91,16 +88,11 @@ public class Player {
 
     //Doboz letevese
     public void putDown() {
-        System.out.println("Az ezredes le szeretne tenni a dobozt");
         MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
         if(box != null) {
-            System.out.println("Az ezredesnel van doboz");
             if (nextElement.putDown(box)) { //ha a kovetkezo elemre leteheto a doboz,
                 removeBox();                //akkor leteszi.
-                System.out.println("A doboz le lett teve");
             }
-        } else {
-            System.out.println("Az ezredesnel nincs doboz");
         }
     }
 
@@ -108,20 +100,17 @@ public class Player {
     //ZPM szam novelese
     public void incZPMNumber() {
         ZPMNumber++;
-        System.out.println("Nott a ZPM szam");
     }
 
 
     //Csak a tesztesetek latvanyos feltuntetese celjabol
     public void createBox(Box b) {
         box = b;
-        System.out.println("Az ezredesnel van doboz");
     }
 
     //Doboz referenciajanak torlese
     public void removeBox() {
         box = null;
-        System.out.println("A doboz le lett teve");
     }
 
 
@@ -130,7 +119,6 @@ public class Player {
         me.setPlayer(this);
         baseElement.setPlayer(null);
         baseElement = me;
-        System.out.println("Az ezredes lelepett az aktualis elemrol");
         if(me.isSpecWall) {
 
         }
@@ -142,7 +130,6 @@ public class Player {
             baseElement.setPlayer(null);
             baseElement = me;
         }
-        System.out.println("Az ezredes a kovetkezo elemre lepett");
     }
 
     public void setBaseElement(MapElement me) {

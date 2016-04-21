@@ -52,7 +52,7 @@ public class Ground extends MapElement {
 
     }
 
-    public boolean stepOn(Colonel colonel) { //visszaadja, hogy az ezredes ráléphet-e a talaj objektumra
+    public boolean stepOn(Player Player) { //visszaadja, hogy az ezredes ráléphet-e a talaj objektumra
         if (!hasBox()) {
             System.out.println("A talajon nincs doboz, igy az ezredes ralephet.");
             return true;

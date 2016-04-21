@@ -6,7 +6,7 @@ public abstract class MapElement {
 
 
     protected MapElement[] neighbours = new MapElement[4]; // az adott mapElement szomszedait tarolja
-    protected Colonel col; // ezredesre mutato pointert tarol, ha az van rajta
+    protected Player col; // ezredesre mutato pointert tarol, ha az van rajta
     protected Bullet bul; // lovedekre mutato pointert tarol, ha az van rajta
     protected boolean isSpecWall = false;
     protected boolean isScale = false;
@@ -21,12 +21,12 @@ public abstract class MapElement {
 
     }
 
-    public void setColonel(Colonel colonel) { // beallit egy ezredest az adott mapElementre, ha az rajta van
-        col = colonel;
+    public void setPlayer(Player Player) { // beallit egy ezredest az adott mapElementre, ha az rajta van
+        col = Player;
     }
 
 
-    public boolean stepOn(Colonel colonel) { // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
+    public boolean stepOn(Player Player) { // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
         System.out.println("Nem léphetsz rá a MapElementre.");
         return false;
     }

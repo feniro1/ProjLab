@@ -42,8 +42,8 @@ public class Scale extends MapElement {
         System.out.println("A merlegre rakerult egy doboz");
     }
 
-    //A colonel alapértelmezett esetben ráléphet a mérlegre, de ha van rajta doboz, akkor nem
-    public boolean stepOn(Colonel colonel) {
+    //A Player alapértelmezett esetben ráléphet a mérlegre, de ha van rajta doboz, akkor nem
+    public boolean stepOn(Player Player) {
         if (hasBox()) {
             System.out.println("Az ezredes nem lephet ra a merlegre, mert azon van doboz.");
             return false;

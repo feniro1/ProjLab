@@ -27,7 +27,7 @@ public class SpecialWall extends Wall {
     }
 
     //akkor ter vissza trueval, ha letezik feregjarat abban az iranyban ahonnan a jatekos jon, egyebkent false
-    public boolean stepOn(Colonel player) {
+    public boolean stepOn(Player player) {
         System.out.println("Meghívódott a SpecWall stepOn függvénye");
         Direction dir = player.getLookDirection().reverse();
 
@@ -46,7 +46,7 @@ public class SpecialWall extends Wall {
     //ez azert van mert ha van feregjarat akkor a jatekosnak nem a steponban lekerdezett elem kovetkezo elemere kell lepnie
     //hanem oda ahol a feregjarat masik portalja van
     //na ezt ay elemet kapjuk meg ezzel a fuggvennyel MapElementtel ter tehat vissza
-    public MapElement walkthroughWormHole(Colonel player){
+    public MapElement walkthroughWormHole(Player player){
         System.out.println("Meghívódott a SpecWall  walkthroughWormHole függvénye");
         Direction dir = player.getLookDirection().reverse();
 

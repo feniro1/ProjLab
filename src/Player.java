@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Az ezredes osztaly
  */
-public class Colonel {
+public class Player {
 
     private Direction lookDirection;
     private Box box;
@@ -13,7 +13,7 @@ public class Colonel {
     private boolean isAlive;
 
     //Az ezredes inicializalasa, attributumainak alapertelmezett ertekekre allitasa
-    public Colonel() {
+    public Player() {
         lookDirection = Direction.Up;
         ZPMNumber = 0;
         box = null;
@@ -21,7 +21,7 @@ public class Colonel {
         System.out.println("Letrejon ezredes egy peldanya.");
     }
 
-    public Colonel(MapElement _baseElement){
+    public Player(MapElement _baseElement){
         lookDirection = Direction.Up;
         baseElement = _baseElement;
         ZPMNumber = 0;
@@ -127,8 +127,8 @@ public class Colonel {
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
-        me.setColonel(this);
-        baseElement.setColonel(null);
+        me.setPlayer(this);
+        baseElement.setPlayer(null);
         baseElement = me;
         System.out.println("Az ezredes lelepett az aktualis elemrol");
         if(me.isSpecWall) {
@@ -138,8 +138,8 @@ public class Colonel {
 
         }
         else {
-            me.setColonel(this);
-            baseElement.setColonel(null);
+            me.setPlayer(this);
+            baseElement.setPlayer(null);
             baseElement = me;
         }
         System.out.println("Az ezredes a kovetkezo elemre lepett");

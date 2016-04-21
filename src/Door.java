@@ -23,7 +23,7 @@ public class Door extends MapElement {
 
 
     @Override
-    public boolean stepOn(Colonel colonel) { // visszaadja, hogy odaléphet-e az ezredes az ajtó állapotától függően
+    public boolean stepOn(Player player) { // visszaadja, hogy odaléphet-e az ezredes az ajtó állapotától függően
         if (isOpen) {
             System.out.println("Az ajto nyitva van.");
             return true;

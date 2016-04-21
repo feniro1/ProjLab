@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class GameEngine {
 
-    public Colonel oneill;
+    public Player oneill;
     public WormHole wormhole;
     public MapElement firstElement;
 
@@ -17,7 +17,7 @@ public class GameEngine {
         System.out.println("Letrejon egy jatekkezelo peldanya.");
     }
 
-    public GameEngine(Colonel _oneill, WormHole _wh){
+    public GameEngine(Player _oneill, WormHole _wh){
         oneill = _oneill;
         wormhole = _wh;
     }
@@ -175,7 +175,7 @@ public class GameEngine {
                     case 4:
                         table[i][j] = new Ground(null, null);
                         oneill.setBaseElement(table[i][j]);
-                        table[i][j].setColonel(oneill);
+                        table[i][j].setPlayer(oneill);
                         break;
                     //Létrehoz egy szakadék elemet
                     case 5:
@@ -205,7 +205,7 @@ public class GameEngine {
                     case 503:
                         table[i][j] = new Scale();
                         oneill.setBaseElement(table[i][j]);
-                        table[i][j].setColonel(oneill);
+                        table[i][j].setPlayer(oneill);
                         break;
                     //Létrehoz egy mérleget egy dobozzal
                     case 504:
@@ -229,7 +229,7 @@ public class GameEngine {
                     case 507:
                         Ground g = new Ground(null, null);
                         oneill.createBox(new Box());
-                        g.setColonel(oneill);
+                        g.setPlayer(oneill);
                         table[i][j] = g;
                         oneill.setBaseElement(table[i][j]);
                         break;

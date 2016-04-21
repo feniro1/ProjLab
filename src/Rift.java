@@ -9,9 +9,9 @@ public class Rift extends MapElement {
     }
 
 
-    public boolean stepOn(Colonel colonel) {
+    public boolean stepOn(Player player) {
         System.out.println("Az ezredes ralephet a szakadekra es meghal.");
-        colonel.kill();
+        player.kill();
         return true;
     }
 

@@ -35,6 +35,10 @@ public class Player {
         return lookDirection;
     }
 
+    public int getWeight(){
+        return weight;
+    }
+
     //Beallitja az ezredes nezopontjat
     public void setLookDirection(Direction dir){
         lookDirection = dir;

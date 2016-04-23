@@ -81,7 +81,9 @@ public class Player {
     //Doboz felvetele
     public void pickUp() {
         MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
-        box = nextElement.pickUp();
+        if (box == null) {
+            box = nextElement.pickUp();
+        }
     }
 
 
@@ -92,8 +94,8 @@ public class Player {
 
     //Doboz letevese
     public void putDown() {
-        MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
-        if(box != null) {
+        if(box != null) { //Ha van nala doboz
+            MapElement nextElement = baseElement.getNextElement(lookDirection);//lekeri az iranynak megfelelo kovetkezo elemet
             if (nextElement.putDown(box)) { //ha a kovetkezo elemre leteheto a doboz,
                 removeBox();                //akkor leteszi.
             }

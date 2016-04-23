@@ -22,7 +22,6 @@ public class WormHole {
         bportal.setColor(Color.Blue);
         rportal.setColor(Color.Red);
         gportal.setColor(Color.Green);
-        System.out.println("Letrejon egy feregjaratokat kezelo elem.");
     }
 
     //beallitja a megfelelo portalt, ha pont olyan helyen akarunk letrehozni portalt, ahol mar van, akkor nem hozza letre
@@ -33,30 +32,24 @@ public class WormHole {
                 case Yellow:
                     yportal.setSpecWall(swall);
                     yportal.setDirection(dir);
-                    System.out.println("Sarga portal beallitva");
                     break;
                 case Blue:
                     bportal.setSpecWall(swall);
                     bportal.setDirection(dir);
-                    System.out.println("Kek portal beallitva");
                     break;
                 case Red:
                     rportal.setSpecWall(swall);
                     rportal.setDirection(dir);
-                    System.out.println("Piros portal beallitva");
                     break;
                 case Green:
                     gportal.setSpecWall(swall);
                     gportal.setDirection(dir);
-                    System.out.println("Zold portal beallitva");
                     break;
                 default:
                     System.out.println("Hiba");
                     break;
             }
         }
-        else
-            System.out.println("Mar letezik adott helzen portal");
 
     }
 
@@ -84,7 +77,6 @@ public class WormHole {
         else if (gportal.getSpecWall() == swall && gportal.getDirection() == dir && rportal.getSpecWall() != null)
             return rportal;
         else{
-            System.out.println("Nincs ezen a falon portal vagy nincs hozza tartozo masik portal");
             return null;
         }
 

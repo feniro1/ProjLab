@@ -11,7 +11,6 @@ public class Portal {
     //Konstruktor. Portál létrejön. Alapértelmezett esetben nem tartozik speciális falhoz.
     public Portal() {
         specwall = null;
-        System.out.println("Létrejön egy csillagkapu.");
     }
 
     //Portál irányának beállítása

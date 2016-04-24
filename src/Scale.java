@@ -4,74 +4,89 @@ import java.util.*;
 
 public class Scale extends MapElement {
 
-    private Box box;
+    private List<Box> boxes;
     private Door door;
+    private int limit;
     protected boolean isScale = true;
 
-    //Konstruktor. Alapértelmezettben nincs rajta doboz.
-    public Scale() {
-        this.box = null;
-        System.out.println("Sikerult letrehozni egy merleg objektumot.");
+    //Konstruktor. Alapertelmezettben nincs rajta doboz.
+    public Scale(int limit) {
+        this.limit = limit;
+        boxes = new ArrayList<>();
+    }
+
+    public Door getDoor() {
+        return door;
     }
 
     //Ha van doboza, akkor igazzal tér vissza, ha nincs hamissal
     public boolean hasBox() {
-        if (box != null) {
-            System.out.println("A merlegen van doboz.");
+        if (boxes.size() > 0) {
             return true;
         }
-        System.out.println("A merlegen nincs doboz.");
         return false;
     }
 
-    //Beállítható, a mérleghez tartozó ajtót.
+    //Beallithato, a merleghez tartozo ajtot.
     public void setDoor(Door d) {
-        System.out.println("A merlegnek az ajtoeleres be lett allitva.");
         door = d;
     }
 
-    //Eltávolítja a dobozt a mérlegről
+    //Eltavolit egy dobozt a merlegrol
     public void removeBox() {
-        box = null;
-        System.out.println("A merlegen nincs tobbe doboz.");
+        if (hasBox()) {
+            boxes.remove(boxes.size() - 1);
+        }
     }
 
-    //Ezzel állítható be a mérlegnek doboz
+    //Ezzel allitható be a merlegnek doboz
     public void createBox(Box box) {
-        this.box = box;
-        System.out.println("A merlegre rakerult egy doboz");
+        boxes.add(boxes.size() - 1, box);
     }
 
     //A Player alapértelmezett esetben ráléphet a mérlegre, de ha van rajta doboz, akkor nem
-    public boolean stepOn(Player Player) {
+    public boolean stepOn(Player player) {
         if (hasBox()) {
-            System.out.println("Az ezredes nem lephet ra a merlegre, mert azon van doboz.");
             return false;
         }
-        System.out.println("Az ezredes ralephet a merlegre.");
+        if (player.getWeight() >= limit) {
+            door.open();
+        }
         return true;
+
     }
 
-    //Felvehető a mérlegen lévő doboz, ha van rajta.
+    //Felveheto a merlegen levo legfelso doboz, ha van rajta.
     public Box pickUp() {
         if (hasBox()) {
-            System.out.println("Sikerült felvenni a dobozt a mérlegről.");
-            return box;
+
+            Box temp = boxes.remove(boxes.size() - 1);
+            int totalWeight = 0;
+            for (int i = 0; i < boxes.size() - 1; i++) {
+                totalWeight += boxes.get(i).getWeight();
+            }
+            if (totalWeight < limit) {
+                door.close();
+            }
+            return temp;
         }
-        System.out.println("A mérlegen nem volt doboz, így nem volt mit felvenni a mérlegről.");
         return null;
     }
 
     //Letehető a mérlegre doboz, ha nincsen rajta.
     public boolean putDown(Box box) {
-        if(!hasBox()) {
-            this.box = box;
-            System.out.println("Sikerült új doboz elemet letenni a mérlegre.");
+        if (col == null) {
+            boxes.add(boxes.size() - 1, box);
+            int totalWeight = 0;
+            for (int i = 0; i < boxes.size() - 1; i++) {
+                totalWeight += boxes.get(i).getWeight();
+            }
+            if (totalWeight >= limit) {
+                door.open();
+            }
             return true;
-        } else {
-            System.out.println("A mérlegen már van doboz, így nem sikerült új doboz elemet letenni rá.");
-            return false;
         }
+        return false;
     }
 
 }

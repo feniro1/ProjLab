@@ -8,10 +8,13 @@ public class Rift extends MapElement {
 
     }
 
-
     public boolean stepOn(Player player) {
         player.kill();
         return true;
+    }
+
+    public void replaceWithGround() {
+
     }
 
     // visszaadja, hogy lehet rá tenni, dobozt és ezt a dobozt megsemmisítjük

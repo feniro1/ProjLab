@@ -16,6 +16,8 @@ public class GameEngine {
     public Replicator replicator;
     public WormHole wormhole;
     public MapElement firstElement;
+    int row;
+    int column;
 
     public GameEngine() {
         System.out.println("Letrejon egy jatekkezelo peldanya.");
@@ -52,12 +54,18 @@ public class GameEngine {
             String i = s.nextLine();
 
             try {
+                Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("test.txt"), "utf-8"));
+                writer.write("something");
+
                 switch (i) {
                     //foldon jaras
                     case "0":
                         loadMap(0);
+                        statusPrintOut(writer);
                         oneill.move(Direction.Right);
+
                         oneill.move(Direction.Up);
+
                         break;
                     //ajton atlepes
                     case "1":
@@ -75,7 +83,7 @@ public class GameEngine {
                         loadMap(3);
                         oneill.move(Direction.Right);
                         break;
-                    //lovedekcsavo
+                    //lovedek
                     case "4":
                         loadMap(4);
                         oneill.shoot(Color.Yellow);
@@ -128,14 +136,35 @@ public class GameEngine {
 
     }
 
+    private void statusPrintOut(Writer file) {
+        MapElement actual = firstElement;
+        for (int i = 0; i < row - 1; i++) {
+            file.write(actual.symbol());
+            for (int j = 0; j < column - 1; j++){
+                actual = actual.getNextElement(Direction.Right);
+                actual.symbol();
+            }
+            for (int k = 0; k < column - 1; k++){
+                actual = actual.getNextElement(Direction.Left);
+            }
+            actual = actual.getNextElement(Direction.Down);
+        }
+        actual.symbol();
+        for (int j = 0; j < column - 1; j++){
+            actual = actual.getNextElement(Direction.Right);
+            actual.symbol();
+        }
+
+    }
+
     //F·jlbÛl betˆlti, Ès lÈtrehozza a mapelementeket
     public void loadMap(int testNumber) throws IOException {
         //A tesztesettıl f¸ggıen betˆlti a megfelelı txt file-t
         FileReader fr = new FileReader(Integer.toString(testNumber) + ".txt");
         BufferedReader br = new BufferedReader(fr);
         // Az elsı kÈt sora a textnek a sor-, Ès oszlopsz·m
-        int row = Integer.parseInt(br.readLine());
-        int column = Integer.parseInt(br.readLine());
+        row = Integer.parseInt(br.readLine());
+        column = Integer.parseInt(br.readLine());
         int thisLine = 0;
         //LÈtrehozza az ideiglenes segÈdm·trixot
         MapElement table[][] = new MapElement[row][column];

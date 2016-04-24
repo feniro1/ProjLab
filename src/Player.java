@@ -35,8 +35,10 @@ public class Player {
         return lookDirection;
     }
 
-    public int getWeight(){
-        return weight;
+    public int getWeight(){ return weight; }
+
+    public String symbol(){
+        return "O";
     }
 
     //Beallitja az ezredes nezopontjat
@@ -88,7 +90,16 @@ public class Player {
 
 
     public void turn() {
-        // TODO implement here
+        switch(lookDirection){
+            case Up: setLookDirection(Direction.Left);
+                break;
+            case Right:setLookDirection(Direction.Up);
+                break;
+            case Down:setLookDirection(Direction.Right);
+                break;
+            case Left:setLookDirection(Direction.Down);
+                break;
+        }
     }
 
 

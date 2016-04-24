@@ -38,6 +38,10 @@ public class Portal {
         color = c;
     }
 
+    public String symbol(){
+        return "#";
+    }
+
     //Portál színének lekérdezése
     public Color getColor() {
         return color;

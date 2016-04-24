@@ -34,6 +34,8 @@ public class GameEngine {
             System.out.println("Udvozlunk a LiskovTheorem Oneill's Adventure nevu jatekaban!");
             System.out.println("Kerlek valassz egy tesztesetet!");
             System.out.println();
+            System.out.println("all: Osszes teszteset futtatasa");
+            System.out.println();
             System.out.println("0: Jatekos mozgatasa");
             System.out.println("1: Jatekos ajton valo atelepese");
             System.out.println("2: Jatekos feregjaraton valo athjutasa");

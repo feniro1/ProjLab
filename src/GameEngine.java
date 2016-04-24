@@ -23,9 +23,10 @@ public class GameEngine {
         System.out.println("Letrejon egy jatekkezelo peldanya.");
     }
 
-    public GameEngine(Player _oneill, WormHole _wh){
+    public GameEngine(Player _oneill, WormHole _wh, Replicator rep){
         oneill = _oneill;
         wormhole = _wh;
+        replicator = rep;
     }
 
 

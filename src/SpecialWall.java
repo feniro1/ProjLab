@@ -48,6 +48,7 @@ public class SpecialWall extends Wall {
         return wheretoGo;
     }
 
+    //ugyanaz mint a felso, csak replicatorra
     public MapElement walkthroughWormHole(Replicator replicator){
         Direction dir = replicator.getLookDirection().reverse();
 

@@ -32,6 +32,21 @@ public class Replicator {
 
     public void setLookDirection(Direction dir) { lookDirection = dir; }
 
+    public void moveHelper(Direction dir) {
+        MapElement nextElement = baseElement.getNextElement(dir);
+        if (nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
+            if (nextElement.isSpecWall) {
+                SpecialWall sw = (SpecialWall) nextElement;
+                nextElement = sw.walkthroughWormHole(this);
+                if (nextElement.stepOn(this)) {
+                    stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
+                }
+            } else {
+                stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
+            }
+        }
+    }
+
     //A replicator mozgatasa a parameterben kapott irany szerint
     public void move(Direction dir) { // ejsze randomnal nem kell direction, benne is megadhatjuk
         setLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
@@ -54,33 +69,10 @@ public class Replicator {
                     d = Direction.Left;
                     break;
             }
+            moveHelper(d);
 
-            MapElement nextElement = baseElement.getNextElement(d);
-
-            if (nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
-                if (nextElement.getClass() == SpecialWall.class) {
-                    SpecialWall sw = (SpecialWall) nextElement;
-                    nextElement = sw.walkthroughWormHole(this);
-                    if (nextElement.stepOn(this)) {
-                        stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-                    }
-                } else {
-                    stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-                }
-            }
         } else {
-            MapElement nextElement = baseElement.getNextElement(dir);
-            if (nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
-                if (nextElement.getClass() == SpecialWall.class) {
-                    SpecialWall sw = (SpecialWall) nextElement;
-                    nextElement = sw.walkthroughWormHole(this);
-                    if (nextElement.stepOn(this)) {
-                        stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-                    }
-                } else {
-                    stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-                }
-            }
+            moveHelper(dir);
         }
     }
 

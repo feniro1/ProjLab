@@ -7,6 +7,7 @@ public abstract class MapElement {
 
     protected MapElement[] neighbours = new MapElement[4]; // az adott mapElement szomszedait tarolja
     protected Player col; // ezredesre mutato pointert tarol, ha az van rajta
+    protected Replicator rep; // replikatorra mutato pointer
     protected Bullet bul; // lovedekre mutato pointert tarol, ha az van rajta
     protected boolean isSpecWall = false;
     protected boolean isScale = false;
@@ -21,37 +22,46 @@ public abstract class MapElement {
 
     }
 
-    public void setPlayer(Player Player) { // beallit egy ezredest az adott mapElementre, ha az rajta van
-        col = Player;
+    public void setPlayer(Player player) { // beallit egy ezredest az adott mapElementre, ha az rajta van
+        col = player;
+    }
+
+    public void setReplicator(Replicator _rep) { // beallit egy ezredest az adott mapElementre, ha az rajta van
+        rep = _rep;
     }
 
 
-    public boolean stepOn(Player Player) { // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
-        System.out.println("Nem léphetsz rá a MapElementre.");
+    public boolean stepOn(Player player) { // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
+        //System.out.println("Nem léphetsz rá a MapElementre.");
+        return false;
+    }
+
+    public boolean stepOn(Replicator _rep) { // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
+        //System.out.println("Nem léphetsz rá a MapElementre.");
         return false;
     }
 
 
     public Box pickUp() { // visszaadja, hogy van-e doboz a mapElementen. alapbol nincs
-        System.out.println("Nincs mit felvenni.");
+        //System.out.println("Nincs mit felvenni.");
         return null;
     }
 
 
     public boolean putDown(Box b) { // visszaadja, hogy felveheted-e a dobozt az adott mapElementrol
-        System.out.println("Nem tudod letenni a dobozt a MapElementre.");
+        //System.out.println("Nem tudod letenni a dobozt a MapElementre.");
         return false;
     }
 
 
     public boolean hit(Bullet bullet) { // visszaadja ed true-t ha a golyo belecsapodik valamibe, alapbol false
-        System.out.println("A golyo nem csapodott meg be semmibe.");
+        //System.out.println("A golyo nem csapodott meg be semmibe.");
         return false;
     }
 
 
     public MapElement getNextElement(Direction dir) { // visszaadja a sajat szomszedjat (mapelement objektumot) attol fuggoen merre van fordulva az ezredes
-        System.out.println("Le lett kérve a következő palyaelem.");
+        //System.out.println("Le lett kérve a következő palyaelem.");
         return neighbours[dir.getValue()];
     }
 

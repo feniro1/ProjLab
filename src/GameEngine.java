@@ -228,7 +228,7 @@ public class GameEngine {
                     //Létrehoz egy talaj elemet rajta O'Neill-el, akinél egy doboz van
                     case 507:
                         Ground g = new Ground(null, null);
-                        oneill.createBox(new Box());
+                        oneill.createBox(new Box(1));
                         g.setPlayer(oneill);
                         table[i][j] = g;
                         oneill.setBaseElement(table[i][j]);

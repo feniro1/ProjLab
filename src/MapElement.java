@@ -31,41 +31,48 @@ public abstract class MapElement {
     }
 
 
-    public boolean stepOn(Player player) { // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
+    // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
+    public boolean stepOn(Player player) {
         //System.out.println("Nem léphetsz rá a MapElementre.");
         return false;
     }
 
-    public boolean stepOn(Replicator _rep) { // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
+    // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
+    public boolean stepOn(Replicator _rep) {
         //System.out.println("Nem léphetsz rá a MapElementre.");
         return false;
     }
 
 
-    public Box pickUp() { // visszaadja, hogy van-e doboz a mapElementen. alapbol nincs
+    // visszaadja, hogy van-e doboz a mapElementen. alapbol nincs
+    public Box pickUp() {
         //System.out.println("Nincs mit felvenni.");
         return null;
     }
 
 
-    public boolean putDown(Box b) { // visszaadja, hogy felveheted-e a dobozt az adott mapElementrol
+    // visszaadja, hogy felveheted-e a dobozt az adott mapElementrol
+    public boolean putDown(Box b) {
         //System.out.println("Nem tudod letenni a dobozt a MapElementre.");
         return false;
     }
 
 
-    public boolean hit(Bullet bullet) { // visszaadja ed true-t ha a golyo belecsapodik valamibe, alapbol false
+    // visszaadja ed true-t ha a golyo belecsapodik valamibe, alapbol false
+    public boolean hit(Bullet bullet) {
         //System.out.println("A golyo nem csapodott meg be semmibe.");
         return false;
     }
 
 
-    public MapElement getNextElement(Direction dir) { // visszaadja a sajat szomszedjat (mapelement objektumot) attol fuggoen merre van fordulva az ezredes
+    // visszaadja a sajat szomszedjat (mapelement objektumot) attol fuggoen merre van fordulva az ezredes
+    public MapElement getNextElement(Direction dir) {
         //System.out.println("Le lett kérve a következő palyaelem.");
         return neighbours[dir.getValue()];
     }
 
-    public void setNeighbour(Direction dir, MapElement me){ // beallitja a fal szomszedait
+    // beallitja a fal szomszedait
+    public void setNeighbour(Direction dir, MapElement me){
         switch (dir){
             case Up:
                 neighbours[0] = me;
@@ -81,6 +88,4 @@ public abstract class MapElement {
                 break;
         }
     }
-
-
 }

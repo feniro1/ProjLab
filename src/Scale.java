@@ -41,7 +41,7 @@ public class Scale extends MapElement {
 
     //Ezzel allitható be a merlegnek doboz
     public void createBox(Box box) {
-        boxes.add(boxes.size() - 1, box);
+        boxes.add(box);
     }
 
     //A Player alapértelmezett esetben ráléphet a mérlegre, de ha van rajta doboz, akkor nem

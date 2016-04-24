@@ -68,71 +68,47 @@ public class GameEngine {
                 PrintWriter pw = new PrintWriter(bw);
 
                 switch (i) {
+                    case "all":
+                        for (int t = 0; t < 9; t++){
+                            test(pw, t);
+                        }
+                        break;
                     //foldon jaras
                     case "0":
-                        loadMap(0);
-                        statusPrintOut(pw);
-
-                        pw.println("move Oneill right");
-                        pw.println();
-                        oneill.move(Direction.Right);
-                        statusPrintOut(pw);
-
-                        pw.println("move Oneill up");
-                        pw.println();
-                        oneill.move(Direction.Up);
-                        statusPrintOut(pw);
-
-                        pw.close();
+                        test(pw, 0);
                         break;
                     //ajton atlepes
                     case "1":
-                        loadMap(1);
-                        oneill.move(Direction.Up);
-                        oneill.move(Direction.Up);
+                        test(pw, 1);
                         break;
                     //feregjaraton atmenes
                     case "2":
-                        loadMap(2);
-                        oneill.move(Direction.Right);
+                        test(pw, 2);
                         break;
                     //szakadekba eses
                     case "3":
-                        loadMap(3);
-                        oneill.move(Direction.Right);
+                        test(pw, 3);
                         break;
                     //lovedek
                     case "4":
-                        loadMap(4);
-                        oneill.shoot(Color.Yellow);
+                        test(pw, 4);
                         break;
                     //doboz felvetele merlegrol
                     case "5":
-                        loadMap(5);
-                        oneill.turn();
-                        oneill.turn();
-                        oneill.turn();
-                        oneill.pickUp();
+                        test(pw, 5);
                         break;
                     //doboz letevese merlegre
                     case "6":
-                        loadMap(6);
-                        oneill.turn();
-                        oneill.turn();
-                        oneill.turn();
-                        oneill.putDown();
+                        test(pw, 6);
                         break;
                     //ZPM felvetele
                     case "7":
-                        loadMap(7);
-                        oneill.move(Direction.Up);
+                        test(pw, 7);
                         break;
                     //Replicator szakadekba esese
                     case "8":
-                        loadMap(8);
-                        oneill.putDown();
+                        test(pw, 8);
                         break;
-                    //put down box to scale
                     default:
                         System.out.println("Nem letezo teszteset!");
                         break;
@@ -152,6 +128,83 @@ public class GameEngine {
             else test = false;
         }
 
+    }
+
+    public void test(PrintWriter pw, int testnumber) throws IOException {
+        switch (testnumber) {
+            //foldon jaras
+            case 0:
+                loadMap(0);
+                statusPrintOut(pw);
+
+                pw.println("move Oneill right");
+                pw.println();
+                oneill.move(Direction.Right);
+                statusPrintOut(pw);
+
+                pw.println("move Oneill up");
+                pw.println();
+                oneill.move(Direction.Up);
+                statusPrintOut(pw);
+
+                pw.close();
+                break;
+            //ajton atlepes
+            case 1:
+                loadMap(1);
+                oneill.move(Direction.Up);
+                oneill.move(Direction.Up);
+                break;
+            //feregjaraton atmenes
+            case 2:
+                loadMap(2);
+                oneill.move(Direction.Right);
+                break;
+            //szakadekba eses
+            case 3:
+                loadMap(3);
+                oneill.move(Direction.Right);
+                break;
+            //lovedek
+            case 4:
+                loadMap(4);
+                statusPrintOut(pw);
+
+                pw.println("shoot Oneill yellow");
+                pw.println();
+                oneill.shoot(Color.Yellow);
+                statusPrintOut(pw);
+                pw.close();
+                break;
+            //doboz felvetele merlegrol
+            case 5:
+                loadMap(5);
+                oneill.turn();
+                oneill.turn();
+                oneill.turn();
+                oneill.pickUp();
+                break;
+            //doboz letevese merlegre
+            case 6:
+                loadMap(6);
+                oneill.turn();
+                oneill.turn();
+                oneill.turn();
+                oneill.putDown();
+                break;
+            //ZPM felvetele
+            case 7:
+                loadMap(7);
+                oneill.move(Direction.Up);
+                break;
+            //Replicator szakadekba esese
+            case 8:
+                loadMap(8);
+                oneill.putDown();
+                break;
+            default:
+                break;
+        }
     }
 
     private void statusPrintOut(PrintWriter file) throws IOException {

@@ -57,7 +57,10 @@ public class SpecialWall extends Wall {
     }
 
     public String symbol(){
-        return "%";
+        if (wormhole != null)
+            return "#";
+        else
+            return "%";
     }
 
 

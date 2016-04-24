@@ -4,31 +4,31 @@ import java.util.*;
 
 public class Door extends MapElement {
 
-    private boolean isOpen; // az ajtó állapotát tárolja
+    // az ajto allapotat tarolja
+    private boolean isOpen;
 
-    public Door() { // konstruktor, melyben zártra állítjuk az ajtót
+    // konstruktor, melyben zartra allitjuk az ajtot
+    public Door() {
         isOpen = false;
-        System.out.print("Ajto letrehozasa sikeres.");
     }
 
-    public void open() { //kinyitja az ajtót (az isOpen paramétert igazra állatja)
+    // kinyitja az ajtot (az isOpen parametert igazra allitja)
+    public void open() {
         isOpen = true;
-        System.out.print("Az ajto kinyilt.");
     }
 
-    public void close() { //bezárja az ajtót (az isOpen paramétert hamisra állatja)
+    // bezarja az ajtot (az isOpen parametert hamisra allitja)
+    public void close() {
         isOpen = false;
-        System.out.println("Az ajtó bezárult.");
     }
 
 
+    // visszaadja, hogy odalephet-e az ezredes az ajto allapotatol fuggoen
     @Override
-    public boolean stepOn(Player player) { // visszaadja, hogy odaléphet-e az ezredes az ajtó állapotától függően
+    public boolean stepOn(Player player) {
         if (isOpen) {
-            System.out.println("Az ajto nyitva van.");
             return true;
             }
-        System.out.println("Az ajto zarva van.");
         return false;
     }
 

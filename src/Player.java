@@ -138,7 +138,6 @@ public class Player {
             baseElement.setPlayer(null);
             baseElement = me;
         }
-
     }
 
     public void setBaseElement(MapElement me) {

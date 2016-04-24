@@ -77,16 +77,13 @@ public class Replicator {
     }
 
     public void stepOff(MapElement me) {
-        me.setReplicator(this);
-        baseElement.setReplicator(null);
-        baseElement = me;
         if(me.isSpecWall) {
-
-        }
-        else if(me.isScale){
-
-        }
-        else {
+            SpecialWall sw = (SpecialWall)me;
+            MapElement targetME = sw.walkthroughWormHole(this);
+            if(targetME.stepOn(this)){
+                stepOff(targetME);
+            }
+        } else {
             me.setReplicator(this);
             baseElement.setReplicator(null);
             baseElement = me;

@@ -53,7 +53,13 @@ public class Scale extends MapElement {
             door.open();
         }
         return true;
+    }
 
+    public boolean stepOn(Replicator repl) {
+        if (hasBox()) {
+            return false;
+        }
+        return true;
     }
 
     //Felveheto a merlegen levo legfelso doboz, ha van rajta.

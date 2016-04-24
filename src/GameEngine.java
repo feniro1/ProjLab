@@ -3,6 +3,8 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.*;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,6 +12,8 @@ import java.util.Scanner;
 public class GameEngine {
 
     public Player oneill;
+    public Player jaffa;
+    public Replicator replicator;
     public WormHole wormhole;
     public MapElement firstElement;
 
@@ -137,95 +141,110 @@ public class GameEngine {
 
     }
 
-    //Fájlból betölti, és létrehozza a mapelementeket
+    //F·jlbÛl betˆlti, Ès lÈtrehozza a mapelementeket
     public void loadMap(int testNumber) throws IOException {
-        //A tesztesettől függően betölti a megfelelő txt file-t
+        //A tesztesettıl f¸ggıen betˆlti a megfelelı txt file-t
         FileReader fr = new FileReader(Integer.toString(testNumber) + ".txt");
         BufferedReader br = new BufferedReader(fr);
-        // Az első két sora a textnek a sor-, és oszlopszám
+        // Az elsı kÈt sora a textnek a sor-, Ès oszlopsz·m
         int row = Integer.parseInt(br.readLine());
         int column = Integer.parseInt(br.readLine());
         int thisLine = 0;
-        //Létrehozza az ideiglenes segédmátrixot
+        //LÈtrehozza az ideiglenes segÈdm·trixot
         MapElement table[][] = new MapElement[row][column];
-        //Az ajtókat és mérlegeket külön listában tároljuk a pároztatás miatt
+        //Az ajtÛkat Ès mÈrlegeket k¸lˆn list·ban t·roljuk a p·roztat·s miatt
         ArrayList<Door> doors = new ArrayList<Door>(20);
         ArrayList<Scale> scales = new ArrayList<Scale>(20);
+        ArrayList<Door> odoors = new ArrayList<Door>(20);
+        ArrayList<Scale> oscales = new ArrayList<Scale>(20);
         int db = 0;
-        //Végigfutunk a fájlon és létrehozzuk a megfelelő mapelementeket és eltároljuk a mátrixban
+        int odb = 0;
+        //VÈgigfutunk a f·jlon Ès lÈtrehozzuk a megfelelı mapelementeket Ès elt·roljuk a m·trixban
         for(int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 thisLine = Integer.parseInt(br.readLine());
                 switch (thisLine) {
-                    //Létrehoz egy talaj elemet
+                    //LÈtrehoz egy talaj elemet
                     case 1:
                         table[i][j] = new Ground();
                         break;
-                    //Létrehoz egz talaj elemet egy ZPM-mel
+                    //LÈtrehoz egz talaj elemet egy ZPM-mel
                     case 2:
                         ZPM z = new ZPM();
                         table[i][j] = new Ground(z);
                         break;
-                    //Létrehoz egy talaj elemet egy dobozzal
+                    //LÈtrehoz egy talaj elemet egy dobozzal
                     case 3:
                         Box b = new Box(1);
                         table[i][j] = new Ground(b);
                         break;
-                    //Létrehoz egy talaj elemet rajta O'Neill-lel
+                    //LÈtrehoz egy talaj elemet rajta O'Neill-lel
                     case 4:
                         table[i][j] = new Ground();
                         oneill.setBaseElement(table[i][j]);
                         table[i][j].setPlayer(oneill);
                         break;
-                    //Létrehoz egy szakadék elemet
+                    //LÈtrehoz egy talaj elemet rajta Jaffa-val
                     case 5:
+                        table[i][j] = new Ground();
+                        jaffa.setBaseElement(table[i][j]);
+                        table[i][j].setPlayer(jaffa);
+                        break;
+                    //LÈtrehoz egy talaj elemet rajta Replicator-ral
+                    case 6:
+                        table[i][j] = new Ground();
+                        replicator.setBaseElement(table[i][j]);
+                        table[i][j].setReplicator(replicator);
+                        break;
+                    //LÈtrehoz egy szakadÈk elemet
+                    case 7:
                         table[i][j] = new Rift();
                         break;
-                    //Létrehoz egy fal elemet
-                    case 6:
+                    //LÈtrehoz egy fal elemet
+                    case 8:
                         table[i][j] = new Wall();
                         break;
-                    //Létrehoz egy különleges falat
-                    case 7:
+                    //LÈtrehoz egy k¸lˆnleges falat
+                    case 9:
                         table[i][j] = new SpecialWall(wormhole);
                         break;
-                    //Létrehoz egz kinyitott állású ajtót
+                    //LÈtrehoz egy mÈrleget rajta O'Neillel
                     case 501:
-                        Door d1 = new Door();
-                        d1.open();
-                        table[i][j] = d1;
-                        break;
-                    //Létrehoz egy zárt állású ajtót
-                    case 502:
-                        Door d2 = new Door();
-                        d2.close();
-                        table[i][j] = d2;
-                        break;
-                    //Létrehoz egy mérleget rajta O'Neillel
-                    case 503:
                         table[i][j] = new Scale();
                         oneill.setBaseElement(table[i][j]);
                         table[i][j].setPlayer(oneill);
                         break;
-                    //Létrehoz egy mérleget egy dobozzal
-                    case 504:
+                    //LÈtrehoz egy mÈrleget egy dobozzal
+                    case 502:
                         Scale s1 = new Scale();
                         s1.createBox(new Box(1)); //random 1 suly yolo
                         table[i][j] = s1;
                         break;
-                    //Létrehoz egy különleges falat rajta lefelé néző kék portállal
-                    case 505:
+                    //LÈtrehoz egy k¸lˆnleges falat rajta lefelÈ nÈzı kÈk port·llal
+                    case 503:
                         SpecialWall sw1 = new SpecialWall(wormhole);
                         wormhole.setPortal(Direction.Down, sw1, Color.Blue);
                         table[i][j] = sw1;
                         break;
-                    //Létrehoz egy különlege falat rajta lefelé néző sárga portállal
-                    case 506:
+                    //LÈtrehoz egy k¸lˆnlege falat rajta lefelÈ nÈzı s·rga port·llal
+                    case 504:
                         SpecialWall sw2 = new SpecialWall(wormhole);
                         wormhole.setPortal(Direction.Down, sw2, Color.Yellow);
                         table[i][j] = sw2;
                         break;
-                    //Létrehoz egy talaj elemet rajta O'Neill-el, akinél egy doboz van
+                    //LÈtrehoz egy k¸lˆnleges falat rajta lefelÈ nÈzı kÈk port·llal
+                    case 505:
+                        SpecialWall sw3 = new SpecialWall(wormhole);
+                        wormhole.setPortal(Direction.Down, sw3, Color.Green);
+                        table[i][j] = sw3;
+                        break;
+                    //LÈtrehoz egy k¸lˆnlege falat rajta lefelÈ nÈzı s·rga port·llal
+                    case 506:
+                        SpecialWall sw4 = new SpecialWall(wormhole);
+                        wormhole.setPortal(Direction.Down, sw4, Color.Red);
+                        table[i][j] = sw4;
+                        break;
+                    //LÈtrehoz egy talaj elemet rajta O'Neill-el, akinÈl egy doboz van
                     case 507:
                         Ground g = new Ground();
                         oneill.createBox(new Box(1));
@@ -233,36 +252,58 @@ public class GameEngine {
                         table[i][j] = g;
                         oneill.setBaseElement(table[i][j]);
                         break;
+                    //LÈtrehoz egy nyitott ajtÛt
+                    case 508:
+                        Door d1 = new Door();
+                        d1.open();
+                        table[i][j] = d1;
+                        break;
                     default:
                         break;
                 }
-                //Létrehoz egy mérleget
+                //LÈtrehoz egy mÈrleget
                 if (thisLine / 100 == 2) {
                     Scale s2 = new Scale();
                     table[i][j] = s2;
                     scales.add(thisLine % 100 - 1, s2);
                     db++;
                 }
-                //Létrehoy egy ajtót
+                //LÈtrehoy egy z·rt ajtÛt
                 if (thisLine / 100 == 3) {
+                    Door d2 = new Door();
+                    table[i][j] = d2;
+                    doors.add(thisLine % 100 - 1, d2);
+                }
+                //LÈtrehoz egy mÈrleget
+                if (thisLine / 100 == 10) {
+                    Scale s3 = new Scale();
+                    table[i][j] = s3;
+                    scales.add(thisLine % 100 - 1, s3);
+                    odb++;
+                }
+                //LÈtrehoy egy nyitott ajtÛt
+                if (thisLine / 100 == 11) {
                     Door d3 = new Door();
                     table[i][j] = d3;
-                    int index = thisLine % 100 - 1;
-                    doors.add(index, d3);
+                    doors.add(thisLine % 100 - 1, d3);
                 }
             }
         }
-        //A mérlegeknek beálltja az ajtót
+        //A mÈrlegeknek be·lltja az ajtÛt
         for(int k = 0; k < db; k++){
             scales.get(k).setDoor(doors.get(k));
         }
+        //A mÈrlegeknek be·lltja az ajtÛt
+        for(int k = 0; k < odb; k++){
+            oscales.get(k).setDoor(odoors.get(k));
+        }
 
         br.close();
-        //Beálltja a szomszédokat
+        //Be·lltja a szomszÈdokat
         setNeighbours(table, row, column);
     }
 
-    //Beálltja a szomszédokat
+    //Be·lltja a szomszÈdokat
     public void setNeighbours(MapElement[][] table, int row, int column) {
         table[0][0].setNeighbour(Direction.Right, table[0][1]);
         table[0][0].setNeighbour(Direction.Down, table[1][0]);

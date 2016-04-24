@@ -9,7 +9,6 @@ public class Ground extends MapElement {
 
     // konstruktor a talaj objektumhoz
     public  Ground() {
-
     }
 
     // parameteres konstruktor, mely beallít egy boxot
@@ -50,7 +49,7 @@ public class Ground extends MapElement {
 
     // atallitja a doboz parametert
     public void createBox() {
-        this.box = box;
+        //this.box = box;
         // TODO
     }
 

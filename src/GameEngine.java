@@ -159,21 +159,21 @@ public class GameEngine {
                 switch (thisLine) {
                     //Létrehoz egy talaj elemet
                     case 1:
-                        table[i][j] = new Ground(null, null);
+                        table[i][j] = new Ground();
                         break;
                     //Létrehoz egz talaj elemet egy ZPM-mel
                     case 2:
                         ZPM z = new ZPM();
-                        table[i][j] = new Ground(null, z);
+                        table[i][j] = new Ground(z);
                         break;
                     //Létrehoz egy talaj elemet egy dobozzal
                     case 3:
-                        Box b = new Box();
-                        table[i][j] = new Ground(b, null);
+                        Box b = new Box(1);
+                        table[i][j] = new Ground(b);
                         break;
                     //Létrehoz egy talaj elemet rajta O'Neill-lel
                     case 4:
-                        table[i][j] = new Ground(null, null);
+                        table[i][j] = new Ground();
                         oneill.setBaseElement(table[i][j]);
                         table[i][j].setPlayer(oneill);
                         break;
@@ -210,7 +210,7 @@ public class GameEngine {
                     //Létrehoz egy mérleget egy dobozzal
                     case 504:
                         Scale s1 = new Scale();
-                        s1.createBox(new Box());
+                        s1.createBox(new Box(1)); //random 1 suly yolo
                         table[i][j] = s1;
                         break;
                     //Létrehoz egy különleges falat rajta lefelé néző kék portállal
@@ -227,7 +227,7 @@ public class GameEngine {
                         break;
                     //Létrehoz egy talaj elemet rajta O'Neill-el, akinél egy doboz van
                     case 507:
-                        Ground g = new Ground(null, null);
+                        Ground g = new Ground();
                         oneill.createBox(new Box(1));
                         g.setPlayer(oneill);
                         table[i][j] = g;

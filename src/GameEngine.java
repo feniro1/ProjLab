@@ -54,18 +54,27 @@ public class GameEngine {
             String i = s.nextLine();
 
             try {
-                Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("test.txt"), "utf-8"));
-                writer.write("something");
+                //fajl megnyitasa
+                File file = new File("test.txt");
+
+                //ha nem letezik letrehozzuk
+                if(!file.exists()){
+                    file.createNewFile();
+                }
+
+                FileWriter fw = new FileWriter(file, true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter pw = new PrintWriter(bw);
 
                 switch (i) {
                     //foldon jaras
                     case "0":
                         loadMap(0);
-                        statusPrintOut(writer);
+                        statusPrintOut(pw);
                         oneill.move(Direction.Right);
-
+                        statusPrintOut(pw);
                         oneill.move(Direction.Up);
-
+                        statusPrintOut(pw);
                         break;
                     //ajton atlepes
                     case "1":
@@ -136,23 +145,25 @@ public class GameEngine {
 
     }
 
-    private void statusPrintOut(Writer file) {
+    private void statusPrintOut(PrintWriter file) throws IOException {
         MapElement actual = firstElement;
         for (int i = 0; i < row - 1; i++) {
-            file.write(actual.symbol());
+            file.print(actual.symbol());
             for (int j = 0; j < column - 1; j++){
                 actual = actual.getNextElement(Direction.Right);
-                actual.symbol();
+                file.print(actual.symbol());
             }
             for (int k = 0; k < column - 1; k++){
                 actual = actual.getNextElement(Direction.Left);
             }
             actual = actual.getNextElement(Direction.Down);
+            file.println();
         }
-        actual.symbol();
+        // a palya utolso soranak kiirasa
+        file.print(actual.symbol());
         for (int j = 0; j < column - 1; j++){
             actual = actual.getNextElement(Direction.Right);
-            actual.symbol();
+            file.print(actual.symbol());
         }
 
     }

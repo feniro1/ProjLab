@@ -62,6 +62,14 @@ public class Scale extends MapElement {
         return true;
     }
 
+    public String symbol(){
+        if(hasBox()){
+            return "$";
+        } else {
+            return "S";
+        }
+    }
+
     //Felveheto a merlegen levo legfelso doboz, ha van rajta.
     public Box pickUp() {
         if (hasBox()) {

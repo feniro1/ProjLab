@@ -8,6 +8,10 @@ public class Rift extends MapElement {
 
     }
 
+    public String symbol(){
+        return "R";
+    }
+
     public boolean stepOn(Player player) {
         player.kill();
         return true;

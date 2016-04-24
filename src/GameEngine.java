@@ -53,46 +53,55 @@ public class GameEngine {
 
             try {
                 switch (i) {
-                    //movement on ground
+                    //foldon jaras
                     case "0":
                         loadMap(0);
+                        oneill.move(Direction.Right);
+                        oneill.move(Direction.Up);
                         break;
-                    //movement from scale
+                    //ajton atlepes
                     case "1":
                         loadMap(1);
                         oneill.move(Direction.Up);
+                        oneill.move(Direction.Up);
                         break;
-                    //movement to door
+                    //feregjaraton atmenes
                     case "2":
                         loadMap(2);
-                        oneill.move(Direction.Up);
+                        oneill.move(Direction.Right);
                         break;
-                    //movement to rift
+                    //szakadekba eses
                     case "3":
                         loadMap(3);
-                        oneill.move(Direction.Up);
+                        oneill.move(Direction.Right);
                         break;
-                    //movement to scale
+                    //lovedekcsavo
                     case "4":
                         loadMap(4);
-                        oneill.move(Direction.Up);
+                        oneill.shoot(Color.Yellow);
                         break;
-                    //movement to wall
+                    //doboz felvetele merlegrol
                     case "5":
                         loadMap(5);
-                        oneill.move(Direction.Up);
+                        oneill.turn();
+                        oneill.turn();
+                        oneill.turn();
+                        oneill.pickUp();
                         break;
-                    //pick up box from ground
+                    //doboz letevese merlegre
                     case "6":
                         loadMap(6);
-                        oneill.pickUp();
+                        oneill.turn();
+                        oneill.turn();
+                        oneill.turn();
+                        oneill.putDown();
                         break;
-                    //pick up box from scale
+                    //ZPM felvetele
                     case "7":
                         loadMap(7);
-                        oneill.pickUp();
+                        oneill.move(Direction.Up);
                         break;
-                    //put down box to ground
+                    //Replicator szakadekba esese
                     case "8":
                         loadMap(8);
                         oneill.putDown();

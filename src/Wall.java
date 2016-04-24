@@ -8,4 +8,9 @@ public class Wall extends MapElement {
     public boolean stepOn(Player colonel) {
         return super.stepOn(colonel);
     }
+
+    public String symbol(){
+        return "X";
+    }
+
 }

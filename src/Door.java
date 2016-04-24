@@ -22,6 +22,13 @@ public class Door extends MapElement {
         isOpen = false;
     }
 
+    public String symbol(){
+        if(isOpen){
+            return ".";
+        } else {
+            return "!";
+        }
+    }
 
     // visszaadja, hogy odalephet-e az ezredes az ajto allapotatol fuggoen
     @Override

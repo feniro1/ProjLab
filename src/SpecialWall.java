@@ -56,5 +56,9 @@ public class SpecialWall extends Wall {
         return wheretoGo;
     }
 
+    public String symbol(){
+        return "%";
+    }
+
 
 }

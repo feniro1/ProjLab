@@ -37,6 +37,16 @@ public class Ground extends MapElement {
         return false;
     }
 
+    public String symbol(){
+        if(hasBox()) {
+            return "B";
+        } else if(hasZPM()){
+            return "Z";
+        }else {
+            return " ";
+        }
+    }
+
     // null-ra allitja a zpm parametert
     public void removeZPM() {
         zpm = null;

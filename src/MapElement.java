@@ -30,6 +30,9 @@ public abstract class MapElement {
         rep = _rep;
     }
 
+    public String symbol(){
+        return "";
+    }
 
     // visszaadja, hogy ralephetsz-e a mapElementre, alapbol false
     public boolean stepOn(Player player) {

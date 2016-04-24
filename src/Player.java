@@ -122,20 +122,20 @@ public class Player {
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
+
+
         me.setPlayer(this);
         baseElement.setPlayer(null);
         baseElement = me;
+
         if(me.isSpecWall) {
+            SpecialWall sw = (SpecialWall)me;
+            MapElement targetME = sw.walkthroughWormHole(this);
+            if(targetME.stepOn(this)){
+                stepOff(targetME);
+            }
+        }
 
-        }
-        else if(me.isScale){
-
-        }
-        else {
-            me.setPlayer(this);
-            baseElement.setPlayer(null);
-            baseElement = me;
-        }
     }
 
     public void setBaseElement(MapElement me) {

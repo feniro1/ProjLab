@@ -65,17 +65,18 @@ public class GameEngine {
 
                 FileWriter fw = new FileWriter(file, true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                PrintWriter pw = new PrintWriter(bw);
+                // PrintWriter pw = new PrintWriter(bw);
 
                 switch (i) {
                     //foldon jaras
                     case "0":
                         loadMap(0);
-                        statusPrintOut(pw);
+                        statusPrintOut(bw);
                         oneill.move(Direction.Right);
-                        statusPrintOut(pw);
+                        statusPrintOut(bw);
                         oneill.move(Direction.Up);
-                        statusPrintOut(pw);
+                        statusPrintOut(bw);
+                        bw.close();
                         break;
                     //ajton atlepes
                     case "1":
@@ -146,25 +147,26 @@ public class GameEngine {
 
     }
 
-    private void statusPrintOut(PrintWriter file) throws IOException {
+    private void statusPrintOut(Writer file) throws IOException {
         MapElement actual = firstElement;
         for (int i = 0; i < row - 1; i++) {
-            file.print(actual.symbol());
+            file.write(actual.symbol());
             for (int j = 0; j < column - 1; j++){
                 actual = actual.getNextElement(Direction.Right);
-                file.print(actual.symbol());
+                file.write(actual.symbol());
             }
             for (int k = 0; k < column - 1; k++){
                 actual = actual.getNextElement(Direction.Left);
             }
             actual = actual.getNextElement(Direction.Down);
-            file.println();
+            file.write("\n");
         }
+
         // a palya utolso soranak kiirasa
-        file.print(actual.symbol());
+        file.write(actual.symbol());
         for (int j = 0; j < column - 1; j++){
             actual = actual.getNextElement(Direction.Right);
-            file.print(actual.symbol());
+            file.write(actual.symbol());
         }
 
     }
@@ -339,6 +341,7 @@ public class GameEngine {
 
         br.close();
         //Be·lltja a szomszÈdokat
+        firstElement = table[0][0];
         setNeighbours(table, row, column);
     }
 

@@ -122,11 +122,10 @@ public class Player {
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
-
-
-        me.setPlayer(this);
-        baseElement.setPlayer(null);
-        baseElement = me;
+        if(baseElement.isScale){
+            Scale sc = (Scale)baseElement;
+            sc.getDoor().close();
+        }
 
         if(me.isSpecWall) {
             SpecialWall sw = (SpecialWall)me;
@@ -134,6 +133,10 @@ public class Player {
             if(targetME.stepOn(this)){
                 stepOff(targetME);
             }
+        } else {
+            me.setPlayer(this);
+            baseElement.setPlayer(null);
+            baseElement = me;
         }
 
     }

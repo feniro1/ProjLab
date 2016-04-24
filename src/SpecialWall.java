@@ -40,7 +40,7 @@ public class SpecialWall extends Wall {
     }
     //ez azert van mert ha van feregjarat akkor a jatekosnak nem a steponban lekerdezett elem kovetkezo elemere kell lepnie
     //hanem oda ahol a feregjarat masik portalja van
-    //na ezt ay elemet kapjuk meg ezzel a fuggvennyel MapElementtel ter tehat vissza
+    //na ezt az elemet kapjuk meg ezzel a fuggvennyel MapElementtel ter tehat vissza
     public MapElement walkthroughWormHole(Player player){
         Direction dir = player.getLookDirection().reverse();
 

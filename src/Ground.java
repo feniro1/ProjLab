@@ -42,7 +42,11 @@ public class Ground extends MapElement {
             return "B";
         } else if(hasZPM()){
             return "Z";
-        }else {
+        } else if(col != null){
+            return "O";
+        } else if(rep != null){
+            return "@";
+        } else {
             return " ";
         }
     }

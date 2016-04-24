@@ -65,17 +65,17 @@ public class GameEngine {
 
                 FileWriter fw = new FileWriter(file, true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                // PrintWriter pw = new PrintWriter(bw);
+                PrintWriter pw = new PrintWriter(bw);
 
                 switch (i) {
                     //foldon jaras
                     case "0":
                         loadMap(0);
-                        statusPrintOut(bw);
+                        statusPrintOut(pw);
                         oneill.move(Direction.Right);
-                        statusPrintOut(bw);
+                        statusPrintOut(pw);
                         oneill.move(Direction.Up);
-                        statusPrintOut(bw);
+                        statusPrintOut(pw);
                         bw.close();
                         break;
                     //ajton atlepes
@@ -147,28 +147,29 @@ public class GameEngine {
 
     }
 
-    private void statusPrintOut(Writer file) throws IOException {
+    private void statusPrintOut(PrintWriter file) throws IOException {
         MapElement actual = firstElement;
         for (int i = 0; i < row - 1; i++) {
-            file.write(actual.symbol());
+            file.print(actual.symbol());
             for (int j = 0; j < column - 1; j++){
                 actual = actual.getNextElement(Direction.Right);
-                file.write(actual.symbol());
+                file.print(actual.symbol());
             }
             for (int k = 0; k < column - 1; k++){
                 actual = actual.getNextElement(Direction.Left);
             }
             actual = actual.getNextElement(Direction.Down);
-            file.write("\n");
+            file.println();
         }
 
         // a palya utolso soranak kiirasa
-        file.write(actual.symbol());
+        file.print(actual.symbol());
         for (int j = 0; j < column - 1; j++){
             actual = actual.getNextElement(Direction.Right);
-            file.write(actual.symbol());
+            file.print(actual.symbol());
         }
-
+        file.println();
+        file.println();
     }
 
     //F·jlbÛl betˆlti, Ès lÈtrehozza a mapelementeket

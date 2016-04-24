@@ -188,7 +188,7 @@ public class GameEngine {
                         break;
                     //LÈtrehoz egy mÈrleget rajta O'Neillel
                     case 501:
-                        Scale s1 = new Scale();
+                        Scale s1 = new Scale(1);
                         s1.isScale = true;
                         table[i][j] = s1;
                         oneill.setBaseElement(table[i][j]);
@@ -196,7 +196,7 @@ public class GameEngine {
                         break;
                     //LÈtrehoz egy mÈrleget egy dobozzal
                     case 502:
-                        Scale s2 = new Scale();
+                        Scale s2 = new Scale(1);
                         s2.isScale = true;
                         s2.createBox(new Box(1)); //random 1 suly yolo
                         table[i][j] = s2;
@@ -248,7 +248,7 @@ public class GameEngine {
                 }
                 //LÈtrehoz egy mÈrleget
                 if (thisLine / 100 == 2) {
-                    Scale s3 = new Scale();
+                    Scale s3 = new Scale(1);
                     s3.isScale = true;
                     table[i][j] = s3;
                     scales.add(thisLine % 100 - 1, s3);
@@ -262,7 +262,7 @@ public class GameEngine {
                 }
                 //LÈtrehoz egy mÈrleget
                 if (thisLine / 100 == 10) {
-                    Scale s4 = new Scale();
+                    Scale s4 = new Scale(1);
                     s4.isScale = true;
                     table[i][j] = s4;
                     scales.add(thisLine % 100 - 1, s4);

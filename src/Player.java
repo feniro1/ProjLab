@@ -13,21 +13,24 @@ public class Player {
     private boolean isAlive;
     private boolean hasToPlaceDownZPM;
     private int weight;
+    private String name;
 
     //Az ezredes inicializalasa, attributumainak alapertelmezett ertekekre allitasa
-    public Player() {
+    public Player(String n) {
         lookDirection = Direction.Up;
         ZPMNumber = 0;
         box = null;
         isAlive = true;
+        name = n;
     }
 
-    public Player(MapElement _baseElement){
+    public Player(MapElement _baseElement, String n){
         lookDirection = Direction.Up;
         baseElement = _baseElement;
         ZPMNumber = 0;
         box = null;
         isAlive = true;
+        name = n;
     }
 
     //Visszater azzal az irannyal, ahova az ezredes nez
@@ -36,6 +39,18 @@ public class Player {
     }
 
     public int getWeight(){ return weight; }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getZPMNumber () {
+        return ZPMNumber;
+    }
+
+    public MapElement getBaseElement() {
+        return baseElement;
+    }
 
     public String symbol(){
         return "O";
@@ -119,6 +134,11 @@ public class Player {
         ZPMNumber++;
     }
 
+    public boolean hasBox(){
+        if(box == null)
+            return false;
+        else return true;
+    }
 
     //Csak a tesztesetek latvanyos feltuntetese celjabol
     public void createBox(Box b) {

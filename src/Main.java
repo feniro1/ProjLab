@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         //Player es Wormhole inicializalasa
-        Player oneill = new Player();
+        Player oneill = new Player("Oneill");
         WormHole wh = new WormHole();
         Replicator rep = new Replicator();
 

@@ -72,11 +72,18 @@ public class GameEngine {
                     case "0":
                         loadMap(0);
                         statusPrintOut(pw);
+
+                        pw.println("move Oneill right");
+                        pw.println();
                         oneill.move(Direction.Right);
                         statusPrintOut(pw);
+
+                        pw.println("move Oneill up");
+                        pw.println();
                         oneill.move(Direction.Up);
                         statusPrintOut(pw);
-                        bw.close();
+
+                        pw.close();
                         break;
                     //ajton atlepes
                     case "1":
@@ -169,6 +176,15 @@ public class GameEngine {
             file.print(actual.symbol());
         }
         file.println();
+        file.println();
+
+        file.println(oneill.getName() + " " + oneill.getLookDirection() + " nez");
+        file.println(oneill.getName() + "nal " + oneill.getZPMNumber() + " db ZPM van");
+        if(oneill.hasBox())
+            file.println(oneill.getName() + "nal van doboz");
+        else
+            file.println(oneill.getName() + "nal nincs doboz");
+        file.println(oneill.getName() + " egy " + oneill.getBaseElement().getClass() + " objektumon all");
         file.println();
     }
 

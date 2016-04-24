@@ -19,7 +19,6 @@ public abstract class MapElement {
 
 
     public void draw() { // kirajzolja a palyat, kesobb lesz implementalva
-
     }
 
     public void setPlayer(Player player) { // beallit egy ezredest az adott mapElementre, ha az rajta van

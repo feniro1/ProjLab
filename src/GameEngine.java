@@ -178,13 +178,13 @@ public class GameEngine {
         file.println();
         file.println();
 
-        file.println(oneill.getName() + " " + oneill.getLookDirection() + " nez");
+        file.println(oneill.getName() + " " + oneill.getLookDirection().toHungarian() + " nez");
         file.println(oneill.getName() + "nal " + oneill.getZPMNumber() + " db ZPM van");
         if(oneill.hasBox())
             file.println(oneill.getName() + "nal van doboz");
         else
             file.println(oneill.getName() + "nal nincs doboz");
-        file.println(oneill.getName() + " egy " + oneill.getBaseElement().getClass() + " objektumon all");
+        file.println(oneill.getName() + " egy " + oneill.getBaseElement().getClass().getSimpleName() + " objektumon all");
         file.println();
     }
 

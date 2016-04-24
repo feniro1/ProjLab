@@ -18,6 +18,16 @@ public enum Direction {
         return value;
     }
 
+    public String toHungarian (){
+        switch(value){
+            case 0: return "felfele";
+            case 1: return "jobbra";
+            case 2: return "lefele";
+            case 3: return "balra";
+        }
+        return "";
+    }
+
     //Visszafele is haladhatunk rajtuk
     public Direction reverse(){
         switch(value){

@@ -4,83 +4,82 @@ import java.util.*;
 
 public class Ground extends MapElement {
 
-    private Box box = null; // alapértelmezetten nincs a talajon doboz
-    private ZPM zpm = null; // alapértelmezetten nincs a talajon ZPM modul
+    private Box box = null; // alapertelmezetten nincs a talajon doboz
+    private ZPM zpm = null; // alapertelmezetten nincs a talajon ZPM modul
 
-
+    // konstruktor a talaj objektumhoz
     public  Ground() {
-        System.out.println("A talaj objektum letrehozasa sikeresen megtortent.");
-    } // konstruktor a talaj objektumhoz
 
-    public Ground(Box box, ZPM zpm) { // paraméteres konstruktor, mely beállít egy zpm modult és egy boxot
+    }
+
+    // parameteres konstruktor, mely beallít egy boxot
+    public Ground(Box box) {
         this.box = box;
+    }
+
+    // parameteres konstruktor, mely beallít egy zpm modult
+    public Ground(ZPM zpm) {
         this.zpm = zpm;
-        System.out.println("A talaj objektum letrehozasa sikeresen megtortent.");
     }
 
-    public boolean hasZPM() { // visszaadja, hogy a talajon van-e zpm
+    // visszaadja, hogy a talajon van-e zpm
+    public boolean hasZPM() {
         if (zpm != null) {
-            System.out.println("A talajon van ZPM.");
             return true;
         }
-        System.out.println("A talajon nincs ZPM.");
         return false;
     }
 
-    public boolean hasBox() { // visszaadja, hogy a talajon van-e doboz
+    // visszaadja, hogy a talajon van-e doboz
+    public boolean hasBox() {
         if (box != null) {
-            System.out.println("A talajon van doboz.");
             return true;
         }
-        System.out.println("A talajon nincs doboz.");
         return false;
     }
 
-    public void removeZPM() { // null-ra állítja a zpm paramétert
+    // null-ra allitja a zpm parametert
+    public void removeZPM() {
         zpm = null;
-        System.out.println("A talaj objektumon nincs tobbe ZPM.");
     }
 
-    public void removeBox() { // null-ra állítja a doboz paramétert
+    // null-ra allitja a doboz parametert
+    public void removeBox() {
         box = null;
-        System.out.println("A talaj objektumon nincs tobbe doboz.");
     }
 
-    public void createBox() { // átállítja a doboz paramétert
+    // atallitja a doboz parametert
+    public void createBox() {
         this.box = box;
-        System.out.println("A talajra rakerult egy doboz");
-
+        // TODO
     }
 
-    public boolean stepOn(Player Player) { //visszaadja, hogy az ezredes ráléphet-e a talaj objektumra
+    // visszaadja, hogy az ezredes ralephet-e a talaj objektumra
+    public boolean stepOn(Player Player) {
         if (!hasBox()) {
-            System.out.println("A talajon nincs doboz, igy az ezredes ralephet.");
             return true;
+            // TODO: itt kezeljuk le a zpm felvetelt? v mivan?
         }
-
-        System.out.println("A talajon van doboz.");
         return false;
 
     }
 
-    public Box pickUp() { // visszaad egy doboz objektumot, ha van neki
+    // visszaad egy doboz objektumot, ha van neki
+    public Box pickUp() {
         if (hasBox()) {
             Box tmp = box;
             removeBox();
-            System.out.println("Az ezredes a dobozt sikeresen felvette.");
             return tmp;
         }
-        System.out.println("Nincs mit felvegyel, mivel nincs elotted doboz");
         return null;
     }
 
-    public boolean putDown(Box b) { // visszaadja, hogy tehet le dobozt az ezredes és ha igen leteszi azt, és visszaad egy booleant, hogy sikerült-e
+    // visszaadja, hogy tehet le dobozt az ezredes es ha igen leteszi azt, es visszaad egy booleant, hogy sikerult-e
+    public boolean putDown(Box b) {
         if (hasBox()) {
-            System.out.println("A talajon mar van doboz, igy nem teheted le.");
             return false;
         } else {
             box = b;
-            System.out.println("Leteheted a dobozt.");
             return true;
         }
     }

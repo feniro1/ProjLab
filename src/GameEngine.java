@@ -182,43 +182,52 @@ public class GameEngine {
                         break;
                     //LÈtrehoz egy k¸lˆnleges falat
                     case 9:
-                        table[i][j] = new SpecialWall(wormhole);
+                        SpecialWall sw1 = new SpecialWall(wormhole);
+                        sw1.isSpecWall = true;
+                        table[i][j] = sw1;
                         break;
                     //LÈtrehoz egy mÈrleget rajta O'Neillel
                     case 501:
-                        table[i][j] = new Scale();
+                        Scale s1 = new Scale();
+                        s1.isScale = true;
+                        table[i][j] = s1;
                         oneill.setBaseElement(table[i][j]);
                         table[i][j].setPlayer(oneill);
                         break;
                     //LÈtrehoz egy mÈrleget egy dobozzal
                     case 502:
-                        Scale s1 = new Scale();
-                        s1.createBox(new Box(1)); //random 1 suly yolo
-                        table[i][j] = s1;
+                        Scale s2 = new Scale();
+                        s2.isScale = true;
+                        s2.createBox(new Box(1)); //random 1 suly yolo
+                        table[i][j] = s2;
                         break;
                     //LÈtrehoz egy k¸lˆnleges falat rajta lefelÈ nÈzı kÈk port·llal
                     case 503:
-                        SpecialWall sw1 = new SpecialWall(wormhole);
-                        wormhole.setPortal(Direction.Down, sw1, Color.Blue);
-                        table[i][j] = sw1;
+                        SpecialWall sw2 = new SpecialWall(wormhole);
+                        sw2.isSpecWall = true;
+                        wormhole.setPortal(Direction.Down, sw2, Color.Blue);
+                        table[i][j] = sw2;
                         break;
                     //LÈtrehoz egy k¸lˆnlege falat rajta lefelÈ nÈzı s·rga port·llal
                     case 504:
-                        SpecialWall sw2 = new SpecialWall(wormhole);
-                        wormhole.setPortal(Direction.Down, sw2, Color.Yellow);
-                        table[i][j] = sw2;
+                        SpecialWall sw3 = new SpecialWall(wormhole);
+                        sw3.isSpecWall = true;
+                        wormhole.setPortal(Direction.Down, sw3, Color.Yellow);
+                        table[i][j] = sw3;
                         break;
                     //LÈtrehoz egy k¸lˆnleges falat rajta lefelÈ nÈzı kÈk port·llal
                     case 505:
-                        SpecialWall sw3 = new SpecialWall(wormhole);
-                        wormhole.setPortal(Direction.Down, sw3, Color.Green);
-                        table[i][j] = sw3;
+                        SpecialWall sw4 = new SpecialWall(wormhole);
+                        sw4.isSpecWall = true;
+                        wormhole.setPortal(Direction.Down, sw4, Color.Green);
+                        table[i][j] = sw4;
                         break;
                     //LÈtrehoz egy k¸lˆnlege falat rajta lefelÈ nÈzı s·rga port·llal
                     case 506:
-                        SpecialWall sw4 = new SpecialWall(wormhole);
-                        wormhole.setPortal(Direction.Down, sw4, Color.Red);
-                        table[i][j] = sw4;
+                        SpecialWall sw5 = new SpecialWall(wormhole);
+                        sw5.isSpecWall = true;
+                        wormhole.setPortal(Direction.Down, sw5, Color.Red);
+                        table[i][j] = sw5;
                         break;
                     //LÈtrehoz egy talaj elemet rajta O'Neill-el, akinÈl egy doboz van
                     case 507:
@@ -239,9 +248,10 @@ public class GameEngine {
                 }
                 //LÈtrehoz egy mÈrleget
                 if (thisLine / 100 == 2) {
-                    Scale s2 = new Scale();
-                    table[i][j] = s2;
-                    scales.add(thisLine % 100 - 1, s2);
+                    Scale s3 = new Scale();
+                    s3.isScale = true;
+                    table[i][j] = s3;
+                    scales.add(thisLine % 100 - 1, s3);
                     db++;
                 }
                 //LÈtrehoy egy z·rt ajtÛt
@@ -252,9 +262,10 @@ public class GameEngine {
                 }
                 //LÈtrehoz egy mÈrleget
                 if (thisLine / 100 == 10) {
-                    Scale s3 = new Scale();
-                    table[i][j] = s3;
-                    scales.add(thisLine % 100 - 1, s3);
+                    Scale s4 = new Scale();
+                    s4.isScale = true;
+                    table[i][j] = s4;
+                    scales.add(thisLine % 100 - 1, s4);
                     odb++;
                 }
                 //LÈtrehoy egy nyitott ajtÛt

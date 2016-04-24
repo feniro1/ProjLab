@@ -32,6 +32,10 @@ public class Replicator {
 
     public void setLookDirection(Direction dir) { lookDirection = dir; }
 
+    public String symbol(){
+        return "@";
+    }
+
     public void moveHelper(Direction dir) {
         MapElement nextElement = baseElement.getNextElement(dir);
         if (nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni

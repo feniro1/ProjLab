@@ -48,5 +48,12 @@ public class SpecialWall extends Wall {
         return wheretoGo;
     }
 
+    public MapElement walkthroughWormHole(Replicator replicator){
+        Direction dir = replicator.getLookDirection().reverse();
+
+        MapElement wheretoGo = wormhole.getOtherPortal(dir, this).getDestinationElement();
+        return wheretoGo;
+    }
+
 
 }

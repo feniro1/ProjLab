@@ -26,59 +26,62 @@ public class Replicator {
 
     public void setBaseElement(MapElement me) { baseElement = me; }
 
+    public Direction getLookDirection(){
+        return lookDirection;
+    }
+
+    public void setLookDirection(Direction dir) { lookDirection = dir; }
+
     //A replicator mozgatasa a parameterben kapott irany szerint
     public void move(Direction dir) { // ejsze randomnal nem kell direction, benne is megadhatjuk
-        //setLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
+        setLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
 
-        switch(isRandom){
-            case true:
-                Random rand = new Random();
-                int n = rand.nextInt(4);
-                Direction d;
+        if (isRandom) {
+            Random rand = new Random();
+            int n = rand.nextInt(4);
+            Direction d = Direction.Up; // ebbol lehet bajok lesznek
+            switch (n) {
+                case 0:
+                    d = Direction.Up;
+                    break;
+                case 1:
+                    d = Direction.Right;
+                    break;
+                case 2:
+                    d = Direction.Down;
+                    break;
+                case 3:
+                    d = Direction.Left;
+                    break;
+            }
 
-                switch(n){
-                    case 0: d = Direction.Up;
-                        break;
-                    case 1: d = Direction.Right;
-                        break;
-                    case 2: d = Direction.Down;
-                        break;
-                    case 3: d = Direction.Left;
-                        break;
-                }
+            MapElement nextElement = baseElement.getNextElement(d);
 
-                MapElement nextElement = baseElement.getNextElement(d);
-
-                if(nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
-                    if (nextElement.getClass() == SpecialWall.class) {
-                        SpecialWall sw = (SpecialWall) nextElement;
-                        nextElement = sw.walkthroughWormHole(this);
-                        if (nextElement.stepOn(this)) {
-                            stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-                        }
-                    } else {
+            if (nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
+                if (nextElement.getClass() == SpecialWall.class) {
+                    SpecialWall sw = (SpecialWall) nextElement;
+                    nextElement = sw.walkthroughWormHole(this);
+                    if (nextElement.stepOn(this)) {
                         stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
                     }
+                } else {
+                    stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
                 }
-
-                    break;
+            }
+        } else {
+            MapElement nextElement = baseElement.getNextElement(dir);
+            if (nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
+                if (nextElement.getClass() == SpecialWall.class) {
+                    SpecialWall sw = (SpecialWall) nextElement;
+                    nextElement = sw.walkthroughWormHole(this);
+                    if (nextElement.stepOn(this)) {
+                        stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
+                    }
+                } else {
+                    stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
+                }
+            }
         }
-
-//        MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet
-//
-//        if(nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
-//            if (nextElement.getClass() == SpecialWall.class){
-//                SpecialWall sw = (SpecialWall)nextElement;
-//                nextElement = sw.walkthroughWormHole(this);
-//                if (nextElement.stepOn(this)) {
-//                    stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-//                }
-//            }
-//            else {
-//                stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
-//            }
-//
-//        }
     }
 
     public void stepOff(MapElement me) {
@@ -92,7 +95,7 @@ public class Replicator {
 
         }
         else {
-            me.setPlayer(this);
+            me.setReplicator(this);
             baseElement.setReplicator(null);
             baseElement = me;
         }

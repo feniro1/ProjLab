@@ -56,6 +56,8 @@ public class SpecialWall extends Wall {
         return wheretoGo;
     }
 
+    //Kirajzoláshoz lekérjük, hogy vagy-e a falnak portálja, ehhez végig kell nézni a 4 portált, hogy
+    //az ehhez a falhoz tartozik-e
     public boolean hasPortal() {
         if (this == wormhole.getPortal(Color.Yellow).getSpecWall()) return true;
         if (this == wormhole.getPortal(Color.Blue).getSpecWall()) return true;
@@ -64,6 +66,7 @@ public class SpecialWall extends Wall {
         return false;
     }
 
+    //Kirajzolást segítő függvény. Ha portál van a falon #-et rajzolunk, ha sima speciális fal %-t.
     public String symbol(){
         if(hasPortal())
             return "#";

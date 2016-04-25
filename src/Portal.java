@@ -47,6 +47,7 @@ public class Portal {
         return color;
     }
 
+    //Portálhoz tartozó speciális fal lekérdezést. A férekjáraton való áthaladáskor szükséges.
     public MapElement getDestinationElement(){
         return specwall.getNextElement(dir);
     }

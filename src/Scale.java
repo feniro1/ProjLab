@@ -55,6 +55,7 @@ public class Scale extends MapElement {
         return true;
     }
 
+    //ugyanaz mint az előző, csak replikátorra
     public boolean stepOn(Replicator repl) {
         if (hasBox()) {
             return false;
@@ -62,6 +63,8 @@ public class Scale extends MapElement {
         return true;
     }
 
+    //Ha nincs doboz és játékos a mérlegen, vagy ha replikátor van, akkor eltalálta a golyó, tehát tru-val
+    //téreünk vissza replikátor esetén megöljük azt, ellenkező esetben false
     public boolean hit(Bullet bullet) {
         if((!hasBox()) && (col == null)) {
             if(rep != null){
@@ -75,6 +78,7 @@ public class Scale extends MapElement {
         return true;
     }
 
+    //Kirajzoláshoz szükséges. Ha vn rajta doboz $, ha nincs S-t rajzolunk ki
     public String symbol(){
         if(hasBox()){
             return "$";

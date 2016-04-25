@@ -33,7 +33,7 @@ public class Player {
         name = n;
     }
 
-    //Visszater azzal az irannyal, ahova a jatekos nez
+    //Visszater azzal az irannyal, ahova az ezredes nez
     public Direction getLookDirection(){
         return lookDirection;
     }
@@ -108,7 +108,7 @@ public class Player {
         }
     }
 
-    // adott jatekos balra fordulasat valositja meg
+
     public void turn() {
         switch(lookDirection){
             case Up: setLookDirection(Direction.Left);
@@ -139,7 +139,6 @@ public class Player {
         ZPMNumber++;
     }
 
-    //logikai ertek, megmondja, hogy van-e az adott jatekosnal doboz
     public boolean hasBox(){
         if(box == null)
             return false;
@@ -159,13 +158,11 @@ public class Player {
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
-        //ha Scale palyaelemrol lepunk le, akkor lehet be kell zarni az ajtot
         if(baseElement.isScale){
             Scale sc = (Scale)baseElement;
             sc.getDoor().close();
         }
 
-        // ha SpecialWall palyaelemre lepunk, le kell kerni, hogy a portalhoz tartozo masik portal milyen palyaelemre nyilik
         if(me.isSpecWall) {
             SpecialWall sw = (SpecialWall)me;
             MapElement targetME = sw.walkthroughWormHole(this);

@@ -22,11 +22,13 @@ public class Rift extends MapElement {
     public void replaceWithGround() {
         Ground g = new Ground();
 
+        //beállítjuk az új ground szomszédjait a rift szomszédjai alapján
         g.setNeighbour(Direction.Down, this.getNextElement(Direction.Down));
         g.setNeighbour(Direction.Left, this.getNextElement(Direction.Left));
         g.setNeighbour(Direction.Up, this.getNextElement(Direction.Up));
         g.setNeighbour(Direction.Right, this.getNextElement(Direction.Right));
 
+        //a rift szomszédainak szomszédait beállítjuk az új ground elemre
         this.getNextElement(Direction.Down).setNeighbour(Direction.Up,g);
         this.getNextElement(Direction.Right).setNeighbour(Direction.Left,g);
         this.getNextElement(Direction.Left).setNeighbour(Direction.Right,g);

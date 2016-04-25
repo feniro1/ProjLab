@@ -52,6 +52,7 @@ public class WormHole {
         }
     }
 
+    //Le lehet kérni a portálokat szín alapján, ez is a kirajzoláskor kell.
     public Portal getPortal(Color col) {
         switch(col) {
             case Yellow:

@@ -61,17 +61,15 @@ public class Ground extends MapElement {
         box = null;
     }
 
-    // atallitja a doboz parametert
-    public void createBox() {
-        //this.box = box;
-        // TODO
-    }
 
     // visszaadja, hogy az ezredes ralephet-e a talaj objektumra
-    public boolean stepOn(Player Player) {
+    public boolean stepOn(Player player) {
         if (!hasBox()) {
+            if (hasZPM()) {
+                player.incZPMNumber();
+                removeZPM();
+            }
             return true;
-            // TODO: itt kezeljuk le a zpm felvetelt? v mivan?
         }
         return false;
 

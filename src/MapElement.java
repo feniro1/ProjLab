@@ -25,6 +25,7 @@ public abstract class MapElement {
         col = player;
     }
 
+    //
     public void setReplicator(Replicator _rep) { // beallit egy ezredest az adott mapElementre, ha az rajta van
         rep = _rep;
     }

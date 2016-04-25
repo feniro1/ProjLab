@@ -12,11 +12,13 @@ public class Rift extends MapElement {
         return "R";
     }
 
+    // player ralepesenel meghal a player
     public boolean stepOn(Player player) {
         player.kill();
         return true;
     }
 
+    // a replicator ralepesenel ground objektumra csereljuk ki a riftet
     public void replaceWithGround() {
         Ground g = new Ground();
 
@@ -37,11 +39,11 @@ public class Rift extends MapElement {
 
     }
 
+    // ha ralep egy replicator megoljuk a replicatort
     public boolean stepOn(Replicator _rep) {
         _rep.killedByRift();
         return true;
     }
-
 
 
     // visszaadja, hogy lehet ra tenni, dobozt es a doboz megsemmisul

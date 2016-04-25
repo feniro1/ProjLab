@@ -24,7 +24,10 @@ public class Door extends MapElement {
 
     public String symbol(){
         if(isOpen){
-            return ".";
+            if(col != null)
+                return "O";
+            else
+                return ".";
         } else {
             return "!";
         }

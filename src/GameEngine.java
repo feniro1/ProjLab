@@ -58,10 +58,11 @@ public class GameEngine {
                 //fajl megnyitasa
                 File file = new File("test.txt");
 
-                //ha nem letezik letrehozzuk
-                if(!file.exists()){
-                    file.createNewFile();
+                //ha letezik kitoroljuk
+                if(file.exists()){
+                    file.delete();
                 }
+                file.createNewFile();
 
                 FileWriter fw = new FileWriter(file, true);
                 BufferedWriter bw = new BufferedWriter(fw);
@@ -135,67 +136,122 @@ public class GameEngine {
             //foldon jaras
             case 0:
                 loadMap(0);
-                statusPrintOut(pw);
+                mapPrintOut(pw);
 
                 pw.println("move Oneill right");
                 pw.println();
                 oneill.move(Direction.Right);
-                statusPrintOut(pw);
+                mapPrintOut(pw);
 
                 pw.println("move Oneill up");
                 pw.println();
                 oneill.move(Direction.Up);
-                statusPrintOut(pw);
+                mapPrintOut(pw);
 
                 pw.close();
                 break;
             //ajton atlepes
             case 1:
                 loadMap(1);
+                mapPrintOut(pw);
+
+                pw.println("move Oneill up");
+                pw.println();
                 oneill.move(Direction.Up);
+                mapPrintOut(pw);
+
+                pw.println("move Oneill up");
+                pw.println();
                 oneill.move(Direction.Up);
+                mapPrintOut(pw);
+
+                pw.close();
                 break;
             //feregjaraton atmenes
             case 2:
                 loadMap(2);
+                mapPrintOut(pw);
+
+                pw.println("move Oneill right");
+                pw.println();
                 oneill.move(Direction.Right);
+                mapPrintOut(pw);
+
+                pw.close();
                 break;
             //szakadekba eses
             case 3:
                 loadMap(3);
-                oneill.move(Direction.Right);
+                mapPrintOut(pw);
+
+                pw.println("move Oneill up");
+                pw.println();
+                oneill.move(Direction.Up);
+                mapPrintOut(pw);
+
+                pw.close();
                 break;
             //lovedek
             case 4:
                 loadMap(4);
-                statusPrintOut(pw);
+                mapPrintOut(pw);
 
                 pw.println("shoot Oneill yellow");
                 pw.println();
                 oneill.shoot(Color.Yellow);
-                statusPrintOut(pw);
+                mapPrintOut(pw);
+
                 pw.close();
                 break;
             //doboz felvetele merlegrol
             case 5:
                 loadMap(5);
+                mapPrintOut(pw);
+
+                pw.println("turn Oneill");
+                pw.println();
                 oneill.turn();
                 oneill.turn();
                 oneill.turn();
+                mapPrintOut(pw);
+
+                pw.println("pickUp Oneill");
+                pw.println();
                 oneill.pickUp();
+                mapPrintOut(pw);
+
+                pw.close();
                 break;
             //doboz letevese merlegre
             case 6:
                 loadMap(6);
+                mapPrintOut(pw);
+
+                pw.println("turn Oneill");
+                pw.println();
                 oneill.turn();
                 oneill.turn();
                 oneill.turn();
+                mapPrintOut(pw);
+
+                pw.println("putDown Oneill");
+                pw.println();
                 oneill.putDown();
+                mapPrintOut(pw);
+
+                pw.close();
                 break;
             //ZPM felvetele
             case 7:
                 loadMap(7);
+                mapPrintOut(pw);
+
+                pw.println("move Oneill up");
+                pw.println();
                 oneill.move(Direction.Up);
+                mapPrintOut(pw);
+
+                pw.close();
                 break;
             //Replicator szakadekba esese
             case 8:
@@ -207,15 +263,15 @@ public class GameEngine {
         }
     }
 
-    private void statusPrintOut(PrintWriter file) throws IOException {
+    private void mapPrintOut(PrintWriter file) throws IOException {
         MapElement actual = firstElement;
         for (int i = 0; i < row - 1; i++) {
             file.print(actual.symbol());
-            for (int j = 0; j < column - 1; j++){
+            for (int j = 0; j < column - 1; j++) {
                 actual = actual.getNextElement(Direction.Right);
                 file.print(actual.symbol());
             }
-            for (int k = 0; k < column - 1; k++){
+            for (int k = 0; k < column - 1; k++) {
                 actual = actual.getNextElement(Direction.Left);
             }
             actual = actual.getNextElement(Direction.Down);
@@ -224,20 +280,28 @@ public class GameEngine {
 
         // a palya utolso soranak kiirasa
         file.print(actual.symbol());
-        for (int j = 0; j < column - 1; j++){
+        for (int j = 0; j < column - 1; j++) {
             actual = actual.getNextElement(Direction.Right);
             file.print(actual.symbol());
         }
         file.println();
         file.println();
 
+        statusPrintOut(file);
+    }
+
+    public void statusPrintOut(PrintWriter file) {
         file.println(oneill.getName() + " " + oneill.getLookDirection().toHungarian() + " nez");
         file.println(oneill.getName() + "nal " + oneill.getZPMNumber() + " db ZPM van");
         if(oneill.hasBox())
             file.println(oneill.getName() + "nal van doboz");
         else
             file.println(oneill.getName() + "nal nincs doboz");
-        file.println(oneill.getName() + " egy " + oneill.getBaseElement().getClass().getSimpleName() + " objektumon all");
+        String className = oneill.getBaseElement().getClass().getSimpleName();
+        if (className == "Rift")
+            file.println(oneill.getName() + " egy Mennyorszag objektumon all");
+        else
+            file.println(oneill.getName() + " egy " + className + " objektumon all");
         file.println();
     }
 

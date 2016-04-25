@@ -62,6 +62,19 @@ public class Scale extends MapElement {
         return true;
     }
 
+    public boolean hit(Bullet bullet) {
+        if((!hasBox()) && (col == null)) {
+            if(rep != null){
+                rep.killedByBullet();
+                rep = null;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public String symbol(){
         if(hasBox()){
             return "$";

@@ -423,28 +423,28 @@ public class GameEngine {
                     case 503:
                         SpecialWall sw2 = new SpecialWall(wormhole);
                         sw2.isSpecWall = true;
-                        wormhole.setPortal(Direction.Down, sw2, Color.Blue);
+                        wormhole.setPortal(Direction.Right, sw2, Color.Blue);
                         table[i][j] = sw2;
                         break;
                     //LÈtrehoz egy k¸lˆnlege falat rajta lefelÈ nÈzı s·rga port·llal
                     case 504:
                         SpecialWall sw3 = new SpecialWall(wormhole);
                         sw3.isSpecWall = true;
-                        wormhole.setPortal(Direction.Down, sw3, Color.Yellow);
+                        wormhole.setPortal(Direction.Left, sw3, Color.Yellow);
                         table[i][j] = sw3;
                         break;
                     //LÈtrehoz egy k¸lˆnleges falat rajta lefelÈ nÈzı kÈk port·llal
                     case 505:
                         SpecialWall sw4 = new SpecialWall(wormhole);
                         sw4.isSpecWall = true;
-                        wormhole.setPortal(Direction.Down, sw4, Color.Green);
+                        wormhole.setPortal(Direction.Right, sw4, Color.Green);
                         table[i][j] = sw4;
                         break;
                     //LÈtrehoz egy k¸lˆnlege falat rajta lefelÈ nÈzı s·rga port·llal
                     case 506:
                         SpecialWall sw5 = new SpecialWall(wormhole);
                         sw5.isSpecWall = true;
-                        wormhole.setPortal(Direction.Down, sw5, Color.Red);
+                        wormhole.setPortal(Direction.Left, sw5, Color.Red);
                         table[i][j] = sw5;
                         break;
                     //LÈtrehoz egy talaj elemet rajta O'Neill-el, akinÈl egy doboz van

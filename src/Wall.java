@@ -13,4 +13,8 @@ public class Wall extends MapElement {
         return "X";
     }
 
+    public boolean hit(Bullet bullet) {
+        return true;
+    }
+
 }

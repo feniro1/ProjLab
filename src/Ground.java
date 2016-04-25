@@ -61,6 +61,18 @@ public class Ground extends MapElement {
         box = null;
     }
 
+    public boolean hit(Bullet bullet) {
+        if((!hasBox()) && (!hasZPM()) && (col == null)) {
+            if(rep != null){
+                rep.killedByBullet();
+                rep = null;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
 
     // visszaadja, hogy az ezredes ralephet-e a talaj objektumra
     public boolean stepOn(Player player) {

@@ -21,7 +21,7 @@ public class Bullet {
     public void move() {
         boolean free = true;
         while (free) {
-            free = baseElement.getNextElement(lookDirection).hit(this);
+            free = !baseElement.getNextElement(lookDirection).hit(this);
         }
     }
 

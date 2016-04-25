@@ -20,8 +20,14 @@ public class Bullet {
     // A bullet próbálja eltalálni a következő elemet és addig megy amíg valamit nem talál el.
     public void move() {
         boolean free = true;
+        MapElement nextMe = baseElement.getNextElement(lookDirection);
+        free = !nextMe.hit(this);
         while (free) {
-            free = !baseElement.getNextElement(lookDirection).hit(this);
+            nextMe.setBullet(this);
+            baseElement.setBullet(null);
+            baseElement = nextMe;
+            nextMe = baseElement.getNextElement(lookDirection);
+            free = !nextMe.hit(this);
         }
     }
 

@@ -30,6 +30,10 @@ public abstract class MapElement {
         rep = _rep;
     }
 
+    public void setBullet(Bullet _bul) { // beallit egy ezredest az adott mapElementre, ha az rajta van
+        bul = _bul;
+    }
+
     public String symbol(){
         return "";
     }

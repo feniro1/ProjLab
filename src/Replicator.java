@@ -22,18 +22,22 @@ public class Replicator {
         isRandom = true;
     }
 
+    // ha a replicator rift palyaelemre lep, akkor a rift-bol ground palyaelem lesz
     public void killedByRift() {
         isAlive = false;
         Rift r = (Rift)baseElement.getNextElement(lookDirection);
         r.replaceWithGround();
     }
 
+    //akkor hivodik, ha egy golyo eltalalta a replicatort
     public void killedByBullet() {
         isAlive = false;
     }
 
+    //
     public void setBaseElement(MapElement me) { baseElement = me; }
 
+    //visszaadja az iranyt, amerre a replikator nez
     public Direction getLookDirection(){
         return lookDirection;
     }
@@ -44,6 +48,8 @@ public class Replicator {
         return "@";
     }
 
+
+    //seged fuggveny, kod duplikalas elkerulese vegett. move-ban hasznaljuk arra, hogy a lepes mechanizmusa megvalosuljon
     public void moveHelper(Direction dir) {
         MapElement nextElement = baseElement.getNextElement(dir);
         if (nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
@@ -63,6 +69,7 @@ public class Replicator {
     public void move(Direction dir) { // ejsze randomnal nem kell direction, benne is megadhatjuk
         setLookDirection(dir); // a kapott haladasi irany alapjan valtoztatja meg az ezredes iranyat
 
+        //generalunk egy random szamot 0-3 kozott, es szam szerinti iranyba mozditjuk a replikatort
         if (isRandom) {
             Random rand = new Random();
             int n = rand.nextInt(4);
@@ -88,6 +95,7 @@ public class Replicator {
         }
     }
 
+    //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
         if(me.isSpecWall) {
             SpecialWall sw = (SpecialWall)me;
@@ -106,6 +114,7 @@ public class Replicator {
         isRandom = false;
     }
 
+    //visszaadja a palyaelemet, amin epp tartozkodik
     public MapElement getBaseElement() {
         return baseElement;
     }

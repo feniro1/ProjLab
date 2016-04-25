@@ -32,6 +32,7 @@ public class GameEngine {
 
     public void startGame() {
 
+        //menu kirajzolasa, amig a felhasznalo ker uj tesztesetet
         boolean test = true;
         while(test) {
             System.out.println("Udvozlunk a LiskovTheorem Oneill's Adventure nevu jatekaban!");
@@ -132,6 +133,8 @@ public class GameEngine {
 
     }
 
+    //teszteseteket megvalosito fuggveny, melyben minden teszteset soran beolvassuk a hozzatartozo palyat, elvegezzuk az
+    //elvart kimeneten megjelenitendo valtoztatasokat, majd egy test.txt nevu fajlba kiirjuk az eredmenyt
     public void test(PrintWriter pw, int testnumber) throws IOException {
         switch (testnumber) {
             //foldon jaras
@@ -304,8 +307,10 @@ public class GameEngine {
         }
     }
 
+    //kimeneti palya kiirasara szolgalo fuggveny
     private void mapPrintOut(PrintWriter file) throws IOException {
         MapElement actual = firstElement;
+        //az osszes sor kiirasa, kiveve az utolso
         for (int i = 0; i < row - 1; i++) {
             file.print(actual.symbol());
             for (int j = 0; j < column - 1; j++) {
@@ -330,6 +335,7 @@ public class GameEngine {
 
     }
 
+    //a jatek jelenlegi allasat fajlba kiiro fuggveny
     public void statusPrintOut(PrintWriter file) {
         file.println(oneill.getName() + " " + oneill.getLookDirection().toHungarian() + " nez");
         file.println(oneill.getName() + "nal " + oneill.getZPMNumber() + " db ZPM van");

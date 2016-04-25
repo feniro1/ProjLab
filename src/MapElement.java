@@ -9,7 +9,7 @@ public abstract class MapElement {
     protected Player col; // ezredesre mutato pointert tarol, ha az van rajta
     protected Replicator rep; // replikatorra mutato pointer
     protected Bullet bul; // lovedekre mutato pointert tarol, ha az van rajta
-i    protected boolean isSpecWall = false;
+    protected boolean isSpecWall = false;
     protected boolean isScale = false;
 
 

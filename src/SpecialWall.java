@@ -38,6 +38,7 @@ public class SpecialWall extends Wall {
             return false;
         }
     }
+
     //ez azert van mert ha van feregjarat akkor a jatekosnak nem a steponban lekerdezett elem kovetkezo elemere kell lepnie
     //hanem oda ahol a feregjarat masik portalja van
     //na ezt az elemet kapjuk meg ezzel a fuggvennyel MapElementtel ter tehat vissza

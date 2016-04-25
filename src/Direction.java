@@ -28,8 +28,6 @@ public enum Direction {
         return "";
     }
 
-
-
     //Visszafele is haladhatunk rajtuk
     public Direction reverse(){
         switch(value){

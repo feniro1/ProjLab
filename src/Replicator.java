@@ -102,4 +102,12 @@ public class Replicator {
         }
     }
 
+    public void randomizeOff(){
+        isRandom = false;
+    }
+
+    public MapElement getBaseElement() {
+        return baseElement;
+    }
+
 }

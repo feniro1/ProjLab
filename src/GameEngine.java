@@ -137,16 +137,19 @@ public class GameEngine {
             case 0:
                 loadMap(0);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("move Oneill right");
                 pw.println();
                 oneill.move(Direction.Right);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("move Oneill up");
                 pw.println();
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
@@ -154,16 +157,19 @@ public class GameEngine {
             case 1:
                 loadMap(1);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("move Oneill up");
                 pw.println();
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("move Oneill up");
                 pw.println();
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
@@ -171,11 +177,13 @@ public class GameEngine {
             case 2:
                 loadMap(2);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("move Oneill right");
                 pw.println();
                 oneill.move(Direction.Right);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
@@ -183,11 +191,13 @@ public class GameEngine {
             case 3:
                 loadMap(3);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("move Oneill up");
                 pw.println();
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
@@ -195,11 +205,13 @@ public class GameEngine {
             case 4:
                 loadMap(4);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("shoot Oneill yellow");
                 pw.println();
                 oneill.shoot(Color.Yellow);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
@@ -207,6 +219,7 @@ public class GameEngine {
             case 5:
                 loadMap(5);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("turn Oneill");
                 pw.println();
@@ -214,11 +227,13 @@ public class GameEngine {
                 oneill.turn();
                 oneill.turn();
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("pickUp Oneill");
                 pw.println();
                 oneill.pickUp();
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
@@ -226,6 +241,7 @@ public class GameEngine {
             case 6:
                 loadMap(6);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("turn Oneill");
                 pw.println();
@@ -233,11 +249,13 @@ public class GameEngine {
                 oneill.turn();
                 oneill.turn();
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("putDown Oneill");
                 pw.println();
                 oneill.putDown();
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
@@ -245,18 +263,31 @@ public class GameEngine {
             case 7:
                 loadMap(7);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.println("move Oneill up");
                 pw.println();
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
+                statusPrintOut(pw);
 
                 pw.close();
                 break;
             //Replicator szakadekba esese
             case 8:
                 loadMap(8);
-                oneill.putDown();
+                mapPrintOut(pw);
+                pw.println("A Replicator egy " + replicator.getBaseElement().getClass().getSimpleName() + " objektumon all");
+                pw.println();
+
+                pw.println("randomize off");
+                pw.println();
+                replicator.randomizeOff();
+                replicator.move(Direction.Up);
+                mapPrintOut(pw);
+                pw.println("A Replicator egy Mennyorszag objektumon all");
+
+                pw.close();
                 break;
             default:
                 break;
@@ -287,7 +318,6 @@ public class GameEngine {
         file.println();
         file.println();
 
-        statusPrintOut(file);
     }
 
     public void statusPrintOut(PrintWriter file) {

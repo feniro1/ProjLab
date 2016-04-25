@@ -72,7 +72,6 @@ public class Ground extends MapElement {
             return true;
         }
         return false;
-
     }
 
     // visszaad egy doboz objektumot, ha van neki

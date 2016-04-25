@@ -42,4 +42,11 @@ public class Door extends MapElement {
         return false;
     }
 
+    @Override
+    public boolean hit(Player player) {
+        if (isOpen) {
+            return false;
+        }
+        return true;
+    }
 }

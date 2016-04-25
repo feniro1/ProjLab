@@ -451,16 +451,18 @@ public class GameEngine {
                 //LÈtrehoz egy mÈrleget
                 if (thisLine / 100 == 10) {
                     Scale s4 = new Scale(1);
+                    s4.createBox(new Box(1));
                     s4.isScale = true;
                     table[i][j] = s4;
-                    scales.add(thisLine % 100 - 1, s4);
+                    oscales.add(thisLine % 100 - 1, s4);
                     odb++;
                 }
                 //LÈtrehoy egy nyitott ajtÛt
                 if (thisLine / 100 == 11) {
                     Door d3 = new Door();
+                    d3.open();
                     table[i][j] = d3;
-                    doors.add(thisLine % 100 - 1, d3);
+                    odoors.add(thisLine % 100 - 1, d3);
                 }
             }
         }

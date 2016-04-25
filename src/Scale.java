@@ -76,7 +76,7 @@ public class Scale extends MapElement {
 
             Box temp = boxes.remove(boxes.size() - 1);
             int totalWeight = 0;
-            for (int i = 0; i < boxes.size() - 1; i++) {
+            for (int i = 0; i < boxes.size(); i++) {
                 totalWeight += boxes.get(i).getWeight();
             }
             if (totalWeight < limit) {
@@ -90,9 +90,9 @@ public class Scale extends MapElement {
     //Letehető a mérlegre doboz, ha nincsen rajta.
     public boolean putDown(Box box) {
         if (col == null) {
-            boxes.add(boxes.size() - 1, box);
+            boxes.add(box);
             int totalWeight = 0;
-            for (int i = 0; i < boxes.size() - 1; i++) {
+            for (int i = 0; i < boxes.size(); i++) {
                 totalWeight += boxes.get(i).getWeight();
             }
             if (totalWeight >= limit) {

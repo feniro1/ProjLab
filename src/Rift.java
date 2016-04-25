@@ -34,6 +34,7 @@ public class Rift extends MapElement {
         this.getNextElement(Direction.Left).setNeighbour(Direction.Right,g);
         this.getNextElement(Direction.Up).setNeighbour(Direction.Down,g);
 
+        //kitörli a szomszédait
         this.setNeighbour(Direction.Down,null);
         this.setNeighbour(Direction.Up,null);
         this.setNeighbour(Direction.Left,null);

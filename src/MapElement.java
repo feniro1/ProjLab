@@ -21,15 +21,17 @@ public abstract class MapElement {
     public void draw() { // kirajzolja a palyat, kesobb lesz implementalva
     }
 
+    //raallitja a palyara a playert
     public void setPlayer(Player player) { // beallit egy ezredest az adott mapElementre, ha az rajta van
         col = player;
     }
 
-    //
+    //raallitja a palyara a replicatort
     public void setReplicator(Replicator _rep) { // beallit egy ezredest az adott mapElementre, ha az rajta van
         rep = _rep;
     }
 
+    //raallitja a groundra a golyot
     public void setBullet(Bullet _bul) { // beallit egy ezredest az adott mapElementre, ha az rajta van
         bul = _bul;
     }

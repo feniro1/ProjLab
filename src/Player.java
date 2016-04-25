@@ -176,6 +176,7 @@ public class Player {
         }
     }
 
+    //beallitja hogy melyik mapElementen all a player
     public void setBaseElement(MapElement me) {
         baseElement = me;
     }

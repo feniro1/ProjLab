@@ -7,8 +7,8 @@ public class Bullet {
     public Color color;
     public MapElement baseElement;
 
-    //Konstruktor. A töltény irányát színét és a kilövés pillanatában hozzá tartozó
-    // saját pozícióját kell átadni.
+    //Konstruktor. A tolteny iranyat szinet es a kiloves pillanataban hozza tartozo
+    // sajat poziciojat kell atadni.
     public Bullet(Direction dir, MapElement mapElement, Color col) {
         lookDirection = dir;
         baseElement = mapElement;

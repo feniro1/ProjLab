@@ -15,6 +15,7 @@ public class Scale extends MapElement {
         boxes = new ArrayList<>();
     }
 
+    // visszaadja a merleghez tartozo ajtot
     public Door getDoor() {
         return door;
     }

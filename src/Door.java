@@ -34,7 +34,6 @@ public class Door extends MapElement {
     }
 
     // visszaadja, hogy odalephet-e az ezredes az ajto allapotatol fuggoen
-    @Override
     public boolean stepOn(Player player) {
         if (isOpen) {
             return true;
@@ -42,7 +41,7 @@ public class Door extends MapElement {
         return false;
     }
 
-    @Override
+    // ha az ajto nyitva van es a golyo utkozik akkor true, ha az ajto zart akkor false
     public boolean hit(Player player) {
         if (isOpen) {
             return false;

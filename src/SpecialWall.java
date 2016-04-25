@@ -56,8 +56,16 @@ public class SpecialWall extends Wall {
         return wheretoGo;
     }
 
+    public boolean hasPortal() {
+        if (this == wormhole.getPortal(Color.Yellow).getSpecWall()) return true;
+        if (this == wormhole.getPortal(Color.Blue).getSpecWall()) return true;
+        if (this == wormhole.getPortal(Color.Green).getSpecWall()) return true;
+        if (this == wormhole.getPortal(Color.Red).getSpecWall()) return true;
+        return false;
+    }
+
     public String symbol(){
-        if (wormhole != null)
+        if(hasPortal())
             return "#";
         else
             return "%";

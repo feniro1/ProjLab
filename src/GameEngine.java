@@ -59,9 +59,8 @@ public class GameEngine {
                 File file = new File("test.txt");
 
                 //ha letezik kitoroljuk
-                if(file.exists()){
+                if(file.exists())
                     file.delete();
-                }
                 file.createNewFile();
 
                 FileWriter fw = new FileWriter(file, true);
@@ -114,6 +113,7 @@ public class GameEngine {
                         System.out.println("Nem letezo teszteset!");
                         break;
                 }
+                pw.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -127,6 +127,7 @@ public class GameEngine {
             if (answer.equals("igen"))
                 test = true;
             else test = false;
+
         }
 
     }
@@ -150,8 +151,9 @@ public class GameEngine {
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //ajton atlepes
             case 1:
@@ -170,8 +172,9 @@ public class GameEngine {
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //feregjaraton atmenes
             case 2:
@@ -184,8 +187,9 @@ public class GameEngine {
                 oneill.move(Direction.Right);
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //szakadekba eses
             case 3:
@@ -198,8 +202,9 @@ public class GameEngine {
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //lovedek
             case 4:
@@ -212,8 +217,9 @@ public class GameEngine {
                 oneill.shoot(Color.Yellow);
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //doboz felvetele merlegrol
             case 5:
@@ -234,8 +240,9 @@ public class GameEngine {
                 oneill.pickUp();
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //doboz letevese merlegre
             case 6:
@@ -256,8 +263,9 @@ public class GameEngine {
                 oneill.putDown();
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //ZPM felvetele
             case 7:
@@ -270,8 +278,9 @@ public class GameEngine {
                 oneill.move(Direction.Up);
                 mapPrintOut(pw);
                 statusPrintOut(pw);
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             //Replicator szakadekba esese
             case 8:
@@ -286,8 +295,9 @@ public class GameEngine {
                 replicator.move(Direction.Up);
                 mapPrintOut(pw);
                 pw.println("A Replicator egy Mennyorszag objektumon all");
+                pw.println("Teszt vege!");
+                pw.println();
 
-                pw.close();
                 break;
             default:
                 break;

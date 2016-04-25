@@ -50,7 +50,20 @@ public class WormHole {
                     break;
             }
         }
+    }
 
+    public Portal getPortal(Color col) {
+        switch(col) {
+            case Yellow:
+                return yportal;
+            case Blue:
+                return bportal;
+            case Red:
+                return rportal;
+            case Green:
+                return gportal;
+        }
+        return null;
     }
 
     //megadja, hogy adott specwallhoz adott iranyba letezik-e portal es ha igen azzal ter vissza, ha nincs, akkor null
@@ -79,6 +92,5 @@ public class WormHole {
         else{
             return null;
         }
-
     }
 }

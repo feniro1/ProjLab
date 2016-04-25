@@ -22,7 +22,15 @@ public class Replicator {
         isRandom = true;
     }
 
-    public void kill() { isAlive = false; }
+    public void killedByRift() {
+        isAlive = false;
+        Rift r = (Rift)baseElement.getNextElement(lookDirection);
+        r.replaceWithGround();
+    }
+
+    public void killedByBullet() {
+        isAlive = false;
+    }
 
     public void setBaseElement(MapElement me) { baseElement = me; }
 

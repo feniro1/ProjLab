@@ -33,25 +33,30 @@ public class Player {
         name = n;
     }
 
-    //Visszater azzal az irannyal, ahova az ezredes nez
+    //Visszater azzal az irannyal, ahova a jatekos nez
     public Direction getLookDirection(){
         return lookDirection;
     }
 
+    //Visszater a jatekos sulyaval
     public int getWeight(){ return weight; }
 
+    //visszater a jatekos nevevel
     public String getName() {
         return name;
     }
 
+    //visszater a jatekos ZPM szamaval
     public int getZPMNumber () {
         return ZPMNumber;
     }
 
+    //visszater azzal a palyaelemmel, amin a jatekos epp tartozkodik
     public MapElement getBaseElement() {
         return baseElement;
     }
 
+    //Visszater azzal a szimbolummal, ami a jatekoshoz tartozik. palya fajlbairasanal hasznaljuk
     public String symbol(){
         return "O";
     }
@@ -67,9 +72,9 @@ public class Player {
         MapElement nextElement = baseElement.getNextElement(dir); //lekeri az iranynak megfelelo kovetkezo elemet
 
         if(nextElement.stepOn(this)) { //ha a kovetkezo elemre ra lehet lepni
-            if (nextElement.getClass() == SpecialWall.class){
-                SpecialWall sw = (SpecialWall)nextElement;
-                nextElement = sw.walkthroughWormHole(this);
+            if (nextElement.getClass() == SpecialWall.class){ // ha a kovetkezo elem specialis fal
+                SpecialWall sw = (SpecialWall)nextElement; //atkasztolas, hogy hasznalhassuk a SpacialWall osztaly tagvaltozoit
+                nextElement = sw.walkthroughWormHole(this);// visszakerjuk az elemet, amire feregjaraton valo athaladaskor lepunk
                 if (nextElement.stepOn(this)) {
                     stepOff(nextElement); // akkor lepjen le a jelenlegi elemrol
                 }
@@ -103,7 +108,7 @@ public class Player {
         }
     }
 
-
+    // adott jatekos balra fordulasat valositja meg
     public void turn() {
         switch(lookDirection){
             case Up: setLookDirection(Direction.Left);
@@ -134,6 +139,7 @@ public class Player {
         ZPMNumber++;
     }
 
+    //logikai ertek, megmondja, hogy van-e az adott jatekosnal doboz
     public boolean hasBox(){
         if(box == null)
             return false;
@@ -153,11 +159,13 @@ public class Player {
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
+        //ha Scale palyaelemrol lepunk le, akkor lehet be kell zarni az ajtot
         if(baseElement.isScale){
             Scale sc = (Scale)baseElement;
             sc.getDoor().close();
         }
 
+        // ha SpecialWall palyaelemre lepunk, le kell kerni, hogy a portalhoz tartozo masik portal milyen palyaelemre nyilik
         if(me.isSpecWall) {
             SpecialWall sw = (SpecialWall)me;
             MapElement targetME = sw.walkthroughWormHole(this);

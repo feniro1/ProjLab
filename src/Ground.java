@@ -37,20 +37,6 @@ public class Ground extends MapElement {
         return false;
     }
 
-    public String symbol(){
-        if(hasBox()) {
-            return "B";
-        } else if(hasZPM()){
-            return "Z";
-        } else if(col != null){
-            return "O";
-        } else if(rep != null){
-            return "@";
-        } else {
-            return " ";
-        }
-    }
-
     // null-ra allitja a zpm parametert
     public void removeZPM() {
         zpm = null;
@@ -63,7 +49,7 @@ public class Ground extends MapElement {
 
     // ha a foldon all valami es golyo megy el a fold objektum felett, ez lekezeli, hogy utkozik-e valamivel
     public boolean hit(Bullet bullet) {
-        if((!hasBox()) && (!hasZPM()) && (col == null)) {
+        if((!hasBox()) && (!hasZPM()) && (player == null)) {
             if(rep != null){
                 rep.killedByBullet();
                 rep = null;
@@ -104,6 +90,20 @@ public class Ground extends MapElement {
         } else {
             box = b;
             return true;
+        }
+    }
+
+    public String symbol(){
+        if(hasBox()) {
+            return "B";
+        } else if(hasZPM()){
+            return "Z";
+        } else if(player != null){
+            return "O";
+        } else if(rep != null){
+            return "@";
+        } else {
+            return " ";
         }
     }
 

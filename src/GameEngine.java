@@ -11,17 +11,13 @@ import java.util.Scanner;
 
 public class GameEngine {
 
-    public Player oneill;
-    public Player jaffa;
-    public Replicator replicator;
-    public WormHole wormhole;
-    public MapElement firstElement;
-    int row;
-    int column;
-
-    public GameEngine() {
-        System.out.println("Letrejon egy jatekkezelo peldanya.");
-    }
+    private Player oneill;
+    private Player jaffa;
+    private Replicator replicator;
+    private WormHole wormhole;
+    private MapElement firstElement;
+    private int row;
+    private int column;
 
     public GameEngine(Player _oneill, WormHole _wh, Replicator rep){
         oneill = _oneill;
@@ -432,7 +428,7 @@ public class GameEngine {
                     case 502:
                         Scale s2 = new Scale(1);
                         s2.isScale = true;
-                        s2.createBox(new Box(1));
+                        s2.addBox(new Box(1));
                         table[i][j] = s2;
                         break;
                     //Letrehoz egy kulonleges falat rajta jobbra nezo kek portallal
@@ -466,7 +462,7 @@ public class GameEngine {
                     //Letrehoz egy talaj elemet rajta O'Neill-el, akinel egy doboz van
                     case 507:
                         Ground g = new Ground();
-                        oneill.createBox(new Box(1));
+                        oneill.setBox(new Box(1));
                         g.setPlayer(oneill);
                         table[i][j] = g;
                         oneill.setBaseElement(table[i][j]);
@@ -497,7 +493,7 @@ public class GameEngine {
                 //Letrehoz egy merleget dobozzal es eltarolja a listaban
                 if (thisLine / 100 == 10) {
                     Scale s4 = new Scale(1);
-                    s4.createBox(new Box(1));
+                    s4.addBox(new Box(1));
                     s4.isScale = true;
                     table[i][j] = s4;
                     oscales.add(thisLine % 100 - 1, s4);

@@ -5,11 +5,6 @@ import java.util.*;
 public class Rift extends MapElement {
 
     public Rift() {
-
-    }
-
-    public String symbol(){
-        return "R";
     }
 
     // player ralepesenel meghal a player
@@ -48,10 +43,13 @@ public class Rift extends MapElement {
         return true;
     }
 
-
     // visszaadja, hogy lehet ra tenni, dobozt es a doboz megsemmisul
     public boolean putDown(Box b) {
         return true;
+    }
+
+    public String symbol(){
+        return "R";
     }
 
 }

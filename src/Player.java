@@ -33,11 +33,7 @@ public class Player {
         name = n;
     }
 
-    //Visszater azzal az irannyal, ahova az ezredes nez
-    public Direction getLookDirection(){
-        return lookDirection;
-    }
-
+    //MARK: getters
     //Visszater a jatekos sulyaval
     public int getWeight(){ return weight; }
 
@@ -56,14 +52,37 @@ public class Player {
         return baseElement;
     }
 
-    //Visszater azzal a szimbolummal, ami a jatekoshoz tartozik. palya fajlbairasanal hasznaljuk
-    public String symbol(){
-        return "O";
+    //Visszater azzal az irannyal, ahova az ezredes nez
+    public Direction getLookDirection(){
+        return lookDirection;
     }
 
+    public boolean hasBox(){
+        if(box == null)
+            return false;
+        else return true;
+    }
+
+    //MARK: setters
     //Beallitja az ezredes nezopontjat
     public void setLookDirection(Direction dir){
         lookDirection = dir;
+    }
+
+    //beallitja hogy melyik mapElementen all a player
+    public void setBaseElement(MapElement me) {
+        baseElement = me;
+    }
+
+    //Csak a tesztesetek latvanyos feltuntetese celjabol
+    public void setBox(Box b) {
+        box = b;
+    }
+
+    //MARK: methods
+    //Doboz referenciajanak torlese
+    public void removeBox() {
+        box = null;
     }
 
     //Az ezredes mozgatasa a parameterben kapott irany szerint
@@ -108,7 +127,6 @@ public class Player {
         }
     }
 
-
     public void turn() {
         switch(lookDirection){
             case Up: setLookDirection(Direction.Left);
@@ -122,7 +140,6 @@ public class Player {
         }
     }
 
-
     //Doboz letevese
     public void putDown() {
         if(box != null) { //Ha van nala doboz
@@ -133,28 +150,10 @@ public class Player {
         }
     }
 
-
     //ZPM szam novelese
     public void incZPMNumber() {
         ZPMNumber++;
     }
-
-    public boolean hasBox(){
-        if(box == null)
-            return false;
-        else return true;
-    }
-
-    //Csak a tesztesetek latvanyos feltuntetese celjabol
-    public void createBox(Box b) {
-        box = b;
-    }
-
-    //Doboz referenciajanak torlese
-    public void removeBox() {
-        box = null;
-    }
-
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
     public void stepOff(MapElement me) {
@@ -176,9 +175,9 @@ public class Player {
         }
     }
 
-    //beallitja hogy melyik mapElementen all a player
-    public void setBaseElement(MapElement me) {
-        baseElement = me;
+    //Visszater azzal a szimbolummal, ami a jatekoshoz tartozik. palya fajlbairasanal hasznaljuk
+    public String symbol(){
+        return "O";
     }
 
 }

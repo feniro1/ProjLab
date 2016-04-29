@@ -41,7 +41,7 @@ public class Scale extends MapElement {
     }
 
     //Ezzel allitható be a merlegnek doboz
-    public void createBox(Box box) {
+    public void addBox(Box box) {
         boxes.add(box);
     }
 
@@ -67,7 +67,7 @@ public class Scale extends MapElement {
     //Ha nincs doboz és játékos a mérlegen, vagy ha replikátor van, akkor eltalálta a golyó, tehát tru-val
     //téreünk vissza replikátor esetén megöljük azt, ellenkező esetben false
     public boolean hit(Bullet bullet) {
-        if((!hasBox()) && (col == null)) {
+        if((!hasBox()) && (player == null)) {
             if(rep != null){
                 rep.killedByBullet();
                 rep = null;
@@ -77,15 +77,6 @@ public class Scale extends MapElement {
             }
         }
         return true;
-    }
-
-    //Kirajzoláshoz szükséges. Ha vn rajta doboz $, ha nincs S-t rajzolunk ki
-    public String symbol(){
-        if(hasBox()){
-            return "$";
-        } else {
-            return "S";
-        }
     }
 
     //Felveheto a merlegen levo legfelso doboz, ha van rajta.
@@ -107,7 +98,7 @@ public class Scale extends MapElement {
 
     //Letehető a mérlegre doboz, ha nincsen rajta.
     public boolean putDown(Box box) {
-        if (col == null) {
+        if (player == null) {
             boxes.add(box);
             int totalWeight = 0;
             for (int i = 0; i < boxes.size(); i++) {
@@ -119,6 +110,15 @@ public class Scale extends MapElement {
             return true;
         }
         return false;
+    }
+
+    //Kirajzoláshoz szükséges. Ha vn rajta doboz $, ha nincs S-t rajzolunk ki
+    public String symbol(){
+        if(hasBox()){
+            return "$";
+        } else {
+            return "S";
+        }
     }
 
 }

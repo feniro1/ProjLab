@@ -34,7 +34,6 @@ public class Replicator {
         isAlive = false;
     }
 
-    //
     public void setBaseElement(MapElement me) { baseElement = me; }
 
     //visszaadja az iranyt, amerre a replikator nez

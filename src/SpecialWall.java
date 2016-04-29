@@ -74,6 +74,4 @@ public class SpecialWall extends Wall {
         else
             return "%";
     }
-
-
 }

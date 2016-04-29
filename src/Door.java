@@ -3,7 +3,6 @@ import java.util.*;
 
 
 public class Door extends MapElement {
-
     // az ajto allapotat tarolja
     private boolean isOpen;
 
@@ -22,22 +21,11 @@ public class Door extends MapElement {
         isOpen = false;
     }
 
-    public String symbol(){
-        if(isOpen){
-            if(col != null)
-                return "O";
-            else
-                return ".";
-        } else {
-            return "!";
-        }
-    }
-
     // visszaadja, hogy odalephet-e az ezredes az ajto allapotatol fuggoen
     public boolean stepOn(Player player) {
         if (isOpen) {
             return true;
-            }
+        }
         return false;
     }
 
@@ -47,5 +35,16 @@ public class Door extends MapElement {
             return false;
         }
         return true;
+    }
+
+    public String symbol(){
+        if(isOpen){
+            if(player != null)
+                return "O";
+            else
+                return ".";
+        } else {
+            return "!";
+        }
     }
 }

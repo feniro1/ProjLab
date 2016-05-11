@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 
 /**
@@ -23,12 +25,19 @@ public class View {
     }
 
     public void drawMap(){
-
+        for(int i = 0; i < map.size(); i++) {
+            for (int a = 0; a < row; a++)
+                for(int b = 0; b < column; b++){
+                    map.get(i).draw(a * 40, b * 40);
+                }
+        }
     }
 
     public void setList(MapElement fe, int r, int c){
         firstElement = fe;
         row = r;
         column = c;
+
+
     }
 }

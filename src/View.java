@@ -33,7 +33,7 @@ public class View {
     //Terkep kirajzolasa, ez geci lassu, de mukodik.. TODO
     public void drawMap(){
         //Panel graphics lekerese
-        Graphics gr = panel.getGraphics();
+        Graphics2D gr = (Graphics2D) panel.getGraphics();
 
         //A lista elemeinek bejarasa
         int i = 0;

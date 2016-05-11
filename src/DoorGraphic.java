@@ -17,7 +17,7 @@ public class DoorGraphic implements Drawable {
     }
 
     @Override
-    public void draw(Graphics graphics, int x, int y) {
+    public void draw(Graphics2D graphics, int x, int y) {
         try {
             BufferedImage bi = ImageIO.read(new File(img));
             graphics.drawImage(bi, x, y, null);

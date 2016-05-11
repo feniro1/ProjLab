@@ -89,4 +89,7 @@ public abstract class MapElement {
     public String symbol(){
         return "";
     }
+
+    public Drawable getDrawableClass() {
+    }
 }

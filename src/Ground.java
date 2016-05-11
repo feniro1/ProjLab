@@ -107,4 +107,8 @@ public class Ground extends MapElement {
         }
     }
 
+    public Drawable getDrawableClass() {
+        return new GroundGraphic(this);
+    }
+
 }

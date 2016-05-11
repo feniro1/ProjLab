@@ -41,7 +41,7 @@ public class View {
         column = c;
 
         // ne igy csinaljuk
-        map.add(fe);
+        map.add(fe.getDrawableClass());
         for (int i = 0; i < row; i ++){
             for (int j = 0; j < column; j++) {
 

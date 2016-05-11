@@ -95,7 +95,7 @@ public class GameEngine {
                     //Letrehoz egy talaj elemet
                     case 1:
                         table[i][j] = new Ground();
-                        drawableMap.add(new)
+                        drawableMap.add(new GroundGraphic());
                         break;
                     //Letrehoz egy talaj elemet egy ZPM-mel
                     case 2:

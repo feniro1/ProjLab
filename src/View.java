@@ -16,13 +16,7 @@ public class View {
 
     public View() {
         JFrame window = new JFrame("Portal Game Liskovtheorem");
-        panel = new JPanel() {
-            @Override
-            public void paintComponent(Graphics g){
-                super.paintComponent(g);
-                drawMap(g);
-            }
-        };
+        panel = new JPanel();
 
         window.add(panel);
 
@@ -31,11 +25,11 @@ public class View {
         window.setVisible(true);
     }
 
-    public void drawMap(Graphics g){
+    public void drawMap(){
         for(int i = 0; i < map.size(); i++) {
             for (int a = 0; a < row; a++)
                 for(int b = 0; b < column; b++){
-                    map.get(i).draw(g, a * 40, b * 40);
+                    map.get(i).draw(panel, a * 40, b * 40);
                 }
         }
     }

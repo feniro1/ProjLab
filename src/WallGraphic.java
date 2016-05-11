@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,19 +18,11 @@ public class WallGraphic implements Drawable {
     }
 
     @Override
-    public void draw(Graphics g, int x, int y) {
-        /*BufferedImage image = null;
-        try {
-            image = ImageIO.read(new File(img));
-            imgpanel.paintOnMe(x, y, image);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-*/
-
+    public void draw(JPanel p, int x, int y) {
 
         try {
             BufferedImage bi = ImageIO.read(new File(img));
+            Graphics g = p.getGraphics();
             g.drawImage(bi, x, y, null);
         } catch (IOException e) {
             e.printStackTrace();

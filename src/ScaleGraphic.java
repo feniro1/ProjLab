@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**
  * Created by Mate on 11/05/16.
  */
@@ -11,7 +13,7 @@ public class ScaleGraphic implements Drawable {
     }
 
     @Override
-    public void draw(int x, int y) {
+    public void draw(JPanel panel, int x, int y) {
 
     }
 }

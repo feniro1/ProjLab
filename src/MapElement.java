@@ -90,6 +90,5 @@ public abstract class MapElement {
         return "";
     }
 
-    public Drawable getDrawableClass() {
-    }
+    public abstract Drawable getDrawableClass();
 }

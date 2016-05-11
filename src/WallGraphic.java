@@ -17,7 +17,7 @@ public class WallGraphic implements Drawable {
     }
 
     @Override
-    public void draw(ImagePanel imgpanel, int x, int y) {
+    public void draw(Graphics g, int x, int y) {
         /*BufferedImage image = null;
         try {
             image = ImageIO.read(new File(img));
@@ -30,7 +30,6 @@ public class WallGraphic implements Drawable {
 
         try {
             BufferedImage bi = ImageIO.read(new File(img));
-            Graphics g = bi.getGraphics();
             g.drawImage(bi, x, y, null);
         } catch (IOException e) {
             e.printStackTrace();

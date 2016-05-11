@@ -18,11 +18,50 @@ public class GameEngine {
     private MapElement firstElement;
     private int row;
     private int column;
+    private Controller controller;
+    private boolean reloadMap;
 
     public GameEngine(Player _oneill, WormHole _wh, Replicator rep){
         oneill = _oneill;
         wormhole = _wh;
         replicator = rep;
+    }
+
+    public void move(String name, Direction dir) {
+
+    }
+
+    public void shoot(String name, Color col) {
+
+    }
+
+    public void pickUp(String name) {
+
+    }
+
+    public void putDown(String name) {
+
+    }
+
+    public void turn(String name){
+
+    }
+
+
+    public MapElement getFirstElement() {
+        return firstElement;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public boolean hasToReloadMap() {
+        return reloadMap;
     }
 
     //Fajlbol betolti, es letrehozza a mapelementeket

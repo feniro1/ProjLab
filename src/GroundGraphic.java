@@ -1,4 +1,4 @@
-import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by Mate on 11/05/16.
@@ -15,7 +15,7 @@ public class GroundGraphic implements Drawable{
 
 
     @Override
-    public void draw(JPanel panel, int x, int y) {
+    public void draw(Graphics graphics, int x, int y) {
 
     }
 }

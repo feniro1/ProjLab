@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by Mate on 11/05/16.
@@ -35,8 +36,22 @@ public class View {
 
     public void setList(MapElement fe, int r, int c){
         firstElement = fe;
+        MapElement tmp = fe;
         row = r;
         column = c;
+
+        // ne igy csinaljuk
+        map.add(fe);
+        for (int i = 0; i < row; i ++){
+            for (int j = 0; j < column; j++) {
+
+            }
+
+
+
+            ...
+            map.add(getMapElement);
+        }
 
 
     }

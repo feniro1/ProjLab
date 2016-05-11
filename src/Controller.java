@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Created by Mate on 11/05/16.
  */
@@ -11,6 +13,11 @@ public class Controller {
     }
 
     public void start() {
+        try {
+            game.loadMap();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         view.setList(game.getFirstElement(), game.getRow(), game.getColumn());
     }
 }

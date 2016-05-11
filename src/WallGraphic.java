@@ -13,7 +13,7 @@ public class WallGraphic implements Drawable {
 
     public WallGraphic(Wall w){
         wall = w;
-        img = "wall.jpg";
+        img = "images/wall.jpg";
     }
 
     @Override

@@ -36,11 +36,13 @@ public class View {
         Graphics gr = panel.getGraphics();
 
         //A lista elemeinek bejarasa
-        for(int i = 0; i < map.size(); i++) {
+        int i = 0;
+        while(i < map.size()){
             //Dupla for ciklussal a terkep kirajzolasa a megadott koordinatakra
             for (int a = 0; a < row; a++)
-                for(int b = 0; b < column; b++){
+                for (int b = 0; b < column; b++) {
                     map.get(i).draw(gr, b * 40, a * 40);
+                    i++;
                 }
         }
     }

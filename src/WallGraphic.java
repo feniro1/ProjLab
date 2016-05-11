@@ -24,6 +24,5 @@ public class WallGraphic implements Drawable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

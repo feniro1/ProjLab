@@ -28,14 +28,10 @@ public class Controller implements KeyListener{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
-
 
     @Override
     public void keyTyped(KeyEvent e) {
-
     }
 
     @Override
@@ -47,27 +43,35 @@ public class Controller implements KeyListener{
 
         switch(key){
             case KeyEvent.VK_UP:
+                System.out.println("Felfe gomb lenyomva");
                 game.move("oneill", Direction.Up);
                 break;
             case KeyEvent.VK_DOWN:
+                System.out.println("Lefele gomb lenyomva");
                 game.move("oneill", Direction.Down);
                 break;
             case KeyEvent.VK_RIGHT:
+                System.out.println("Jobbra gomb lenyomva");
                 game.move("oneill", Direction.Right);
                 break;
             case KeyEvent.VK_LEFT:
+                System.out.println("Balra gomb lenyomva");
                 game.move("oneill", Direction.Left);
                 break;
             case KeyEvent.VK_W:
+                System.out.println("W gomb lenyomva");
                 game.move("jaffa", Direction.Up);
                 break;
             case KeyEvent.VK_S:
+                System.out.println("S gomb lenyomva");
                 game.move("jaffa", Direction.Down);
                 break;
             case KeyEvent.VK_D:
+                System.out.println("D gomb lenyomva");
                 game.move("jaffa", Direction.Right);
                 break;
             case KeyEvent.VK_A:
+                System.out.println("A gomb lenyomva");
                 game.move("jaffa", Direction.Left);
                 break;
         }

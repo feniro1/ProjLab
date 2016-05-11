@@ -18,6 +18,7 @@ public class View {
     public View(Controller cont) {
         //keylistener beallitasahoz szukseges
         controller = cont;
+
         //Ablak, lista, panel inicializalasa
         map = new ArrayList<Drawable>();
         JFrame window = new JFrame("Portal Game Liskovtheorem");

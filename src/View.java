@@ -13,12 +13,16 @@ public class View {
     private int column;
     private JPanel panel;
     private ArrayList<Drawable> map;
+    private Controller controller;
 
-    public View() {
+    public View(Controller cont) {
+        //keylistener beallitasahoz szukseges
+        controller = cont;
         //Ablak, lista, panel inicializalasa
         map = new ArrayList<Drawable>();
         JFrame window = new JFrame("Portal Game Liskovtheorem");
         panel = new JPanel();
+        window.addKeyListener(controller);
 
         //Panel hozzaadasa
         window.add(panel);
@@ -29,6 +33,8 @@ public class View {
         window.setBounds(100, 100, 800, 822);
         window.setVisible(true);
     }
+
+    //valahogy el kell erjem a panelt hogy atadjam neki a controllert mint keylistenert
 
     //Terkep kirajzolasa, ez geci lassu, de mukodik.. TODO
     public void drawMap(){

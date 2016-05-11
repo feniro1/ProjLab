@@ -21,6 +21,20 @@ public class GroundGraphic implements Drawable {
             BufferedImage bi = ImageIO.read(new File(img));
             BufferedImage toPaint = convertToARGB(bi);
             graphics.drawImage(toPaint, x, y, null);
+
+            if(ground.getPlayer() != null){
+                if(ground.getPlayer().getName().equals("oneill")){
+                    BufferedImage oneilim = ImageIO.read(new File("images/colonel.png"));
+                    BufferedImage toPaint2 = convertToARGB(oneilim);
+                    graphics.drawImage(toPaint2, x, y, null);
+                }
+                if(ground.getPlayer().getName().equals("jaffa")){
+                    BufferedImage oneilim = ImageIO.read(new File("images/jaffa.png"));
+                    BufferedImage toPaint3 = convertToARGB(oneilim);
+                    graphics.drawImage(toPaint3, x, y, null);
+                }
+
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

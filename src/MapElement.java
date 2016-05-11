@@ -86,6 +86,10 @@ public abstract class MapElement {
         }
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
     public String symbol(){
         return "";
     }

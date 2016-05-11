@@ -7,6 +7,11 @@ public class Wall extends MapElement {
         return "X";
     }
 
+    @Override
+    public Drawable getDrawableClass() {
+        return new WallGraphic(this);
+    }
+
     //ha falnak utkozik a golyo akkor igaz
     public boolean hit(Bullet bullet) {
         return true;

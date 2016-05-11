@@ -47,4 +47,10 @@ public class Door extends MapElement {
             return "!";
         }
     }
+
+    @Override
+    public Drawable getDrawableClass() {
+        return new DoorGraphic(this);
+    }
+
 }

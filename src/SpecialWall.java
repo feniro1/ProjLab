@@ -74,4 +74,9 @@ public class SpecialWall extends Wall {
         else
             return "%";
     }
+
+    @Override
+    public Drawable getDrawableClass() {
+        return new SpecialWallGraphic(this);
+    }
 }

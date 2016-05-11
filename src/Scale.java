@@ -121,4 +121,9 @@ public class Scale extends MapElement {
         }
     }
 
+    @Override
+    public Drawable getDrawableClass() {
+        return new ScaleGraphic(this);
+    }
+
 }

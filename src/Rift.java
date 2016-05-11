@@ -52,4 +52,9 @@ public class Rift extends MapElement {
         return "R";
     }
 
+    @Override
+    public Drawable getDrawableClass() {
+        return new RiftGraphic(this);
+    }
+
 }

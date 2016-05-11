@@ -5,6 +5,11 @@ public class SpecialWallGraphic implements Drawable {
     private String img;
     private SpecialWall specialWall;
 
+    public SpecialWallGraphic(SpecialWall sw){
+        specialWall = sw;
+        img = "../images/specialwall.jpg";
+    }
+
     @Override
     public void draw(int x, int y) {
 

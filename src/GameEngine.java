@@ -68,9 +68,7 @@ public class GameEngine {
     }
 
     //Fajlbol betolti, es letrehozza a mapelementeket
-    public ArrayList<Drawable> loadMap() throws IOException {
-        ArrayList<Drawable> drawableMap = new ArrayList<Drawable>();
-
+    public void loadMap() throws IOException {
         //A tesztesettol fuggoen betolti a megfelelo txt file-t
         FileReader fr = new FileReader("map.txt");
         BufferedReader br = new BufferedReader(fr);
@@ -95,7 +93,6 @@ public class GameEngine {
                     //Letrehoz egy talaj elemet
                     case 1:
                         table[i][j] = new Ground();
-                        drawableMap.add(new GroundGraphic());
                         break;
                     //Letrehoz egy talaj elemet egy ZPM-mel
                     case 2:

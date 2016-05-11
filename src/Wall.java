@@ -3,10 +3,6 @@ import java.util.*;
 
 public class Wall extends MapElement {
 
-    public String symbol(){
-        return "X";
-    }
-
     @Override
     public Drawable getDrawableClass() {
         return new WallGraphic(this);

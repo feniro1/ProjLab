@@ -40,19 +40,13 @@ public class View {
         row = r;
         column = c;
 
-        // ne igy csinaljuk
-//        map.add(fe.getDrawableClass());
-//        for (int i = 0; i < row; i ++){
-//            for (int j = 0; j < column; j++) {
-//
-//            }
-//
-//
-//
-//            ...
-//            map.add(getMapElement);
-//        }
-
-
+        for (int i = 0; i < row; i ++){
+            map.add(fe.getDrawableClass());
+            for (int j = 0; j < column; j++) {
+                fe = fe.getNextElement(Direction.Right);
+                map.add(fe.getDrawableClass());
+            }
+            fe = tmp.getNextElement(Direction.Down);
+        }
     }
 }

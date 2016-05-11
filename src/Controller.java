@@ -15,9 +15,11 @@ public class Controller {
     public void start() {
         try {
             game.loadMap();
+            view.setList(game.getFirstElement(), game.getRow(), game.getColumn());
+            view.drawMap();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        view.setList(game.getFirstElement(), game.getRow(), game.getColumn());
+
     }
 }

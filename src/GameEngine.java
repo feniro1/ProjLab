@@ -21,10 +21,13 @@ public class GameEngine {
     private Controller controller;
     private boolean reloadMap;
 
-    public GameEngine(Player _oneill, WormHole _wh, Replicator rep){
-        oneill = _oneill;
-        wormhole = _wh;
-        replicator = rep;
+    public GameEngine(Controller cont){
+        oneill = new Player("oneill");
+        jaffa = new Player("jaffa");
+        replicator = new Replicator();
+        wormhole = new WormHole();
+        controller = cont;
+        reloadMap = false;
     }
 
     public void move(String name, Direction dir) {

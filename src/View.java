@@ -1,3 +1,5 @@
+import com.sun.org.apache.xml.internal.serializer.utils.SerializerMessages_zh_CN;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
@@ -44,12 +46,12 @@ public class View {
         //A lista elemeinek bejarasa
         int i = 0;
         while(i < map.size()){
-            //Dupla for ciklussal a terkep kirajzolasa a megadott koordinatakra
-            for (int a = 0; a < row; a++)
-                for (int b = 0; b < column; b++) {
-                    map.get(i).draw(gr, b * 40, a * 40);
-                    i++;
-                }
+            int x = i%column;
+            int y = i/column;
+
+            map.get(i).draw(gr, x * 40, y * 40);
+
+            i++;
         }
     }
 

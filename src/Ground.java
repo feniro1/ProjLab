@@ -29,6 +29,13 @@ public class Ground extends MapElement {
         return false;
     }
 
+    public boolean hasPlayer() {
+        if (player != null) {
+            return true;
+        }
+        return false;
+    }
+
     // visszaadja, hogy a talajon van-e doboz
     public boolean hasBox() {
         if (box != null) {
@@ -64,11 +71,13 @@ public class Ground extends MapElement {
     // visszaadja, hogy az ezredes ralephet-e a talaj objektumra
     public boolean stepOn(Player player) {
         if (!hasBox()) {
-            if (hasZPM()) {
-                player.incZPMNumber();
-                removeZPM();
+            if(!hasPlayer()) {
+                if (hasZPM()) {
+                    player.incZPMNumber();
+                    removeZPM();
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }

@@ -18,10 +18,24 @@ public class GroundGraphic implements Drawable {
 
     public void draw(Graphics2D graphics, int x, int y) {
         try {
-            BufferedImage bi = ImageIO.read(new File(img));
-            BufferedImage toPaint = convertToARGB(bi);
-            graphics.drawImage(toPaint, x, y, null);
+//            BufferedImage bi = ImageIO.read(new File(img));
+//            BufferedImage toPaint = convertToARGB(bi);
+//            graphics.drawImage(toPaint, x, y, null);
 
+            //prepare a original Image source
+            Image image = ImageIO.read(new File(img));
+
+            //Get current GraphicsConfiguration
+            GraphicsConfiguration graphicsConfiguration = graphics.getDeviceConfiguration();
+
+            //Create a Compatible BufferedImage
+            BufferedImage bufferedImage = graphicsConfiguration.createCompatibleImage(image.getWidth(null), image.getHeight(null));
+            //Copy from original Image to new Compatible BufferedImage
+            Graphics tempGraphics = bufferedImage.getGraphics();
+            tempGraphics.drawImage(image, x, y, null);
+            tempGraphics.dispose();
+
+/*
             if(ground.getPlayer() != null){
                 if(ground.getPlayer().getName().equals("oneill")){
                     BufferedImage oneilim = ImageIO.read(new File("images/colonel.png"));
@@ -34,7 +48,11 @@ public class GroundGraphic implements Drawable {
                     graphics.drawImage(toPaint3, x, y, null);
                 }
 
-            }
+
+            }*/
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

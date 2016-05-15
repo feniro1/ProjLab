@@ -78,6 +78,7 @@ public class GroundGraphic implements Drawable {
         return img;
     }
 
+    //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
     public ArrayList<BufferedImage> getExtraImages(){
         Player player =  ground.getPlayer();
         if (player != null){

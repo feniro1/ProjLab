@@ -42,7 +42,7 @@ public class View {
     public void drawMap(){
         //Panel graphics lekerese
         Graphics2D gr = (Graphics2D) panel.getGraphics();
-
+        System.out.print("kaka");
         //A lista elemeinek bejarasa
         int i = 0;
         while(i < map.size()){

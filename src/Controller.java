@@ -127,6 +127,7 @@ public class Controller implements KeyListener{
                 System.out.println("Jaffa letett egy dobozt");
                 game.pickUp("jaffa");
                 view.drawMap();
+                System.out.print("kaka");
                 break;
 
             //kocsonya

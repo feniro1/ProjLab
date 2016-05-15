@@ -321,7 +321,7 @@ public class GameEngine {
             table[row - 1][i].setNeighbour(Direction.Up, table[row - 2][i]);
             table[row - 1][i].setNeighbour(Direction.Right, table[row - 1][i + 1]);
             table[row - 1][i].setNeighbour(Direction.Left, table[row - 1][i - 1]);
-        }
+        } 
         //Beallitja az utolso sor utolso tablaelemenek a szomszedait
         table[row - 1][column - 1].setNeighbour(Direction.Up, table[row - 2][column - 1]);
         table[row - 1][column - 1].setNeighbour(Direction.Left, table[row - 1][column - 2]);

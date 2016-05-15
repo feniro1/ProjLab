@@ -38,6 +38,18 @@ public class GroundGraphic implements Drawable {
                     BufferedImage oneill;
                     try {
                         oneill = ImageIO.read(new File("images/oneill.png"));
+                        switch (player.getLookDirection()){
+                            case Up:
+                                break;
+                            case Right:
+                                oneill = Images.instance.rotateToRight(oneill);
+                                break;
+                            case Left:
+                                oneill = Images.instance.rotateToLeft(oneill);
+                                break;
+                            case Down:
+                                oneill = Images.instance.rotateDown(oneill);
+                        }
                         extraimages.add(oneill);
                     } catch (IOException e) {
                     }
@@ -46,6 +58,18 @@ public class GroundGraphic implements Drawable {
                     BufferedImage jaffa;
                     try {
                         jaffa = ImageIO.read(new File("images/jaffa.png"));
+                        switch (player.getLookDirection()){
+                            case Up:
+                                break;
+                            case Right:
+                                jaffa = Images.instance.rotateToRight(jaffa);
+                                break;
+                            case Left:
+                                jaffa = Images.instance.rotateToLeft(jaffa);
+                                break;
+                            case Down:
+                                jaffa = Images.instance.rotateDown(jaffa);
+                        }
                         extraimages.add(jaffa);
                     } catch (IOException e) {
                     }

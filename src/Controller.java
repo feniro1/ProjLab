@@ -130,6 +130,7 @@ public class Controller implements KeyListener{
                 break;
 
             //kocsonya
+            //csapatas
         }
     }
 

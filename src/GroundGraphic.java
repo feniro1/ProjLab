@@ -27,18 +27,18 @@ public class GroundGraphic implements Drawable {
     //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
     public ArrayList<BufferedImage> getExtraImages(){
         //megnezzuk van e rajta valaki
+        ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
         Player player =  ground.getPlayer();
-        if (player != null){
+        if (player != null) {
             //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
             //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO
             //csak probakent raktam ra oneill meg jaffa van eddig kezelve :(
-            ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
-            switch (player.getName()){
+            switch (player.getName()) {
                 case "oneill":
                     BufferedImage oneill;
                     try {
                         oneill = ImageIO.read(new File("images/oneill.png"));
-                        switch (player.getLookDirection()){
+                        switch (player.getLookDirection()) {
                             case Up:
                                 break;
                             case Right:
@@ -58,7 +58,7 @@ public class GroundGraphic implements Drawable {
                     BufferedImage jaffa;
                     try {
                         jaffa = ImageIO.read(new File("images/jaffa.png"));
-                        switch (player.getLookDirection()){
+                        switch (player.getLookDirection()) {
                             case Up:
                                 break;
                             case Right:
@@ -75,8 +75,21 @@ public class GroundGraphic implements Drawable {
                     }
                     break;
             }
-            return extraimages;
         }
-        return null;
+            if (ground.hasBox() == true){
+                try {
+                    BufferedImage box = ImageIO.read(new File("images/box.png"));
+                    extraimages.add(box);
+                } catch (IOException e) {
+                }
+            }
+            if (ground.hasZPM() == true){
+                try {
+                    BufferedImage zpm = ImageIO.read(new File("images/zpm.png"));
+                    extraimages.add(zpm);
+                } catch (IOException e) {
+                }
+            }
+            return extraimages;
     }
 }

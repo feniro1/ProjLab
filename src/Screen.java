@@ -11,13 +11,13 @@ import java.util.ArrayList;
  * Created by Fanni on 15/05/16.
  */
 public class Screen extends JPanel {
-
+    //o rajzol ki, azert csintam kulon osztalyt mert jpanel-paint fuggvenyet kellett atirni
     private ArrayList<Drawable> maplist = new ArrayList<Drawable>();
     private int column;
 
     public Screen(){
     }
-
+    //kell neki a drawable lista meg az oszlopok szama
     public void setData(int column, ArrayList<Drawable> maplist) {
         this.column = column;
         this.maplist = maplist;
@@ -29,11 +29,14 @@ public class Screen extends JPanel {
             int x = i%column;
             int y = i/column;
 
+            //lekeri az adott elem kepet, majd
             g.drawImage(maplist.get(i).getImage(), x * 40, y * 40, null);
-            ArrayList<BufferedImage> abc = maplist.get(i).getExtraImages();
-            if (abc != null){
-                for(int j = 0; j < abc.size(); j++){
-                    g.drawImage(abc.get(j), x * 40, y * 40, null);
+            //megkerdezi vannak e rajta meg extra elemek (ez egy listat ad vissza)
+            ArrayList<BufferedImage> extraimages = maplist.get(i).getExtraImages();
+            //ha vannak extra elemek akkor azokon vegigmegy es ugyanoda egymasra rajzolja a png-ket
+            if (extraimages != null){
+                for(int j = 0; j < extraimages.size(); j++){
+                    g.drawImage(extraimages.get(j), x * 40, y * 40, null);
                 }
 
             }

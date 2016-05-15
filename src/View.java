@@ -42,11 +42,10 @@ public class View extends JFrame{
         this.setVisible(true);
     }
 
-    //valahogy el kell erjem a panelt hogy atadjam neki a controllert mint keylistenert
 
     //Terkep kirajzolasa, ez geci lassu, de mukodik.. TODO
     public void drawMap(){
-
+        //panelnek atadjuk az adatokat
         panel.setData(column, map);
         panel.repaint();
     }
@@ -69,5 +68,4 @@ public class View extends JFrame{
         }
     }
 
-    //Mate push comment
 }

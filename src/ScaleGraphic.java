@@ -16,11 +16,8 @@ public class ScaleGraphic implements Drawable {
     public ScaleGraphic(Scale s){
         scale = s;
         //img = "images/scale.jpg";
+        img = Images.instance.scale;
 
-        try {
-            img = ImageIO.read(new File("images/scale.jpg"));
-        } catch (IOException e) {
-        }
     }
 
     @Override

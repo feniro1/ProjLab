@@ -17,11 +17,8 @@ public class SpecialWallGraphic implements Drawable {
         specialWall = sw;
         //img = "images/specialwall.jpg";
 
+        img = Images.instance.specialwall;
 
-        try {
-            img = ImageIO.read(new File("images/specialwall.jpg"));
-        } catch (IOException e) {
-        }
     }
 
     @Override

@@ -17,10 +17,8 @@ public class GroundGraphic implements Drawable {
         ground = g;
        // img = "images/ground.jpg";
 
-        try {
-            img = ImageIO.read(new File("images/ground.jpg"));
-        } catch (IOException e) {
-        }
+        img = Images.instance.ground;
+
     }
 
     public void draw(Graphics2D graphics, int x, int y) {

@@ -15,11 +15,7 @@ public class DoorGraphic implements Drawable {
     public DoorGraphic(Door d){
         door = d;
 
-        try {
-            img = ImageIO.read(new File("images/doorclosed.jpg"));
-        } catch (IOException e) {
-        }
-
+        img = Images.instance.doorclosed;
     }
 
     @Override

@@ -16,10 +16,8 @@ public class RiftGraphic implements Drawable {
     public RiftGraphic(Rift r){
         rift = r;
         //img = "images/rift.jpg";
-        try {
-            img = ImageIO.read(new File("images/rift.jpg"));
-        } catch (IOException e) {
-        }
+        img = Images.instance.rift;
+
     }
 
     @Override

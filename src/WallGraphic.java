@@ -18,10 +18,8 @@ public class WallGraphic implements Drawable {
     public WallGraphic(Wall w){
         wall = w;
 
-        try {
-            img = ImageIO.read(new File("images/wall.jpg"));
-        } catch (IOException e) {
-        }
+        img = Images.instance.wall;
+
     }
 
     @Override

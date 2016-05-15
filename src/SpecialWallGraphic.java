@@ -9,22 +9,15 @@ import java.util.ArrayList;
  * Created by Mate on 11/05/16.
  */
 public class SpecialWallGraphic implements Drawable {
-    //private String img;
     private SpecialWall specialWall;
     BufferedImage img;
 
     public SpecialWallGraphic(SpecialWall sw){
         specialWall = sw;
-        //img = "images/specialwall.jpg";
-
         img = Images.instance.specialwall;
 
     }
 
-    @Override
-    public void draw(Graphics2D graphics, int x, int y) {
-
-    }
 
     public BufferedImage getImage(){
         return img;

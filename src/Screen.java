@@ -16,7 +16,6 @@ public class Screen extends JPanel {
     private int column;
 
     public Screen(){
-
     }
 
     public void setData(int column, ArrayList<Drawable> maplist) {

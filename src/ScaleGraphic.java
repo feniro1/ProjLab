@@ -9,21 +9,15 @@ import java.util.ArrayList;
  * Created by Mate on 11/05/16.
  */
 public class ScaleGraphic implements Drawable {
-    //private String img;
     private Scale scale;
     private BufferedImage img;
 
     public ScaleGraphic(Scale s){
         scale = s;
-        //img = "images/scale.jpg";
         img = Images.instance.scale;
 
     }
 
-    @Override
-    public void draw(Graphics2D graphics, int x, int y) {
-
-    }
 
     public BufferedImage getImage(){
         return img;

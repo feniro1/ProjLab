@@ -6,6 +6,8 @@ import java.io.IOException;
 /**
  * Created by Fanni on 15/05/16.
  */
+//optimalizalas miatt, ez egz singleton osztaly, csak egy van belole az instance elvileg
+    //itt majd minden kepet be kene tolteni egyszer es ezeket hasznalni.
 public class Images {
 
     public static Images instance = new Images();
@@ -16,6 +18,7 @@ public class Images {
     public BufferedImage specialwall;
     public BufferedImage wall;
 
+    //ez elvileg nem hivhato es csak az instance erheto el...
     protected Images() {
         // Exists only to defeat instantiation.
         try {

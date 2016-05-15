@@ -14,13 +14,7 @@ public class DoorGraphic implements Drawable {
 
     public DoorGraphic(Door d){
         door = d;
-
         img = Images.instance.doorclosed;
-    }
-
-    @Override
-    public void draw(Graphics2D graphics, int x, int y) {
-
     }
 
     public BufferedImage getImage(){

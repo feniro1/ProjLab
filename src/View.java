@@ -46,11 +46,8 @@ public class View extends JFrame{
 
     //Terkep kirajzolasa, ez geci lassu, de mukodik.. TODO
     public void drawMap(){
-        //Panel graphics lekerese
-        //panel.repaint();
-        //A lista elemeinek bejarasa
-        panel.setData(column, map);
 
+        panel.setData(column, map);
         panel.repaint();
     }
 

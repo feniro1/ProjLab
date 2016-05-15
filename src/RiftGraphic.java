@@ -9,22 +9,14 @@ import java.util.ArrayList;
  * Created by Mate on 11/05/16.
  */
 public class RiftGraphic implements Drawable {
-    //private String img;
     private Rift rift;
     BufferedImage img;
 
     public RiftGraphic(Rift r){
         rift = r;
-        //img = "images/rift.jpg";
         img = Images.instance.rift;
 
     }
-
-    @Override
-    public void draw(Graphics2D graphics, int x, int y) {
-
-    }
-
     public BufferedImage getImage(){
         return img;
     }

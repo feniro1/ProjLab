@@ -47,6 +47,7 @@ public class View extends JFrame{
     public void drawMap(){
         //panelnek atadjuk az adatokat
         panel.setData(column, map);
+        //utana repaint: ez automatikusan a jpanel paint fuggvenyet hivja ujra
         panel.repaint();
     }
 

@@ -23,6 +23,7 @@ public class Screen extends JPanel {
         this.maplist = maplist;
     }
 
+
     public void paint(Graphics g){
         int i = 0;
         while(i < maplist.size()){

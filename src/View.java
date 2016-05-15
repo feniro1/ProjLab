@@ -1,39 +1,45 @@
 import com.sun.org.apache.xml.internal.serializer.utils.SerializerMessages_zh_CN;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
 /**
  * Created by Mate on 11/05/16.
  */
-public class View {
+public class View extends JFrame{
     private MapElement firstElement;
     private int row;
     private int column;
-    private JPanel panel;
+    private Screen panel;
     private ArrayList<Drawable> map;
     private Controller controller;
 
     public View(Controller cont) {
+        super();
         //keylistener beallitasahoz szukseges
         controller = cont;
         //Ablak, lista, panel inicializalasa
         map = new ArrayList<Drawable>();
-        JFrame window = new JFrame("Portal Game Liskovtheorem");
-        panel = new JPanel();
-        window.addKeyListener(controller);
-
-        //Panel hozzaadasa
-        window.add(panel);
+        this.setTitle("Portal Game Liskovtheorem");
+        this.addKeyListener(controller);
 
         //Ablak parametereinek beallitasa
-        window.setResizable(false);
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window.setBounds(100, 100, 800, 822);
-        window.setVisible(true);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setBounds(100, 100, 800, 822);
+
+
+        //Panel hozzaadasa
+        panel = new Screen();
+        this.add(panel);
+        this.setVisible(true);
     }
 
     //valahogy el kell erjem a panelt hogy atadjam neki a controllert mint keylistenert
@@ -41,18 +47,11 @@ public class View {
     //Terkep kirajzolasa, ez geci lassu, de mukodik.. TODO
     public void drawMap(){
         //Panel graphics lekerese
-        Graphics2D gr = (Graphics2D) panel.getGraphics();
-        System.out.print("kaka");
+        //panel.repaint();
         //A lista elemeinek bejarasa
-        int i = 0;
-        while(i < map.size()){
-            int x = i%column;
-            int y = i/column;
+        panel.setData(column, map);
 
-            map.get(i).draw(gr, x * 40, y * 40);
-
-            i++;
-        }
+        panel.repaint();
     }
 
     //ez hibatlanul mukodik, ne bazd el

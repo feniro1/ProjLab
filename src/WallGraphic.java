@@ -17,7 +17,7 @@ public class WallGraphic implements Drawable {
     }
 
     @Override
-    public void draw(Graphics2D graphics, int x, int y) {
+    public void draw(Graphics graphics, int x, int y) {
         try {
 //            BufferedImage bi = ImageIO.read(new File(img));
 //            BufferedImage toPaint = convertToARGB(bi);
@@ -33,7 +33,7 @@ public class WallGraphic implements Drawable {
             BufferedImage bufferedImage = graphicsConfiguration.createCompatibleImage(image.getWidth(null), image.getHeight(null));
             //Copy from original Image to new Compatible BufferedImage
             Graphics tempGraphics = bufferedImage.getGraphics();
-            tempGraphics.drawImage(image, x, y, null);
+            graphics.drawImage(image, x, y, null);
             tempGraphics.dispose();
 
 

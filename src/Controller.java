@@ -128,6 +128,8 @@ public class Controller implements KeyListener{
                 game.pickUp("jaffa");
                 view.drawMap();
                 break;
+
+            //kocsonya
         }
     }
 

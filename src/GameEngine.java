@@ -33,7 +33,6 @@ public class GameEngine {
     }
 
 
-
     public void resetReloadMap(){
         System.out.println("resetreloadmap");
         reloadMap = false;
@@ -53,34 +52,42 @@ public class GameEngine {
 
     public void move(String name, Direction dir) {
 
-        if ((name.equals("oneill"))){
+        if ((name.equals("oneill")) && oneill.isAlive()){
             oneill.move(dir);
+            if(replicator!=null) {
+                if (replicator.isAlive()) {
+                    replicator.move(dir);
+                }
+            }
         }
-        else if (name.equals("jaffa")){
+        else if (name.equals("jaffa") && jaffa.isAlive()){
             jaffa.move(dir);
-        } else if (name.equals("rep") && replicator.isAlive()) {
-            replicator.move(dir);
+            if(replicator!=null) {
+                if (replicator.isAlive()) {
+                    replicator.move(dir);
+                }
+            }
         }
     }
 
     public void shoot(String name, Color col) {
-        if (name.equals("oneill")){
+        if (name.equals("oneill") && oneill.isAlive()){
             oneill.shoot(col);
         }
-        else {
+        else if (name.equals("jaffa") && jaffa.isAlive()){
             jaffa.shoot(col);
         }
 
     }
 
     public void pickUp(String name) {
-        if (name.equals("oneill")) {
+        if (name.equals("oneill") && oneill.isAlive()) {
             if (oneill.hasBox()) {
                 oneill.putDown();
             } else {
                 oneill.pickUp();
             }
-        } else {
+        } else if (name.equals("jaffa") && jaffa.isAlive()) {
             if (jaffa.hasBox()) {
                 jaffa.putDown();
             } else {
@@ -90,10 +97,10 @@ public class GameEngine {
     }
 
     public void turn(String name){
-        if (name.equals("oneill")){
+        if (name.equals("oneill") && oneill.isAlive()){
             oneill.turn();
         }
-        else {
+        else if (name.equals("jaffa") && jaffa.isAlive()){
             jaffa.turn();
         }
     }
@@ -343,6 +350,11 @@ public class GameEngine {
         if (name.equals("jaffa"))
             return jaffa;
         return null;
+    }
+
+    public void setPlayerNull(String name) {
+        if (name.equals("oneill")) oneill = null;
+        if (name.equals("jaffa")) jaffa = null;
     }
 
     public int getZPMNumber () {

@@ -119,9 +119,7 @@ public class Player {
 
     //Az ezredes ongyilkossaga
     public void kill() {
-
         isAlive = false;
-        baseElement.setPlayer(null);
     }
 
     //Doboz felvetele

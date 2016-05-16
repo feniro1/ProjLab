@@ -37,7 +37,6 @@ public class Rift extends MapElement {
     @Override
     public boolean stepOn(Player _player) {
         _player.kill();
-        System.out.print("player dead");
         return true;
     }
 

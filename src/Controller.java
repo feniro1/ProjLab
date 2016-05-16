@@ -49,28 +49,24 @@ public class Controller implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         endGame();
-            switch (key) {
+          switch (key) {
                 case KeyEvent.VK_I:
                     game.move("oneill", Direction.Up);
-                    game.move("rep", Direction.Up);
                     this.check();
                     view.drawMap();
                     break;
                 case KeyEvent.VK_K:
                     game.move("oneill", Direction.Down);
-                    game.move("rep", Direction.Up);
                     view.drawMap();
                     this.check();
                     break;
                 case KeyEvent.VK_L:
                     game.move("oneill", Direction.Right);
-                    game.move("rep", Direction.Up);
                     this.check();
                     view.drawMap();
                     break;
                 case KeyEvent.VK_J:
                     game.move("oneill", Direction.Left);
-                    game.move("rep", Direction.Up);
                     this.check();
                     view.drawMap();
                     break;
@@ -96,25 +92,21 @@ public class Controller implements KeyListener{
                     break;
                 case KeyEvent.VK_W:
                     game.move("jaffa", Direction.Up);
-                    game.move("rep", Direction.Up);
                     this.check();
                     view.drawMap();
                     break;
                 case KeyEvent.VK_S:
                     game.move("jaffa", Direction.Down);
-                    game.move("rep", Direction.Up);
                     this.check();
                     view.drawMap();
                     break;
                 case KeyEvent.VK_D:
                     game.move("jaffa", Direction.Right);
-                    game.move("rep", Direction.Up);
                     this.check();
                     view.drawMap();
                     break;
                 case KeyEvent.VK_A:
                     game.move("jaffa", Direction.Left);
-                    game.move("rep", Direction.Up);
                     this.check();
                     view.drawMap();
                     break;

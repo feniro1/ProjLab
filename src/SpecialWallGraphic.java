@@ -25,10 +25,120 @@ public class SpecialWallGraphic implements Drawable {
 
     //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
     public ArrayList<BufferedImage> getExtraImages(){
+        //megnezzuk van e rajta valaki
+        ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
 
+        WormHole wh = specialWall.getWormhole();
+        try {
+            if (wh.getThisPortal(Direction.Down, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/blueportal.png"))));
+                        break;
+                    case Yellow: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/yellowportal.png"))));
+                        break;
+                    case Red: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/redportal.png"))));
+                        break;
+                    case Green: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/greenportal.png"))));
+                        break;
+                }
+            }
+            if (wh.getThisPortal(Direction.Right, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/blueportal.png"))));
+                        break;
+                    case Yellow: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/yellowportal.png"))));
+                        break;
+                    case Red: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/redportal.png"))));
+                        break;
+                    case Green: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/greenportal.png"))));
+                        break;
+                }
+            }
+            if (wh.getThisPortal(Direction.Left, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/blueportal.png"))));
+                        break;
+                    case Yellow: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/yellowportal.png"))));
+                        break;
+                    case Red: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/redportal.png"))));
+                        break;
+                    case Green: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/greenportal.png"))));
+                        break;
+                }
+            }
+            if (wh.getThisPortal(Direction.Up, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(ImageIO.read(new File("images/blueportal.png")));
+                        break;
+                    case Yellow: extraimages.add(ImageIO.read(new File("images/yellowportal.png")));
+                        break;
+                    case Red: extraimages.add(ImageIO.read(new File("images/redportal.png")));
+                        break;
+                    case Green: extraimages.add(ImageIO.read(new File("images/greenportal.png")));
+                        break;
+                }
+            }
+            if (wh.getOtherPortal(Direction.Down, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/blueportal.png"))));
+                        break;
+                    case Yellow: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/yellowportal.png"))));
+                        break;
+                    case Red: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/redportal.png"))));
+                        break;
+                    case Green: extraimages.add(Images.instance.rotateDown(ImageIO.read(new File("images/greenportal.png"))));
+                        break;
+                }
+            }
+            if (wh.getOtherPortal(Direction.Right, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/blueportal.png"))));
+                        break;
+                    case Yellow: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/yellowportal.png"))));
+                        break;
+                    case Red: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/redportal.png"))));
+                        break;
+                    case Green: extraimages.add(Images.instance.rotateToRight(ImageIO.read(new File("images/greenportal.png"))));
+                        break;
+                }
+            }
+            if (wh.getOtherPortal(Direction.Left, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/blueportal.png"))));
+                        break;
+                    case Yellow: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/yellowportal.png"))));
+                        break;
+                    case Red: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/redportal.png"))));
+                        break;
+                    case Green: extraimages.add(Images.instance.rotateToLeft(ImageIO.read(new File("images/greenportal.png"))));
+                        break;
+                }
+            }
+            if (wh.getOtherPortal(Direction.Up, specialWall) != null) {
+                Portal p = wh.getThisPortal(Direction.Down, specialWall);
+                switch (p.getColor()) {
+                    case Blue: extraimages.add(ImageIO.read(new File("images/blueportal.png")));
+                        break;
+                    case Yellow: extraimages.add(ImageIO.read(new File("images/yellowportal.png")));
+                        break;
+                    case Red: extraimages.add(ImageIO.read(new File("images/redportal.png")));
+                        break;
+                    case Green: extraimages.add(ImageIO.read(new File("images/greenportal.png")));
+                        break;
+                }
+            }
 
+        } catch (IOException e) {
 
-        return null;
+        }
+        return extraimages;
     }
 
 

@@ -19,7 +19,10 @@ public class Images {
     public BufferedImage scale;
     public BufferedImage specialwall;
     public BufferedImage wall;
-
+    public BufferedImage redportal;
+    public BufferedImage yellowportal;
+    public BufferedImage blueportal;
+    public BufferedImage greenportal;
     //ez elvileg nem hivhato es csak az instance erheto el...
     protected Images() {
         // Exists only to defeat instantiation.
@@ -31,6 +34,10 @@ public class Images {
             specialwall= ImageIO.read(new File("images/specialwall.jpg"));
             wall = ImageIO.read(new File("images/wall.jpg"));
             doorOpened = ImageIO.read(new File("images/dooropened.jpg"));
+            greenportal = ImageIO.read(new File("images/greenportal.png"));
+            yellowportal = ImageIO.read(new File("images/yellowportal.png"));
+            redportal = ImageIO.read(new File("images/redportal.png"));
+            blueportal = ImageIO.read(new File("images/blueportal.png"));
         } catch (IOException e) {
         }
     }

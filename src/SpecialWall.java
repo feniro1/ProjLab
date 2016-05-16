@@ -24,6 +24,10 @@ public class SpecialWall extends Wall {
         return true;
     }
 
+    public WormHole getWormhole() {
+        return wormhole;
+    }
+
     //akkor ter vissza trueval, ha letezik feregjarat abban az iranyban ahonnan a jatekos jon, egyebkent false
     public boolean stepOn(Player player) {
         Direction dir = player.getLookDirection().reverse();
@@ -66,6 +70,7 @@ public class SpecialWall extends Wall {
         if (this == wormhole.getPortal(Color.Red).getSpecWall()) return true;
         return false;
     }
+
 
     //Kirajzolást segítő függvény. Ha portál van a falon #-et rajzolunk, ha sima speciális fal %-t.
     public String symbol(){

@@ -35,7 +35,6 @@ public class View extends JFrame{
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setBounds(100, 100, 800, 822);
 
-
         //Panel hozzaadasa
         panel = new Screen();
         this.add(panel);
@@ -43,7 +42,7 @@ public class View extends JFrame{
     }
 
 
-    //Terkep kirajzolasa, ez geci lassu, de mukodik.. TODO
+    //Terkep kirajzolasa
     public void drawMap(){
         //panelnek atadjuk az adatokat
         panel.setData(column, map);

@@ -15,9 +15,7 @@ public class GroundGraphic implements Drawable {
 
     public GroundGraphic(Ground g) {
         ground = g;
-
         img = Images.instance.ground;
-
     }
 
     public BufferedImage getImage(){

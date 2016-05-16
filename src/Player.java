@@ -109,11 +109,8 @@ public class Player {
 
     //Loves az adott szinu golyoval
     public void shoot(Color color) {
-
         Bullet b = new Bullet(lookDirection, baseElement, color);
-
         b.move();
-
     }
 
     //Az ezredes ongyilkossaga

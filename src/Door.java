@@ -46,7 +46,9 @@ public class Door extends MapElement {
     // visszaadja, hogy odalephet-e az ezredes az ajto allapotatol fuggoen
     public boolean stepOn(Player player) {
         if (isOpen) {
-            return true;
+            if(!hasPlayer()) {
+                }
+                return true;
         }
         return false;
     }

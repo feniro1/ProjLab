@@ -22,6 +22,7 @@ public class Player {
         box = null;
         isAlive = true;
         name = n;
+        weight = 2;
     }
 
     public Player(MapElement _baseElement, String n){
@@ -31,6 +32,7 @@ public class Player {
         box = null;
         isAlive = true;
         name = n;
+        weight = 2;
     }
 
     //MARK: getters

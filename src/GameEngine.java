@@ -119,10 +119,10 @@ public class GameEngine {
         //Letrehozza az ideiglenes segedmatrixot
         MapElement table[][] = new MapElement[row][column];
         //Az ajtokat es merlegeket kulon listaban taroljuk a paroztatas miatt
-        ArrayList<Door> doors = new ArrayList<Door>(20);
-        ArrayList<Scale> scales = new ArrayList<Scale>(20);
-        ArrayList<Door> odoors = new ArrayList<Door>(20);
-        ArrayList<Scale> oscales = new ArrayList<Scale>(20);
+        Door[] doors = new Door[10];
+        Scale[] scales = new Scale[10];
+        Door[] odoors = new Door[10];
+        Scale[] oscales = new Scale[10];
         int db = 0;
         int odb = 0;
         //Vegigfutunk a fajlon es letrehozzuk a megfelelo mapelementeket es eltaroljuk a matrixban
@@ -238,17 +238,17 @@ public class GameEngine {
                 }
                 //Letrehoz egy merleget es eltarolja a listaban
                 if (thisLine / 100 == 2) {
-                    Scale s3 = new Scale(1);
+                    Scale s3 = new Scale((thisLine - 200) / 10);
                     s3.isScale = true;
                     table[i][j] = s3;
-                    scales.add(thisLine % 100 - 1, s3);
+                    scales[thisLine % 10 - 1] = s3;
                     db++;
                 }
                 //Letrehoz egy zart ajtot es eltarolja a listaban
                 if (thisLine / 100 == 3) {
                     Door d2 = new Door();
                     table[i][j] = d2;
-                    doors.add(thisLine % 100 - 1, d2);
+                    doors[thisLine % 10 - 1] = d2;
                 }
                 //Letrehoz egy merleget dobozzal es eltarolja a listaban
                 if (thisLine / 100 == 10) {
@@ -256,7 +256,7 @@ public class GameEngine {
                     s4.addBox(new Box(1));
                     s4.isScale = true;
                     table[i][j] = s4;
-                    oscales.add(thisLine % 100 - 1, s4);
+                    oscales[thisLine % 10 - 1] = s4;
                     odb++;
                 }
                 //Letrehoz egy nyitott ajtot es eltarolja a listaban
@@ -264,17 +264,17 @@ public class GameEngine {
                     Door d3 = new Door();
                     d3.open();
                     table[i][j] = d3;
-                    odoors.add(thisLine % 100 - 1, d3);
+                    odoors[thisLine % 10 - 1] = d3;
                 }
             }
         }
         //A merlegeknek bealltja az ajtokat
         for(int k = 0; k < db; k++){
-            scales.get(k).setDoor(doors.get(k));
+            scales[k].setDoor(doors[k]);
         }
         //A dobozos merlegeknek bealltja a nyitott ajtokat
         for(int k = 0; k < odb; k++){
-            oscales.get(k).setDoor(odoors.get(k));
+            oscales[k].setDoor(odoors[k]);
         }
 
         br.close();

@@ -41,6 +41,7 @@ public class Controller implements KeyListener{
             case KeyEvent.VK_I:
                 System.out.println("Felfe gomb lenyomva");
                 game.move("oneill", Direction.Up);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_K:

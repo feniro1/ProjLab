@@ -37,7 +37,7 @@ public class GroundGraphic implements Drawable {
                 case "oneill":
                     BufferedImage oneill;
                     try {
-                        oneill = ImageIO.read(new File("images/oneill.png"));
+                        oneill = ImageIO.read(new File("images/colonel.png"));
                         switch (player.getLookDirection()) {
                             case Up:
                                 break;
@@ -86,6 +86,13 @@ public class GroundGraphic implements Drawable {
             if (ground.hasZPM() == true){
                 try {
                     BufferedImage zpm = ImageIO.read(new File("images/zpm.png"));
+                    extraimages.add(zpm);
+                } catch (IOException e) {
+                }
+            }
+            if (ground.hasReplicator()){
+                try {
+                    BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
                     extraimages.add(zpm);
                 } catch (IOException e) {
                 }

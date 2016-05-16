@@ -36,6 +36,13 @@ public class Ground extends MapElement {
         return false;
     }
 
+    public boolean hasReplicator() {
+        if (rep != null) {
+            return true;
+        }
+        return false;
+    }
+
     // visszaadja, hogy a talajon van-e doboz
     public boolean hasBox() {
         if (box != null) {

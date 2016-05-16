@@ -11,7 +11,6 @@ public class Player {
     private int ZPMNumber;
     private MapElement baseElement;
     private boolean isAlive;
-    private boolean hasToPlaceDownZPM;
     private int weight;
     private String name;
 
@@ -180,13 +179,15 @@ public class Player {
         }
     }
 
-    //Visszater azzal a szimbolummal, ami a jatekoshoz tartozik. palya fajlbairasanal hasznaljuk
-    public String symbol(){
-        return "O";
-    }
-
-
     public boolean isAlive() {
         return isAlive;
+    }
+
+    public void setPlayer(boolean live) {
+        isAlive = live;
+    }
+
+    public void setZPMNumber(int ZPMNumber) {
+        this.ZPMNumber = ZPMNumber;
     }
 }

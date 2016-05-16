@@ -6,8 +6,5 @@ public class Main {
 
         //Jatek kezdete
         cont.start();
-
-        System.out.println("You won this shit");
-        return;
     }
 }

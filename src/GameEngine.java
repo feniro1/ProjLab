@@ -156,19 +156,24 @@ public class GameEngine {
         //Ha mindket jatekos meghalt, jatek vege
         if (!getPlayer("oneill").isAlive() && !getPlayer("jaffa").isAlive()) {
             int result = JOptionPane.showConfirmDialog(null, "Sajnaljuk, elvesztetted a jatekot! Szeretnel ujat jatszani?", "Mindket jatekos meghalt", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) controller.start();
+            if (result == JOptionPane.YES_OPTION) {
+                oneill.setPlayer(true);
+                jaffa.setPlayer(true);
+                controller.start();
+            }
             if (result == JOptionPane.NO_OPTION) System.exit(0);
             return true;
         }
-        //Ha a kezdeti ZPM szam 0, akkor is jatek vege
-        if ((getZPMNumber() - getPlayer("oneill").getZPMNumber() - getPlayer("jaffa").getZPMNumber()) == 0){
+        //Ha a kezdeti ZPM szambol kivonjuk a jatekosoknal levo ZPM-ek osszeget es 0-t kapunk, akkor jatek vege
+        //Amelyik jatekos tobbet gyujtott, az nyert
+        if ((ZPMNumber - getPlayer("oneill").getZPMNumber() - getPlayer("jaffa").getZPMNumber()) == 0){
             if(getPlayer("oneill").getZPMNumber() > getPlayer("jaffa").getZPMNumber()) {
-                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Oneil megnyerte a jatekot! Szeretnel ujat jatszani", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
+                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Oneill megnyerte a jatekot! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
                 if (result == JOptionPane.YES_OPTION) controller.start();
                 if (result == JOptionPane.NO_OPTION) System.exit(0);
             }
             if(getPlayer("oneill").getZPMNumber() < getPlayer("jaffa").getZPMNumber()) {
-                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Jaffa megnyerte a jatekot! Szeretnel ujat jatszani", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
+                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Jaffa megnyerte a jatekot! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
                 if (result == JOptionPane.YES_OPTION) controller.start();
                 if (result == JOptionPane.NO_OPTION) System.exit(0);
             }
@@ -429,8 +434,4 @@ public class GameEngine {
         return null;
     }
 
-
-    public int getZPMNumber () {
-        return ZPMNumber;
-    }
 }

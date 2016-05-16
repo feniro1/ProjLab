@@ -11,7 +11,7 @@ import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 /**
  * Created by Mate on 11/05/16.
  */
-public class Controller implements KeyListener{
+public class Controller implements KeyListener {
     private GameEngine game;
     private View view;
 

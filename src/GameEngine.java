@@ -67,7 +67,6 @@ public class GameEngine {
         }
     }
 
-
     public void turn(String name){
         if (name.equals("oneill")){
             oneill.turn();
@@ -75,9 +74,7 @@ public class GameEngine {
         else {
             jaffa.turn();
         }
-
     }
-
 
     public MapElement getFirstElement() {
         return firstElement;

@@ -39,9 +39,7 @@ public class Screen extends JPanel {
                 for(int j = 0; j < extraimages.size(); j++){
                     g.drawImage(extraimages.get(j), x * 40, y * 40, null);
                 }
-
             }
-
             i++;
         }
 

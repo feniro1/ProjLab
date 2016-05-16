@@ -34,7 +34,6 @@ public class Rift extends MapElement {
         this.setNeighbour(Direction.Up,null);
         this.setNeighbour(Direction.Left,null);
         this.setNeighbour(Direction.Right,null);
-
     }
 
     // ha ralep egy replicator megoljuk a replicatort

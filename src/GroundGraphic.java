@@ -105,7 +105,6 @@ public class GroundGraphic implements Drawable {
                 } catch (IOException e) {
                 }
             }
-
             return extraimages;
     }
 }

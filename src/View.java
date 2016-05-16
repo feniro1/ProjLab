@@ -41,7 +41,7 @@ public class View extends JFrame {
         //Kepernyo es panel hozzaadasa
         screen = new Screen();
         screen.setBounds(0, 0, 800, 820);
-
+//valtozas
         JPanel resultPanel = new JPanel();
         resultPanel.setBounds(800, 0, 150, 820);
         resultPanel.setBackground(Color.YELLOW);

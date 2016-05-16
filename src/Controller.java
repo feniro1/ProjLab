@@ -48,7 +48,9 @@ public class Controller implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        endGame();
+        if(game.endGame()) {
+            view.close();
+        }
           switch (key) {
                 case KeyEvent.VK_I:
                     game.move("oneill", Direction.Up);
@@ -137,20 +139,4 @@ public class Controller implements KeyListener{
     public void keyReleased(KeyEvent e) {
     }
 
-    //Jatek veget vizsgalo fuggveny, eredmeny szepen megjelenitese TODO
-    public boolean endGame() {
-        //Ha mindket jatekos meghalt, jatek vege
-        if (!game.getPlayer("oneill").isAlive() && !game.getPlayer("jaffa").isAlive()) {
-            view.close();
-            return true;
-        }
-
-        //Ha a kezdeti ZPM szam 0, akkor is jatek vege TODO
-        if ((game.getZPMNumber() - game.getPlayer("oneill").getZPMNumber() - game.getPlayer("jaffa").getZPMNumber()) == 0){
-            view.close();
-            return true;
-        }
-
-        else return false;
-    }
 }

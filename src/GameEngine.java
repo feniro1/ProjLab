@@ -105,6 +105,31 @@ public class GameEngine {
         }
     }
 
+    public void zpmGenerator() {
+        int collectedZPM = oneill.getZPMNumber() + jaffa.getZPMNumber();
+        if(collectedZPM % 2 == 0) {
+            int countPlacesWhereToPut = 0;
+            for(int i = 0; i < 20; i++) {
+         //       if(firstElement.getNextElement(Direction.Right).g)
+            }
+        }
+
+    }
+
+    //Jatek veget vizsgalo fuggveny, eredmeny szepen megjelenitese TODO
+    public boolean endGame() {
+        //Ha mindket jatekos meghalt, jatek vege
+        if (!getPlayer("oneill").isAlive() && !getPlayer("jaffa").isAlive()) {
+            return true;
+        }
+        //Ha a kezdeti ZPM szam 0, akkor is jatek vege TODO
+        if ((getZPMNumber() - getPlayer("oneill").getZPMNumber() - getPlayer("jaffa").getZPMNumber()) == 0){
+            return true;
+        }
+
+        else return false;
+    }
+
     public MapElement getFirstElement() {
         return firstElement;
     }

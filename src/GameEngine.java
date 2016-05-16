@@ -20,6 +20,7 @@ public class GameEngine {
     private int column;
     private Controller controller;
     private boolean reloadMap;
+    private int ZPMNumber;
 
     public GameEngine(Controller cont){
         oneill = new Player("oneill");
@@ -28,6 +29,7 @@ public class GameEngine {
         wormhole = new WormHole();
         controller = cont;
         reloadMap = false;
+        ZPMNumber = 0;
     }
 
     public void resetReloadMap(){
@@ -140,6 +142,7 @@ public class GameEngine {
                     //Letrehoz egy talaj elemet egy ZPM-mel
                     case 2:
                         ZPM z = new ZPM();
+                        ZPMNumber++;
                         table[i][j] = new Ground(z);
                         break;
                     //Letrehoz egy talaj elemet egy dobozzal
@@ -173,7 +176,7 @@ public class GameEngine {
                     case 8:
                         table[i][j] = new Wall();
                         break;
-                    //Letrehoz egy kelenleges falat
+                    //Letrehoz egy kulonleges falat
                     case 9:
                         SpecialWall sw1 = new SpecialWall(wormhole);
                         sw1.isSpecWall = true;
@@ -332,4 +335,15 @@ public class GameEngine {
         table[row - 1][column - 1].setNeighbour(Direction.Left, table[row - 1][column - 2]);
     }
 
+    public Player getPlayer(String name) {
+        if (name.equals("oneill"))
+            return oneill;
+        if (name.equals("jaffa"))
+            return jaffa;
+        return null;
+    }
+
+    public int getZPMNumber () {
+        return ZPMNumber;
+    }
 }

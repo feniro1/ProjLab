@@ -116,20 +116,6 @@ public class Ground extends MapElement {
         }
     }
 
-    public String symbol(){
-        if(hasBox()) {
-            return "B";
-        } else if(hasZPM()){
-            return "Z";
-        } else if(player != null){
-            return "O";
-        } else if(rep != null){
-            return "@";
-        } else {
-            return " ";
-        }
-    }
-
     public Drawable getDrawableClass() {
         return new GroundGraphic(this);
     }

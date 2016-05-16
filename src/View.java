@@ -69,4 +69,8 @@ public class View extends JFrame{
         }
     }
 
+    //Ideiglenes
+    public void close() {
+        this.remove(panel);
+    }
 }

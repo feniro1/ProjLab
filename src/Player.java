@@ -18,7 +18,7 @@ public class Player {
     //Az ezredes inicializalasa, attributumainak alapertelmezett ertekekre allitasa
     public Player(String n) {
         lookDirection = Direction.Up;
-        ZPMNumber = 0;
+        ZPMNumber = 3;
         box = null;
         isAlive = true;
         name = n;
@@ -28,7 +28,7 @@ public class Player {
     public Player(MapElement _baseElement, String n){
         lookDirection = Direction.Up;
         baseElement = _baseElement;
-        ZPMNumber = 0;
+        ZPMNumber = 3;
         box = null;
         isAlive = true;
         name = n;
@@ -152,6 +152,7 @@ public class Player {
     //ZPM szam novelese
     public void incZPMNumber() {
         ZPMNumber++;
+        System.out.println(ZPMNumber);
     }
 
     //A kovetekezo elemnek odaadja a sajat referenciajat, ezzel ralepteti es a mostanirol leveszi. Ezzel hajtodik vegre a lepes
@@ -181,4 +182,7 @@ public class Player {
     }
 
 
+    public boolean isAlive() {
+        return isAlive;
+    }
 }

@@ -72,7 +72,7 @@ public class SpecialWall extends Wall {
         return false;
     }
 
-    
+
 
     @Override
     public Drawable getDrawableClass() {

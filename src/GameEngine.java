@@ -30,13 +30,31 @@ public class GameEngine {
         reloadMap = false;
     }
 
+    public void resetReloadMap(){
+        System.out.println("resetreloadmap");
+        reloadMap = false;
+    }
+
+    public boolean getReloadMap(){
+        return reloadMap;
+    }
+
+    public void check(){
+        if(replicator.isKilledByRift() == true){
+            System.out.println("reloadmap");
+            reloadMap = true;
+            replicator.resetKilledByRift();
+        }
+    }
+
     public void move(String name, Direction dir) {
+
         if (name.equals("oneill")){
             oneill.move(dir);
         }
         else if (name.equals("jaffa")){
             jaffa.move(dir);
-        } else if (name.equals("rep")) {
+        } else if (name.equals("rep") && replicator.isAlive()) {
             replicator.move(dir);
         }
     }

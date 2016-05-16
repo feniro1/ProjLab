@@ -35,11 +35,14 @@ public class Rift extends MapElement {
         this.setNeighbour(Direction.Left,null);
         this.setNeighbour(Direction.Right,null);
 
+        System.out.println("replace");
+
     }
 
     // ha ralep egy replicator megoljuk a replicatort
     public boolean stepOn(Replicator _rep) {
         _rep.killedByRift();
+        this.replaceWithGround();
         return true;
     }
 

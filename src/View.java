@@ -43,7 +43,6 @@ public class View extends JFrame{
     }
 
 
-    //Terkep kirajzolasa, ez geci lassu, de mukodik.. TODO
     public void drawMap(){
         //panelnek atadjuk az adatokat
         panel.setData(column, map);
@@ -58,6 +57,7 @@ public class View extends JFrame{
         row = r;
         column = c;
 
+        map.clear();
         for (int i = 0; i < row; i ++){
             map.add(fe.getDrawableClass());
             for (int j = 0; j < column - 1; j++) {

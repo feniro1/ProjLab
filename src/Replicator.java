@@ -7,12 +7,26 @@ public class Replicator {
     private Direction lookDirection;
     private MapElement baseElement;
     private boolean isAlive; //killhez
+    private boolean killedByRift;
     private boolean isRandom; // nemtom h ide kell-e, yolo
 
     public Replicator(){
         lookDirection = Direction.Up;
         isAlive = true;
         isRandom = true;
+        killedByRift = false;
+    }
+
+    public boolean isAlive(){
+        return isAlive;
+    }
+
+    public boolean isKilledByRift(){
+        return killedByRift;
+    }
+
+    public void resetKilledByRift(){
+        killedByRift = false;
     }
 
     public Replicator(MapElement _baseElement){
@@ -25,8 +39,8 @@ public class Replicator {
     // ha a replicator rift palyaelemre lep, akkor a rift-bol ground palyaelem lesz
     public void killedByRift() {
         isAlive = false;
-        Rift r = (Rift)baseElement.getNextElement(lookDirection);
-        r.replaceWithGround();
+        killedByRift = true;
+        System.out.println("killedbyrift");
     }
 
     //akkor hivodik, ha egy golyo eltalalta a replicatort

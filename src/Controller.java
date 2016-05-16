@@ -49,9 +49,7 @@ public class Controller implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if(game.endGame()) {
-            JOptionPane.showMessageDialog(null, "Nyertel!");
-        }
+
           switch (key) {
                 case KeyEvent.VK_I:
                     game.move("oneill", Direction.Up);
@@ -134,6 +132,7 @@ public class Controller implements KeyListener{
                     view.drawMap();
                     break;
         }
+        game.endGame();
     }
 
     @Override

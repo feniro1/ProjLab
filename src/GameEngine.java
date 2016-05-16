@@ -1,4 +1,5 @@
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.Console;
 import java.io.FileReader;
@@ -116,17 +117,34 @@ public class GameEngine {
 
     }
 
-    //Jatek veget vizsgalo fuggveny, eredmeny szepen megjelenitese TODO
+    //Jatek veget vizsgalo fuggveny, eredmeny szepen megjelenitese
     public boolean endGame() {
         //Ha mindket jatekos meghalt, jatek vege
         if (!getPlayer("oneill").isAlive() && !getPlayer("jaffa").isAlive()) {
+            int result = JOptionPane.showConfirmDialog(null, "Sajnaljuk, elvesztetted a jatekot! Szeretnel ujat jatszani?", "Mindket jatekos meghalt", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) controller.start();
+            if (result == JOptionPane.NO_OPTION) System.exit(0);
             return true;
         }
-        //Ha a kezdeti ZPM szam 0, akkor is jatek vege TODO
+        //Ha a kezdeti ZPM szam 0, akkor is jatek vege
         if ((getZPMNumber() - getPlayer("oneill").getZPMNumber() - getPlayer("jaffa").getZPMNumber()) == 0){
+            if(getPlayer("oneill").getZPMNumber() > getPlayer("jaffa").getZPMNumber()) {
+                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Oneil megnyerte a jatekot! Szeretnel ujat jatszani", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
+                if (result == JOptionPane.YES_OPTION) controller.start();
+                if (result == JOptionPane.NO_OPTION) System.exit(0);
+            }
+            if(getPlayer("oneill").getZPMNumber() < getPlayer("jaffa").getZPMNumber()) {
+                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Jaffa megnyerte a jatekot! Szeretnel ujat jatszani", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
+                if (result == JOptionPane.YES_OPTION) controller.start();
+                if (result == JOptionPane.NO_OPTION) System.exit(0);
+            }
+            if(getPlayer("oneill").getZPMNumber() == getPlayer("jaffa").getZPMNumber()) {
+                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, a jatek soran dontetlen szuletett, igy a jatekosok sikeresen hazajuthatnak! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
+                if (result == JOptionPane.YES_OPTION) controller.start();
+                if (result == JOptionPane.NO_OPTION) System.exit(0);
+            }
             return true;
         }
-
         else return false;
     }
 

@@ -72,14 +72,7 @@ public class SpecialWall extends Wall {
         return false;
     }
 
-
-    //Kirajzolást segítő függvény. Ha portál van a falon #-et rajzolunk, ha sima speciális fal %-t.
-    public String symbol(){
-        if(hasPortal())
-            return "#";
-        else
-            return "%";
-    }
+    
 
     @Override
     public Drawable getDrawableClass() {

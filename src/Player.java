@@ -162,6 +162,7 @@ public class Player {
         if(baseElement.isScale){
             Scale sc = (Scale)baseElement;
             sc.getDoor().close();
+
         }
 
         if(me.isSpecWall) {

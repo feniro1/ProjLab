@@ -33,6 +33,13 @@ public class DoorGraphic implements Drawable {
         //megnezzuk van e rajta valaki
         ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
         Player player =  door.getPlayer();
+        if (door.hasReplicator()){
+            try {
+                BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
+                extraimages.add(zpm);
+            } catch (IOException e) {
+            }
+        }
         if (player != null) {
             //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
             //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO
@@ -80,13 +87,7 @@ public class DoorGraphic implements Drawable {
                     break;
             }
         }
-        if (door.hasReplicator()){
-            try {
-                BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
-                extraimages.add(zpm);
-            } catch (IOException e) {
-            }
-        }
+
         return extraimages;
     }
 }

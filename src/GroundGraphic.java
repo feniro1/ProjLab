@@ -29,6 +29,13 @@ public class GroundGraphic implements Drawable {
         //megnezzuk van e rajta valaki
         ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
         Player player =  ground.getPlayer();
+        if (ground.hasReplicator()){
+            try {
+                BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
+                extraimages.add(zpm);
+            } catch (IOException e) {
+            }
+        }
         if (player != null) {
             //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
             //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO
@@ -90,13 +97,7 @@ public class GroundGraphic implements Drawable {
                 } catch (IOException e) {
                 }
             }
-            if (ground.hasReplicator()){
-                try {
-                    BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
-                    extraimages.add(zpm);
-                } catch (IOException e) {
-                }
-            }
+
             return extraimages;
     }
 }

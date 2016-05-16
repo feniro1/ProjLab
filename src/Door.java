@@ -47,8 +47,8 @@ public class Door extends MapElement {
     public boolean stepOn(Player player) {
         if (isOpen) {
             if(!hasPlayer()) {
-                }
                 return true;
+            }
         }
         return false;
     }

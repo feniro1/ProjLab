@@ -239,9 +239,9 @@ public class GameEngine {
                 //Letrehoz egy merleget es eltarolja a listaban
                 if (thisLine / 100 == 2) {
                     Scale s3 = new Scale((thisLine - 200) / 10);
-                    s3.isScale = true;
                     table[i][j] = s3;
                     scales[thisLine % 10 - 1] = s3;
+                    table[i][j].isScale = true;
                     db++;
                 }
                 //Letrehoz egy zart ajtot es eltarolja a listaban

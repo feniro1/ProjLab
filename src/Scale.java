@@ -7,12 +7,13 @@ public class Scale extends MapElement {
     private List<Box> boxes;
     private Door door;
     private int limit;
-    protected boolean isScale = true;
+    protected boolean isScale;
 
     //Konstruktor. Alapertelmezettben nincs rajta doboz.
     public Scale(int limit) {
         this.limit = limit;
         boxes = new ArrayList<>();
+        isScale = true;
     }
 
     // visszaadja a merleghez tartozo ajtot
@@ -39,6 +40,8 @@ public class Scale extends MapElement {
             boxes.remove(boxes.size() - 1);
         }
     }
+
+
 
     //Ezzel allitható be a merlegnek doboz
     public void addBox(Box box) {

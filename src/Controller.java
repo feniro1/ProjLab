@@ -68,6 +68,7 @@ public class Controller implements KeyListener{
                     break;
                 case KeyEvent.VK_J:
                     game.move("oneill", Direction.Left);
+                    game.zpmGenerator();
                     this.check();
                     view.drawMap();
                     break;

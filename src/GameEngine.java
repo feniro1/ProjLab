@@ -108,10 +108,44 @@ public class GameEngine {
 
     public void zpmGenerator() {
         int collectedZPM = oneill.getZPMNumber() + jaffa.getZPMNumber();
-        if(collectedZPM % 2 == 0) {
+        if((collectedZPM > 0) && (collectedZPM % 2 == 0)) {
             int countPlacesWhereToPut = 0;
+            MapElement firstRowElement = firstElement;
+            MapElement actualElement = firstElement;
             for(int i = 0; i < 20; i++) {
-         //       if(firstElement.getNextElement(Direction.Right).g)
+                for(int j = 0; j < 20; j++) {
+                    if (actualElement.getClass().toString().equals("Ground")) {
+                        Ground g = (Ground)actualElement;
+                        if((!g.hasZPM())&&(!g.hasReplicator())&&(!g.hasBox())&&(!g.hasPlayer())) {
+                            countPlacesWhereToPut++;
+                        }
+                        actualElement = actualElement.getNextElement(Direction.Right);
+                    }
+                }
+                firstRowElement = firstRowElement.getNextElement(Direction.Down);
+                actualElement = firstRowElement;
+            }
+            firstRowElement = firstElement;
+            actualElement = firstElement;
+            int random = (int )(Math.random() * countPlacesWhereToPut + 1);
+            for(int i = 0; i < 20; i++) {
+                for(int j = 0; j < 20; j++) {
+                    if (actualElement.getClass().toString().equals("Ground")) {
+                        Ground g = (Ground)actualElement;
+                        if((!g.hasZPM())&&(!g.hasReplicator())&&(!g.hasBox())&&(!g.hasPlayer())) {
+                            random --;
+                            if(random==0) {
+                                g.setZPM();
+                                ZPMNumber++;
+                                return;
+                            }
+
+                        }
+                        actualElement = actualElement.getNextElement(Direction.Right);
+                    }
+                }
+                firstRowElement = firstRowElement.getNextElement(Direction.Down);
+                actualElement = firstRowElement;
             }
         }
 

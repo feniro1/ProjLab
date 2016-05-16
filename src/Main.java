@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        //GameEngine-nek atadjuk az ezredesunket es a fereglyukat
+        //Inicializaljuk a Controllert, ami kezeli az egesz jatekmenetet
         Controller cont = new Controller();
 
         //Jatek kezdete

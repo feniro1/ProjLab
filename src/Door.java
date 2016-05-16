@@ -21,6 +21,28 @@ public class Door extends MapElement {
         isOpen = false;
     }
 
+    public boolean itsOpened() {
+        if (isOpen) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasPlayer() {
+        if (player != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasReplicator() {
+        if (rep != null) {
+            return true;
+        }
+        return false;
+    }
+
+
     // visszaadja, hogy odalephet-e az ezredes az ajto allapotatol fuggoen
     public boolean stepOn(Player player) {
         if (isOpen) {

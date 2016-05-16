@@ -19,10 +19,74 @@ public class DoorGraphic implements Drawable {
 
     public BufferedImage getImage(){
         //Itt forgatas vagy kepcsere
+        if (door.itsOpened()) {
+            img = Images.instance.doorOpened;
+        } else if (!door.itsOpened()) {
+            img = Images.instance.doorclosed;
+        }
         return img;
     }
 
+
+    //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
     public ArrayList<BufferedImage> getExtraImages(){
-        return null;
+        //megnezzuk van e rajta valaki
+        ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
+        Player player =  door.getPlayer();
+        if (player != null) {
+            //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
+            //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO
+            //csak probakent raktam ra oneill meg jaffa van eddig kezelve :(
+            switch (player.getName()) {
+                case "oneill":
+                    BufferedImage oneill;
+                    try {
+                        oneill = ImageIO.read(new File("images/colonel.png"));
+                        switch (player.getLookDirection()) {
+                            case Up:
+                                break;
+                            case Right:
+                                oneill = Images.instance.rotateToRight(oneill);
+                                break;
+                            case Left:
+                                oneill = Images.instance.rotateToLeft(oneill);
+                                break;
+                            case Down:
+                                oneill = Images.instance.rotateDown(oneill);
+                        }
+                        extraimages.add(oneill);
+                    } catch (IOException e) {
+                    }
+                    break;
+                case "jaffa":
+                    BufferedImage jaffa;
+                    try {
+                        jaffa = ImageIO.read(new File("images/jaffa.png"));
+                        switch (player.getLookDirection()) {
+                            case Up:
+                                break;
+                            case Right:
+                                jaffa = Images.instance.rotateToRight(jaffa);
+                                break;
+                            case Left:
+                                jaffa = Images.instance.rotateToLeft(jaffa);
+                                break;
+                            case Down:
+                                jaffa = Images.instance.rotateDown(jaffa);
+                        }
+                        extraimages.add(jaffa);
+                    } catch (IOException e) {
+                    }
+                    break;
+            }
+        }
+        if (door.hasReplicator()){
+            try {
+                BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
+                extraimages.add(zpm);
+            } catch (IOException e) {
+            }
+        }
+        return extraimages;
     }
 }

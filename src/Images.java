@@ -14,6 +14,7 @@ public class Images {
     public static Images instance = new Images();
     public BufferedImage ground;
     public BufferedImage doorclosed;
+    public BufferedImage doorOpened;
     public BufferedImage rift;
     public BufferedImage scale;
     public BufferedImage specialwall;
@@ -29,6 +30,7 @@ public class Images {
             scale = ImageIO.read(new File("images/scale.jpg"));
             specialwall= ImageIO.read(new File("images/specialwall.jpg"));
             wall = ImageIO.read(new File("images/wall.jpg"));
+            doorOpened = ImageIO.read(new File("images/dooropened.jpg"));
         } catch (IOException e) {
         }
     }

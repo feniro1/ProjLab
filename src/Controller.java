@@ -76,12 +76,12 @@ public class Controller implements KeyListener{
                 break;
             case KeyEvent.VK_O:
                 System.out.println("Oneill felvett egy dobozt");
-                game.putDown("oneill");
+                game.pickUp("oneill");
                 view.drawMap();
                 break;
             case KeyEvent.VK_P:
                 System.out.println("Oneill letett egy dobozt");
-                game.pickUp("oneill");
+                game.putDown("oneill");
                 view.drawMap();
                 break;
             case KeyEvent.VK_W:
@@ -121,12 +121,12 @@ public class Controller implements KeyListener{
                 break;
             case KeyEvent.VK_E:
                 System.out.println("Jaffa felvett egy dobozt");
-                game.putDown("jaffa");
+                game.pickUp("jaffa");
                 view.drawMap();
                 break;
             case KeyEvent.VK_R:
                 System.out.println("Jaffa letett egy dobozt");
-                game.pickUp("jaffa");
+                game.putDown("jaffa");
                 view.drawMap();
                 System.out.print("kaka");
                 break;

@@ -89,6 +89,13 @@ public class Ground extends MapElement {
         return false;
     }
 
+    public boolean stepOn(Replicator _rep) {
+        if (!hasBox()&&!hasZPM()) {
+            return true;
+        }
+        return false;
+    }
+
     // visszaad egy doboz objektumot, ha van neki
     public Box pickUp() {
         if (hasBox()) {

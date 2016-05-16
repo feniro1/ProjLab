@@ -47,16 +47,19 @@ public class Controller implements KeyListener{
             case KeyEvent.VK_K:
                 System.out.println("Lefele gomb lenyomva");
                 game.move("oneill", Direction.Down);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_L:
                 System.out.println("Jobbra gomb lenyomva");
                 game.move("oneill", Direction.Right);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_J:
                 System.out.println("Balra gomb lenyomva");
                 game.move("oneill", Direction.Left);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_N:
@@ -87,21 +90,25 @@ public class Controller implements KeyListener{
             case KeyEvent.VK_W:
                 System.out.println("W gomb lenyomva");
                 game.move("jaffa", Direction.Up);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_S:
                 System.out.println("S gomb lenyomva");
                 game.move("jaffa", Direction.Down);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_D:
                 System.out.println("D gomb lenyomva");
                 game.move("jaffa", Direction.Right);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_A:
                 System.out.println("A gomb lenyomva");
                 game.move("jaffa", Direction.Left);
+                game.move("rep", Direction.Up);
                 view.drawMap();
                 break;
             case KeyEvent.VK_X:

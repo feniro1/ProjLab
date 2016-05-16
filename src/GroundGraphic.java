@@ -44,7 +44,11 @@ public class GroundGraphic implements Drawable {
                 case "oneill":
                     BufferedImage oneill;
                     try {
-                        oneill = ImageIO.read(new File("images/colonel.png"));
+                        if(!player.hasBox()) {
+                            oneill = ImageIO.read(new File("images/colonel.png"));
+                        } else {
+                            oneill = ImageIO.read(new File("images/colonelwithbox.png"));
+                        }
                         switch (player.getLookDirection()) {
                             case Up:
                                 break;
@@ -64,7 +68,11 @@ public class GroundGraphic implements Drawable {
                 case "jaffa":
                     BufferedImage jaffa;
                     try {
-                        jaffa = ImageIO.read(new File("images/jaffa.png"));
+                        if(!player.hasBox()) {
+                            jaffa = ImageIO.read(new File("images/jaffa.png"));
+                        } else {
+                            jaffa = ImageIO.read(new File("images/jaffawithbox.png"));
+                        }
                         switch (player.getLookDirection()) {
                             case Up:
                                 break;

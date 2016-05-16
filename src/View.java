@@ -35,6 +35,7 @@ public class View extends JFrame{
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setBounds(100, 100, 800, 822);
 
+
         //Panel hozzaadasa
         panel = new Screen();
         this.add(panel);
@@ -42,7 +43,6 @@ public class View extends JFrame{
     }
 
 
-    //Terkep kirajzolasa
     public void drawMap(){
         //panelnek atadjuk az adatokat
         panel.setData(column, map);
@@ -57,6 +57,7 @@ public class View extends JFrame{
         row = r;
         column = c;
 
+        map.clear();
         for (int i = 0; i < row; i ++){
             map.add(fe.getDrawableClass());
             for (int j = 0; j < column - 1; j++) {

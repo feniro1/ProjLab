@@ -50,6 +50,7 @@ public class SpecialWall extends Wall {
         Direction dir = player.getLookDirection().reverse();
 
         MapElement wheretoGo = wormhole.getOtherPortal(dir, this).getDestinationElement();
+        player.setLookDirection(wormhole.getOtherPortal(dir, this).getDirection());
         return wheretoGo;
     }
 
@@ -72,13 +73,6 @@ public class SpecialWall extends Wall {
     }
 
 
-    //Kirajzolást segítő függvény. Ha portál van a falon #-et rajzolunk, ha sima speciális fal %-t.
-    public String symbol(){
-        if(hasPortal())
-            return "#";
-        else
-            return "%";
-    }
 
     @Override
     public Drawable getDrawableClass() {

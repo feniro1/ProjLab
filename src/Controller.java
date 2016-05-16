@@ -33,6 +33,17 @@ public class Controller implements KeyListener{
     public void keyTyped(KeyEvent e) {
     }
 
+    public void check(){
+        game.check();
+
+        if (game.getReloadMap() == true){
+            view.setList(game.getFirstElement(), game.getRow(), game.getColumn());
+            System.out.println("setlist");
+            game.resetReloadMap();
+        }
+
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
@@ -41,73 +52,89 @@ public class Controller implements KeyListener{
             case KeyEvent.VK_I:
                 game.move("oneill", Direction.Up);
                 game.move("rep", Direction.Up);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_K:
                 game.move("oneill", Direction.Down);
                 game.move("rep", Direction.Up);
                 view.drawMap();
+                this.check();
                 break;
             case KeyEvent.VK_L:
                 game.move("oneill", Direction.Right);
                 game.move("rep", Direction.Up);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_J:
                 game.move("oneill", Direction.Left);
                 game.move("rep", Direction.Up);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_N:
                 game.shoot("oneill", Color.Blue);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_M:
                 game.shoot("oneill", Color.Yellow);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_U:
                 game.turn("oneill");
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_O:
                 game.pickUp("oneill");
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_W:
                 game.move("jaffa", Direction.Up);
                 game.move("rep", Direction.Up);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_S:
                 game.move("jaffa", Direction.Down);
                 game.move("rep", Direction.Up);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_D:
                 game.move("jaffa", Direction.Right);
                 game.move("rep", Direction.Up);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_A:
                 game.move("jaffa", Direction.Left);
                 game.move("rep", Direction.Up);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_X:
                 game.shoot("jaffa", Color.Green);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_C:
                 game.shoot("jaffa", Color.Red);
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_Q:
                 game.turn("jaffa");
+                this.check();
                 view.drawMap();
                 break;
             case KeyEvent.VK_E:
                 game.pickUp("jaffa");
+                this.check();
                 view.drawMap();
                 break;
 

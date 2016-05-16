@@ -29,6 +29,10 @@ public class Ground extends MapElement {
         return false;
     }
 
+    public void setZPM() {
+        this.zpm = new ZPM();
+    }
+
     public boolean hasPlayer() {
         if (player != null) {
             return true;

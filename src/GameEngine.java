@@ -56,27 +56,23 @@ public class GameEngine {
     }
 
     public void pickUp(String name) {
-        if (name.equals("oneill")){
-            oneill.pickUp();
-            System.out.println("Oneill felvette ");
-        }
-        else {
-            jaffa.pickUp();
-            System.out.println("Jaffa felvette ");
+        if (name.equals("oneill")) {
+            if (oneill.hasBox()) {
+                oneill.putDown();
+            } else {
+                oneill.pickUp();
+                System.out.println("Oneill felvette ");
+            }
+        } else {
+            if (jaffa.hasBox()) {
+                jaffa.putDown();
+            } else {
+                jaffa.pickUp();
+                System.out.println("Jaffa felvette ");
+            }
         }
     }
 
-    public void putDown(String name) {
-        if (name.equals("oneill")){
-            oneill.putDown();
-            System.out.println("Oneill letette ");
-        }
-        else {
-            jaffa.putDown();
-            System.out.println("Jaffa letette");
-        }
-
-    }
 
     public void turn(String name){
         if (name.equals("oneill")){

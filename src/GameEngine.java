@@ -32,6 +32,8 @@ public class GameEngine {
         ZPMNumber = 0;
     }
 
+
+
     public void resetReloadMap(){
         System.out.println("resetreloadmap");
         reloadMap = false;
@@ -51,7 +53,7 @@ public class GameEngine {
 
     public void move(String name, Direction dir) {
 
-        if (name.equals("oneill")){
+        if ((name.equals("oneill"))){
             oneill.move(dir);
         }
         else if (name.equals("jaffa")){

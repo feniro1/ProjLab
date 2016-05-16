@@ -39,6 +39,10 @@ public class Player {
     //Visszater a jatekos sulyaval
     public int getWeight(){ return weight; }
 
+    public boolean ItsAlive() {
+        return isAlive;
+    }
+
     //visszater a jatekos nevevel
     public String getName() {
         return name;
@@ -115,7 +119,9 @@ public class Player {
 
     //Az ezredes ongyilkossaga
     public void kill() {
+
         isAlive = false;
+        baseElement.setPlayer(null);
     }
 
     //Doboz felvetele

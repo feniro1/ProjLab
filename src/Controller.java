@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -49,7 +50,7 @@ public class Controller implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if(game.endGame()) {
-            view.close();
+            JOptionPane.showMessageDialog(null, "Nyertel!");
         }
           switch (key) {
                 case KeyEvent.VK_I:

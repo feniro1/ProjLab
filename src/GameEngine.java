@@ -33,11 +33,9 @@ public class GameEngine {
     public void move(String name, Direction dir) {
         if (name.equals("oneill")){
             oneill.move(dir);
-            System.out.println("Oneill megmozdult " + dir + " iranyban");
         }
         else if (name.equals("jaffa")){
             jaffa.move(dir);
-            System.out.println("Jaffa megmozdult " + dir + " iranyban");
         } else if (name.equals("rep")) {
             replicator.move(dir);
         }
@@ -46,11 +44,9 @@ public class GameEngine {
     public void shoot(String name, Color col) {
         if (name.equals("oneill")){
             oneill.shoot(col);
-            System.out.println("Oneill lott " + col + " szinut");
         }
         else {
             jaffa.shoot(col);
-            System.out.println("Jaffa lott " + col + " szinut");
         }
 
     }
@@ -61,14 +57,12 @@ public class GameEngine {
                 oneill.putDown();
             } else {
                 oneill.pickUp();
-                System.out.println("Oneill felvette ");
             }
         } else {
             if (jaffa.hasBox()) {
                 jaffa.putDown();
             } else {
                 jaffa.pickUp();
-                System.out.println("Jaffa felvette ");
             }
         }
     }
@@ -77,11 +71,9 @@ public class GameEngine {
     public void turn(String name){
         if (name.equals("oneill")){
             oneill.turn();
-            System.out.println("Oneill megfordult");
         }
         else {
             jaffa.turn();
-            System.out.println("Jaffa megofordult");
         }
 
     }

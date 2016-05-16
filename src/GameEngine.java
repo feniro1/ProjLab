@@ -352,10 +352,6 @@ public class GameEngine {
         return null;
     }
 
-    public void setPlayerNull(String name) {
-        if (name.equals("oneill")) oneill = null;
-        if (name.equals("jaffa")) jaffa = null;
-    }
 
     public int getZPMNumber () {
         return ZPMNumber;

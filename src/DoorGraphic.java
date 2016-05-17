@@ -12,13 +12,14 @@ public class DoorGraphic implements Drawable {
     private Door door;
     private BufferedImage img;
 
+    // konstruktor, mely hozzarendel egy ajto objektumot a az osztalyhoz
     public DoorGraphic(Door d){
         door = d;
         img = Images.instance.doorclosed;
     }
 
+    // visszaadja az ajto allapotatol fuggoen milyen kepet rajzoljon ki
     public BufferedImage getImage(){
-        //Itt forgatas vagy kepcsere
         if (door.itsOpened()) {
             img = Images.instance.doorOpened;
         } else if (!door.itsOpened()) {
@@ -28,7 +29,7 @@ public class DoorGraphic implements Drawable {
     }
 
 
-    //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
+    // arraylist, mely tarolja az ajto fele rajzolt extra kepeket
     public ArrayList<BufferedImage> getExtraImages(){
         //megnezzuk van e rajta valaki
         ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();

@@ -21,6 +21,7 @@ public class Door extends MapElement {
         isOpen = false;
     }
 
+    // visszaadja, hogy az ajto milyen allapotban van
     public boolean itsOpened() {
         if (isOpen) {
             return true;
@@ -28,6 +29,7 @@ public class Door extends MapElement {
         return false;
     }
 
+    // visszaadja, hogy all-e valaki az ajtoban
     public boolean hasPlayer() {
         if (player != null) {
             return true;
@@ -35,6 +37,7 @@ public class Door extends MapElement {
         return false;
     }
 
+    // visszaadja, hogy van all-e replikator az ajtoban
     public boolean hasReplicator() {
         if (rep != null) {
             return true;
@@ -63,6 +66,7 @@ public class Door extends MapElement {
         return true;
     }
 
+    // segedfuggveny a grafikus felulet nelkuli tesztek megjelenitesehez
     public String symbol(){
         if(isOpen){
             if(player != null)
@@ -74,6 +78,7 @@ public class Door extends MapElement {
         }
     }
 
+    //visszaad egy hozza tartozo graphics objektumot
     @Override
     public Drawable getDrawableClass() {
         return new DoorGraphic(this);

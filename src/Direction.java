@@ -14,18 +14,9 @@ public enum Direction {
         this.value = value;
     }
 
+    // visszaadja az enum erteket
     public int getValue() {
         return value;
-    }
-
-    public String toHungarian (){
-        switch(value){
-            case 0: return "felfele";
-            case 1: return "jobbra";
-            case 2: return "lefele";
-            case 3: return "balra";
-        }
-        return "";
     }
 
     //Visszafele is haladhatunk rajtuk

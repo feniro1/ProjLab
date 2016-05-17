@@ -11,10 +11,12 @@ import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 /**
  * Created by Mate on 11/05/16.
  */
+// Kapcsolatot letesit a model es a view kozott, es kezeli a felhasznaloi interakciokat
 public class Controller implements KeyListener {
     private GameEngine game;
     private View view;
 
+    // konstruktor, melyben inicializaljuk a jatekmenetet es egy uj nezetet
     public Controller() {
         game = new GameEngine(this);
         view = new View(this);
@@ -35,17 +37,18 @@ public class Controller implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
+    // figyeli, ha a palyaban valtozas tortenik es ujratolti azt
     public void check(){
         game.check();
 
         if (game.getReloadMap() == true){
             view.setList(game.getFirstElement(), game.getRow(), game.getColumn());
-            System.out.println("setlist");
             game.resetReloadMap();
         }
 
     }
 
+    // felelos a billentyuzet lenyomasokert, kezeli azokat, es a megfelelo gombok leutesere megfelelo karakterekre hiv meg fuggvenyeket, ez lehet mozgas, loves, forgas, dobozfelveves
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
@@ -132,8 +135,10 @@ public class Controller implements KeyListener {
                     view.drawMap();
                     break;
         }
+        // figyeli, ha valtozik a jatekosok ZPM szama, es megvaltoztatja a panel aljan levo ZPM szamot
         view.setScoreOneillLabel(game.getPlayer("oneill").getZPMNumber());
         view.setScoreJaffaLabel(game.getPlayer("jaffa").getZPMNumber());
+        // figyeli, hogy veget ert-e a jatek
         endGame();
     }
 
@@ -141,7 +146,7 @@ public class Controller implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    //Jatek veget vizsgalo fuggveny, eredmeny szepen megjelenitese
+    //Jatek veget vizsgalo fuggveny, eredmeny megjelenitese
     public boolean endGame() {
         //Ha mindket jatekos meghalt, jatek vege
         if (!game.getPlayer("oneill").isAlive() && !game.getPlayer("jaffa").isAlive()) {

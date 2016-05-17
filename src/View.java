@@ -108,7 +108,7 @@ public class View extends JFrame {
         scoreOneillLabel.setText("   " + Integer.toString(s));
     }
 
-    //a ZPM szam kiiratasahoz setter a label-re
+    // a ZPM szam kiiratasahoz setter a label-re
     public void setScoreJaffaLabel(int s){
         scoreJaffaLabel.setText("   " + Integer.toString(s));
     }

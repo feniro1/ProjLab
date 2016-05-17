@@ -17,7 +17,7 @@ public class Player {
     //Az ezredes inicializalasa, attributumainak alapertelmezett ertekekre allitasa
     public Player(String n) {
         lookDirection = Direction.Up;
-        ZPMNumber = 3;
+        ZPMNumber = 0;
         box = null;
         isAlive = true;
         name = n;
@@ -27,7 +27,7 @@ public class Player {
     public Player(MapElement _baseElement, String n){
         lookDirection = Direction.Up;
         baseElement = _baseElement;
-        ZPMNumber = 3;
+        ZPMNumber = 0;
         box = null;
         isAlive = true;
         name = n;

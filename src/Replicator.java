@@ -40,7 +40,6 @@ public class Replicator {
     public void killedByRift() {
         isAlive = false;
         killedByRift = true;
-        System.out.println("killedbyrift");
     }
 
     //akkor hivodik, ha egy golyo eltalalta a replicatort

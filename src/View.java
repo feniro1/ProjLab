@@ -26,7 +26,7 @@ public class View extends JFrame {
 
     public View(Controller cont) {
         super();
-        //keylistener beallitasahoz szukseges
+
         controller = cont;
         //Ablak, lista, panel inicializalasa
         map = new ArrayList<Drawable>();

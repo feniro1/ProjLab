@@ -54,7 +54,7 @@ public class Door extends MapElement {
     }
 
     // ha az ajto nyitva van es a golyo utkozik akkor true, ha az ajto zart akkor false
-    public boolean hit(Player player) {
+    public boolean hit(Bullet bullet) {
         if (isOpen) {
             if(!hasPlayer()) {
                 return false;

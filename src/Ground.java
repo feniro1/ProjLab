@@ -70,7 +70,7 @@ public class Ground extends MapElement {
 
     // ha a foldon all valami es golyo megy el a fold objektum felett, ez lekezeli, hogy utkozik-e valamivel
     public boolean hit(Bullet bullet) {
-        if((!hasBox()) && (!hasZPM()) && (player == null)) {
+        if((!hasBox()) && (player == null)) {
             if(rep != null){
                 rep.killedByBullet();
                 rep = null;

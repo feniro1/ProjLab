@@ -123,6 +123,10 @@ public class Ground extends MapElement {
         }
     }
 
+    public Replicator getReplicator(){
+        return rep;
+    }
+
     public Drawable getDrawableClass() {
         return new GroundGraphic(this);
     }

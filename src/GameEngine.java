@@ -110,6 +110,10 @@ public class GameEngine {
         }
     }
 
+    public int getZPMNumber(){
+        return ZPMNumber;
+    }
+
     public void zpmGenerator() {
         int collectedZPM = oneill.getZPMNumber() + jaffa.getZPMNumber();
         if((collectedZPM > 0) && (collectedZPM % 2 == 0) && !addedZPM) {
@@ -156,42 +160,6 @@ public class GameEngine {
             if ((collectedZPM % 2 == 1) && addedZPM) addedZPM = false;
         }
 
-    }
-
-    //Jatek veget vizsgalo fuggveny, eredmeny szepen megjelenitese
-    public boolean endGame() {
-        //Ha mindket jatekos meghalt, jatek vege
-        if (!getPlayer("oneill").isAlive() && !getPlayer("jaffa").isAlive()) {
-            int result = JOptionPane.showConfirmDialog(null, "Sajnaljuk, elvesztettetek a jatekot! Szeretnetek ujat jatszani?", "Mindket jatekos meghalt", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                oneill.setPlayer(true);
-                jaffa.setPlayer(true);
-                controller.start();
-            }
-            if (result == JOptionPane.NO_OPTION) System.exit(0);
-            return true;
-        }
-        //Ha a kezdeti ZPM szambol kivonjuk a jatekosoknal levo ZPM-ek osszeget es 0-t kapunk, akkor jatek vege
-        //Amelyik jatekos tobbet gyujtott, az nyert
-        if ((ZPMNumber - getPlayer("oneill").getZPMNumber() - getPlayer("jaffa").getZPMNumber()) == 0){
-            if(getPlayer("oneill").getZPMNumber() > getPlayer("jaffa").getZPMNumber()) {
-                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Oneill megnyerte a jatekot! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) controller.start();
-                if (result == JOptionPane.NO_OPTION) System.exit(0);
-            }
-            if(getPlayer("oneill").getZPMNumber() < getPlayer("jaffa").getZPMNumber()) {
-                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Jaffa megnyerte a jatekot! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) controller.start();
-                if (result == JOptionPane.NO_OPTION) System.exit(0);
-            }
-            if(getPlayer("oneill").getZPMNumber() == getPlayer("jaffa").getZPMNumber()) {
-                int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, a jatek soran dontetlen szuletett, igy a jatekosok sikeresen hazajuthatnak! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) controller.start();
-                if (result == JOptionPane.NO_OPTION) System.exit(0);
-            }
-            return true;
-        }
-        else return false;
     }
 
     public MapElement getFirstElement() {
@@ -440,5 +408,4 @@ public class GameEngine {
             return jaffa;
         return null;
     }
-
 }

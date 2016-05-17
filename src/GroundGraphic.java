@@ -48,9 +48,8 @@ public class GroundGraphic implements Drawable {
         }
 
         if (player != null) {
-            //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
-            //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO
-            //csak probakent raktam ra oneill meg jaffa van eddig kezelve :(
+           //megnezzuk van e rajta oneill vagy jaffa illetve doboz vagy zpm es ezeket berakjuk az extraimagesbe
+            //hogy utana a view ki tudja rajzolni
             switch (player.getName()) {
                 case "oneill":
                     BufferedImage oneill;

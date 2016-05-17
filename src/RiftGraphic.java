@@ -12,15 +12,18 @@ public class RiftGraphic implements Drawable {
     private Rift rift;
     BufferedImage img;
 
+    //konstruktor, beallitjuk a kepet es a hozza tartozo rift mapelementet
     public RiftGraphic(Rift r){
         rift = r;
         img = Images.instance.rift;
 
     }
+
     public BufferedImage getImage(){
         return img;
     }
 
+    //nincs rajta extra image
     public ArrayList<BufferedImage> getExtraImages(){
         return null;
     }

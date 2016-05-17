@@ -127,7 +127,9 @@ public class View extends JFrame {
         row = r;
         column = c;
 
+        //ujratolteshez elobb ki kell torolni a listat
         map.clear();
+        //majd vegigmegyunk es feltoltjuk a kirajzolhato elemek listajat
         for (int i = 0; i < row; i ++){
             map.add(fe.getDrawableClass());
             for (int j = 0; j < column - 1; j++) {

@@ -14,6 +14,7 @@ public class WallGraphic implements Drawable {
     private Wall wall;
     BufferedImage img;
 
+    //konstruktor, kep es a falelem beallitasa
     public WallGraphic(Wall w){
         wall = w;
 
@@ -25,6 +26,7 @@ public class WallGraphic implements Drawable {
         return img;
     }
 
+    //nem lehet rajta extra image
     public ArrayList<BufferedImage> getExtraImages(){
         return null;
     }

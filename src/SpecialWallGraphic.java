@@ -24,12 +24,14 @@ public class SpecialWallGraphic implements Drawable {
         return img;
     }
 
-    //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
+
     public ArrayList<BufferedImage> getExtraImages(){
-        //megnezzuk van e rajta valaki
         ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
 
+        //lekerjuk a feregjaratot
         WormHole wh = specialWall.getWormhole();
+        //vegignezzuk hogy valamelyik portal ezen a specialis falon van e es az adott iranyba levo adott szinu portalt hozzaadjuk az
+        //extraimageshez
         try {
             if (wh.getThisPortal(Direction.Down, specialWall) != null) {
                 Portal p = wh.getThisPortal(Direction.Down, specialWall);

@@ -32,10 +32,12 @@ public class Ground extends MapElement {
         return false;
     }
 
+    //beallit neki egy uj zpm-et a groundnak
     public void setZPM() {
         this.zpm = new ZPM();
     }
 
+    //megmutatja van e rajta jatekos
     public boolean hasPlayer() {
         if (player != null) {
             return true;
@@ -43,6 +45,7 @@ public class Ground extends MapElement {
         return false;
     }
 
+    //megmutatja van e rajta replikator
     public boolean hasReplicator() {
         if (rep != null) {
             return true;

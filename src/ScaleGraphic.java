@@ -23,16 +23,14 @@ public class ScaleGraphic implements Drawable {
         return img;
     }
 
-    //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
-    //Ide jonnek a playerek meg a portalok vagy dobozok amiket az alap kepre ra kell rajzolni
+
     public ArrayList<BufferedImage> getExtraImages(){
         //megnezzuk van e rajta valaki
         ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
         Player player =  scale.getPlayer();
         if (player != null) {
-            //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
-            //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO
-            //csak probakent raktam ra oneill meg jaffa van eddig kezelve :(
+            //ha van akkor csinalunk egy extraimages listat es abba belerakjuk az elemeket
+            //oneill jaffa, vagy doboz lehet rajta
             switch (player.getName()) {
                 case "oneill":
                     BufferedImage oneill;

@@ -25,13 +25,8 @@ public class Controller implements KeyListener {
     //Elinditja a jatekot, inicializalja es beallitja a megfelelo komponenseket
     public void start() {
         try {
+            game = new GameEngine(this);
             game.loadMap();
-            game.getPlayer("oneill").setPlayer(true);
-            game.getPlayer("jaffa").setPlayer(true);
-            game.getPlayer("oneill").setBox(null);
-            game.getPlayer("jaffa").setBox(null);
-            game.getPlayer("oneill").setLookDirection(Direction.Up);
-            game.getPlayer("jaffa").setLookDirection(Direction.Up);
             view.setList(game.getFirstElement(), game.getRow(), game.getColumn());
             view.setScoreOneillLabel(0);
             view.setScoreJaffaLabel(0);

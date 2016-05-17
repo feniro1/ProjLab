@@ -35,16 +35,17 @@ public class GameEngine {
         addedZPM = true;
     }
 
-
-
+    // visszaallitja hogy nem kell ujra tolteni a mapet
     public void resetReloadMap(){
         reloadMap = false;
     }
 
+    // visszaadja, hogy ujra kell tolteni a palyat, ha valtozott
     public boolean getReloadMap(){
         return reloadMap;
     }
 
+    // o checkolja, hogy ujrakell-e tolteni, mert meghalt-e a replicator
     public void check(){
         if(replicator.isKilledByRift() == true){
             reloadMap = true;
@@ -53,6 +54,7 @@ public class GameEngine {
         }
     }
 
+    // felelos a jatekosok es a replicator mozgasaert
     public void move(String name, Direction dir) {
 
         if ((name.equals("oneill")) && oneill.isAlive()){
@@ -74,6 +76,7 @@ public class GameEngine {
         zpmGenerator();
     }
 
+    // biztositja a jatekosoknak a loves fuggvenyt, melyet a controller meghiv kesobb aszerint ki lotte es milyen szinu
     public void shoot(String name, Color col) {
         if (name.equals("oneill") && oneill.isAlive()){
             oneill.shoot(col);
@@ -84,6 +87,7 @@ public class GameEngine {
 
     }
 
+    // biztositja a jatekosoknak a doboz felvevesehez es letevesehez a fuggvenyt
     public void pickUp(String name) {
         if (name.equals("oneill") && oneill.isAlive()) {
             if (oneill.hasBox()) {
@@ -100,6 +104,7 @@ public class GameEngine {
         }
     }
 
+    // biztosit egy fuggvenyt, mely forgat egy bizonyos jatekost
     public void turn(String name){
         if (name.equals("oneill") && oneill.isAlive()){
             oneill.turn();
@@ -109,10 +114,12 @@ public class GameEngine {
         }
     }
 
+    // visszaadja a palyan levo zpm szamot
     public int getZPMNumber(){
         return ZPMNumber;
     }
 
+    // vegigjarja a palyat, megszamolja hova tehet le zpm-et, (olyan ground,ahol nincs semmi), es utana abbol egy random helyre leteszi
     public void zpmGenerator() {
         int collectedZPM = oneill.getZPMNumber() + jaffa.getZPMNumber();
         if((collectedZPM > 0) && (collectedZPM % 2 == 0) && !addedZPM) {
@@ -161,20 +168,19 @@ public class GameEngine {
 
     }
 
+    //visszaadja a palya elso elemet
     public MapElement getFirstElement() {
         return firstElement;
     }
 
+    // visszaadja a sorszamat a palyanak
     public int getRow() {
         return row;
     }
 
+    // visszaadja az oszlopszamat a palyanak
     public int getColumn() {
         return column;
-    }
-
-    public boolean hasToReloadMap() {
-        return reloadMap;
     }
 
     //Fajlbol betolti, es letrehozza a mapelementeket
@@ -400,6 +406,7 @@ public class GameEngine {
         table[row - 1][column - 1].setNeighbour(Direction.Left, table[row - 1][column - 2]);
     }
 
+    // visszaadja az adott jatekost
     public Player getPlayer(String name) {
         if (name.equals("oneill"))
             return oneill;
@@ -407,5 +414,4 @@ public class GameEngine {
             return jaffa;
         return null;
     }
-
 }

@@ -101,6 +101,7 @@ public class Replicator {
                     d = Direction.Left;
                     break;
             }
+            lookDirection = d;
             moveHelper(d);
 
         } else {

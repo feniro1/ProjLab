@@ -12,6 +12,7 @@ public class SpecialWallGraphic implements Drawable {
     private SpecialWall specialWall;
     BufferedImage img;
 
+    //visszaad egy hozza tartozo graphics objektumot
     public SpecialWallGraphic(SpecialWall sw){
         specialWall = sw;
         img = Images.instance.specialwall;

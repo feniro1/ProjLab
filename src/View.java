@@ -36,23 +36,24 @@ public class View extends JFrame {
         //Ablak parametereinek beallitasa
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         this.setBounds(100, 100, 844, 877);
         setLayout(new BorderLayout());
-        // this.setLayout(new GridLayout(2, 1));
 
+        //a jatek jelenlegi allasanak kiirasa
         scoreOneillLabel = new JLabel("   0");
         scoreJaffaLabel = new JLabel("   0");
         JLabel nameOneillLabel = new JLabel("      Oneill:");
         JLabel nameJaffaLabel = new JLabel("        Jaffa:");
         JLabel splitterLabel = new JLabel("                ");
 
+        //szovegek szinenek beallitasa
         scoreOneillLabel.setForeground(new Color(230, 200, 0));
         scoreJaffaLabel.setForeground(new Color(0, 200, 0));
         nameOneillLabel.setForeground(new Color(230, 200, 0));
         nameJaffaLabel.setForeground(new Color(0, 200, 0));
         splitterLabel.setForeground(Color.WHITE);
 
+        //szovegek betutipusanak beallitasa
         Font font = new Font("Roboto", Font.BOLD, 30);
         scoreOneillLabel.setFont(font);
         scoreJaffaLabel.setFont(font);
@@ -60,44 +61,54 @@ public class View extends JFrame {
         nameJaffaLabel.setFont(font);
         splitterLabel.setFont(font);
 
+        //panelek letrehozasa
         JPanel northPanel = new JPanel();
         JPanel westPanel = new JPanel();
         JPanel eastPanel = new JPanel();
         JPanel southPanel = new JPanel();
 
+        //panelek hatterszinenek beallitasa
         northPanel.setBackground(new Color(70, 10, 20));
         westPanel.setBackground(new Color(70, 10, 20));
         eastPanel.setBackground(new Color(70, 10, 20));
         southPanel.setBackground(new Color(70, 10, 20));
 
+        //keret letrehozasa
         northPanel.add(new JLabel("   "));
         westPanel.add(new JLabel("   "));
         eastPanel.add(new JLabel("   "));
+
+        //eredmenytablazathoz gridlayout beallitasa
         southPanel.setLayout(new GridLayout(1, 5));
 
+        //eredmenytablazat gridlayoutjaba a panelek hozzaadasa
         southPanel.add(nameOneillLabel);
         southPanel.add(scoreOneillLabel);
         southPanel.add(splitterLabel);
         southPanel.add(nameJaffaLabel);
         southPanel.add(scoreJaffaLabel);
+
+        //jatekter letrehozasa
         screen = new Screen();
         screen.setBounds(0, 0, 800, 800);
 
-
-
+        //fo ablak reszeinek hozzaadasa
         add(northPanel, BorderLayout.NORTH);
         add(westPanel, BorderLayout.WEST);
         add(eastPanel, BorderLayout.EAST);
         add(screen, BorderLayout.CENTER);
         add(southPanel, BorderLayout.SOUTH);
 
+        //fo ablak megjelenitese
         this.setVisible(true);
     }
 
+    //a ZPM szam kiiratasahoz setter a label-re
     public void setScoreOneillLabel(int s){
         scoreOneillLabel.setText("   " + Integer.toString(s));
     }
 
+    //a ZPM szam kiiratasahoz setter a label-re
     public void setScoreJaffaLabel(int s){
         scoreJaffaLabel.setText("   " + Integer.toString(s));
     }
@@ -109,7 +120,7 @@ public class View extends JFrame {
         screen.repaint();
     }
 
-    //ez hibatlanul mukodik, ne bazd el
+    //megvizsgalja milyen elemekbol all a palya, es az alapjan a megfelelo osztalyok graphics oszytalyok objektumaival tolti fel a listat
     public void setList(MapElement fe, int r, int c){
         firstElement = fe;
         MapElement tmp = fe;
@@ -126,10 +137,5 @@ public class View extends JFrame {
             fe = tmp.getNextElement(Direction.Down);
             tmp = fe;
         }
-    }
-
-    //Ideiglenes
-    public void close() {
-        this.remove(screen);
     }
 }

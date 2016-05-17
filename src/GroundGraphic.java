@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by Mate on 11/05/16.
  */
 public class GroundGraphic implements Drawable {
-   // private String img;
+    // private String img;
     private Ground ground;
     private BufferedImage img;
 
@@ -102,20 +102,20 @@ public class GroundGraphic implements Drawable {
                     break;
             }
         }
-            if (ground.hasBox() == true){
-                try {
-                    BufferedImage box = ImageIO.read(new File("images/box.png"));
-                    extraimages.add(box);
-                } catch (IOException e) {
-                }
+        if (ground.hasBox() == true){
+            try {
+                BufferedImage box = ImageIO.read(new File("images/box.png"));
+                extraimages.add(box);
+            } catch (IOException e) {
             }
-            if (ground.hasZPM() == true){
-                try {
-                    BufferedImage zpm = ImageIO.read(new File("images/zpm.png"));
-                    extraimages.add(zpm);
-                } catch (IOException e) {
-                }
+        }
+        if (ground.hasZPM() == true){
+            try {
+                BufferedImage zpm = ImageIO.read(new File("images/zpm.png"));
+                extraimages.add(zpm);
+            } catch (IOException e) {
             }
-            return extraimages;
+        }
+        return extraimages;
     }
 }

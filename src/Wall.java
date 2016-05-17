@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Wall extends MapElement {
 
+    //visszaad egy hozza tartozo graphics objektumot
     @Override
     public Drawable getDrawableClass() {
         return new WallGraphic(this);

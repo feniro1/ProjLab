@@ -29,11 +29,12 @@ public class DoorGraphic implements Drawable {
     }
 
 
-    // arraylist, mely tarolja az ajto fele rajzolt extra kepeket
+    // arraylist, mely tarolja az ajto felett rajzolt extra kepeket
     public ArrayList<BufferedImage> getExtraImages(){
         //megnezzuk van e rajta valaki
         ArrayList<BufferedImage> extraimages = new ArrayList<BufferedImage>();
         Player player =  door.getPlayer();
+        // ha van rajta replikator hozzaadjuk az extrakepekhez
         if (door.hasReplicator()){
             try {
                 BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
@@ -41,14 +42,13 @@ public class DoorGraphic implements Drawable {
             } catch (IOException e) {
             }
         }
+        // ha van rajta player megvizsgaljuk melyik player es attol fuggoen merre nez kirajzoljuk
         if (player != null) {
-            //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
-            //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO
-            //csak probakent raktam ra oneill meg jaffa van eddig kezelve :(
             switch (player.getName()) {
                 case "oneill":
                     BufferedImage oneill;
                     try {
+                        // ha van nala doboz akkor dobozos playert rajzolunk ki
                         if(!player.hasBox()) {
                             oneill = ImageIO.read(new File("images/colonel.png"));
                         } else {
@@ -70,6 +70,7 @@ public class DoorGraphic implements Drawable {
                     } catch (IOException e) {
                     }
                     break;
+                // ugyanez jaffanal
                 case "jaffa":
                     BufferedImage jaffa;
                     try {
@@ -90,13 +91,13 @@ public class DoorGraphic implements Drawable {
                             case Down:
                                 jaffa = Images.instance.rotateDown(jaffa);
                         }
-                        extraimages.add(jaffa);
+                        extraimages.add(jaffa); // kezeljuk az exceptiont ha nincs kep
                     } catch (IOException e) {
                     }
                     break;
             }
         }
-
+        // visszaadjuk az extrakepeket
         return extraimages;
     }
 }

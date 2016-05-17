@@ -37,7 +37,6 @@ public class GameEngine {
 
 
     public void resetReloadMap(){
-        System.out.println("resetreloadmap");
         reloadMap = false;
     }
 
@@ -47,7 +46,6 @@ public class GameEngine {
 
     public void check(){
         if(replicator.isKilledByRift() == true){
-            System.out.println("reloadmap");
             reloadMap = true;
             replicator.resetKilledByRift();
 

@@ -29,11 +29,24 @@ public class GroundGraphic implements Drawable {
         Player player =  ground.getPlayer();
         if (ground.hasReplicator()){
             try {
-                BufferedImage zpm = ImageIO.read(new File("images/replicator.png"));
-                extraimages.add(zpm);
+                BufferedImage replicator = ImageIO.read(new File("images/replicator.png"));
+                switch (ground.getReplicator().getLookDirection()) {
+                    case Up:
+                        break;
+                    case Right:
+                        replicator = Images.instance.rotateToRight(replicator);
+                        break;
+                    case Left:
+                        replicator = Images.instance.rotateToLeft(replicator);
+                        break;
+                    case Down:
+                        replicator = Images.instance.rotateDown(replicator);
+                }
+                extraimages.add(replicator);
             } catch (IOException e) {
             }
         }
+
         if (player != null) {
             //ha van akkor csinalunk egy extraimages listat es abba belerakjuk ay elemeket
             //ez igy meg nem szem mert mindenfelere le kell majd kezelni TODO

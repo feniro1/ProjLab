@@ -132,6 +132,8 @@ public class Controller implements KeyListener {
                     view.drawMap();
                     break;
         }
+        view.setScoreOneillLabel(game.getPlayer("oneill").getZPMNumber());
+        view.setScoreJaffaLabel(game.getPlayer("jaffa").getZPMNumber());
         endGame();
     }
 

@@ -94,6 +94,14 @@ public class View extends JFrame {
         this.setVisible(true);
     }
 
+    public void setScoreOneillLabel(int s){
+        scoreOneillLabel.setText("   " + Integer.toString(s));
+    }
+
+    public void setScoreJaffaLabel(int s){
+        scoreJaffaLabel.setText("   " + Integer.toString(s));
+    }
+
     public void drawMap(){
         //panelnek atadjuk az adatokat
         screen.setData(column, map);

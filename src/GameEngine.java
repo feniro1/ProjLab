@@ -22,6 +22,7 @@ public class GameEngine {
     private Controller controller;
     private boolean reloadMap;
     private int ZPMNumber;
+    private boolean addedZPM;
 
     public GameEngine(Controller cont){
         oneill = new Player("oneill");
@@ -31,6 +32,7 @@ public class GameEngine {
         controller = cont;
         reloadMap = false;
         ZPMNumber = 0;
+        addedZPM = true;
     }
 
 
@@ -48,6 +50,7 @@ public class GameEngine {
             System.out.println("reloadmap");
             reloadMap = true;
             replicator.resetKilledByRift();
+
         }
     }
 
@@ -69,6 +72,7 @@ public class GameEngine {
                 }
             }
         }
+        zpmGenerator();
     }
 
     public void shoot(String name, Color col) {
@@ -108,45 +112,48 @@ public class GameEngine {
 
     public void zpmGenerator() {
         int collectedZPM = oneill.getZPMNumber() + jaffa.getZPMNumber();
-        if((collectedZPM > 0) && (collectedZPM % 2 == 0)) {
+        if((collectedZPM > 0) && (collectedZPM % 2 == 0) && !addedZPM) {
+            addedZPM = true;
             int countPlacesWhereToPut = 0;
             MapElement firstRowElement = firstElement;
             MapElement actualElement = firstElement;
-            for(int i = 0; i < 20; i++) {
-                for(int j = 0; j < 20; j++) {
-                    if (actualElement.getClass().toString().equals("Ground")) {
-                        Ground g = (Ground)actualElement;
-                        if((!g.hasZPM())&&(!g.hasReplicator())&&(!g.hasBox())&&(!g.hasPlayer())) {
+            for (int i = 0; i < 20; i++) {
+                for (int j = 0; j < 20; j++) {
+                    if (actualElement.isGround) {
+                        Ground g = (Ground) actualElement;
+                        if ((!g.hasZPM()) && (!g.hasReplicator()) && (!g.hasBox()) && (!g.hasPlayer())) {
                             countPlacesWhereToPut++;
                         }
-                        actualElement = actualElement.getNextElement(Direction.Right);
                     }
+                    actualElement = actualElement.getNextElement(Direction.Right);
                 }
                 firstRowElement = firstRowElement.getNextElement(Direction.Down);
                 actualElement = firstRowElement;
             }
             firstRowElement = firstElement;
             actualElement = firstElement;
-            int random = (int )(Math.random() * countPlacesWhereToPut + 1);
-            for(int i = 0; i < 20; i++) {
-                for(int j = 0; j < 20; j++) {
-                    if (actualElement.getClass().toString().equals("Ground")) {
-                        Ground g = (Ground)actualElement;
-                        if((!g.hasZPM())&&(!g.hasReplicator())&&(!g.hasBox())&&(!g.hasPlayer())) {
-                            random --;
-                            if(random==0) {
+            int random = (int) (Math.random() * countPlacesWhereToPut + 1);
+            for (int i = 0; i < 20; i++) {
+                for (int j = 0; j < 20; j++) {
+                    if (actualElement.isGround  ) {
+                        Ground g = (Ground) actualElement;
+                        if ((!g.hasZPM()) && (!g.hasReplicator()) && (!g.hasBox()) && (!g.hasPlayer())) {
+                            random--;
+                            if (random == 0) {
                                 g.setZPM();
                                 ZPMNumber++;
                                 return;
                             }
 
                         }
-                        actualElement = actualElement.getNextElement(Direction.Right);
                     }
+                    actualElement = actualElement.getNextElement(Direction.Right);
                 }
                 firstRowElement = firstRowElement.getNextElement(Direction.Down);
                 actualElement = firstRowElement;
             }
+        } else {
+            if ((collectedZPM % 2 == 1) && addedZPM) addedZPM = false;
         }
 
     }
@@ -155,7 +162,7 @@ public class GameEngine {
     public boolean endGame() {
         //Ha mindket jatekos meghalt, jatek vege
         if (!getPlayer("oneill").isAlive() && !getPlayer("jaffa").isAlive()) {
-            int result = JOptionPane.showConfirmDialog(null, "Sajnaljuk, elvesztetted a jatekot! Szeretnel ujat jatszani?", "Mindket jatekos meghalt", JOptionPane.YES_NO_OPTION);
+            int result = JOptionPane.showConfirmDialog(null, "Sajnaljuk, elvesztettetek a jatekot! Szeretnetek ujat jatszani?", "Mindket jatekos meghalt", JOptionPane.YES_NO_OPTION);
             if (result == JOptionPane.YES_OPTION) {
                 oneill.setPlayer(true);
                 jaffa.setPlayer(true);

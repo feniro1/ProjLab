@@ -9,15 +9,18 @@ public class Ground extends MapElement {
 
     // konstruktor a talaj objektumhoz
     public  Ground() {
+        isGround = true;
     }
 
     // parameteres konstruktor, mely beallít egy boxot
     public Ground(Box box) {
+        isGround = true;
         this.box = box;
     }
 
     // parameteres konstruktor, mely beallít egy zpm modult
     public Ground(ZPM zpm) {
+        isGround = true;
         this.zpm = zpm;
     }
 

@@ -9,6 +9,7 @@ public abstract class MapElement {
     protected Bullet bul; // lovedekre mutato pointert tarol, ha az van rajta
     protected boolean isSpecWall = false;
     protected boolean isScale = false;
+    protected boolean isGround = false;
 
 
     public MapElement() { // letrehoz egy mapElement objektumot

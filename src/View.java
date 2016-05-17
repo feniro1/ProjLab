@@ -21,6 +21,8 @@ public class View extends JFrame {
     private Screen screen;
     private ArrayList<Drawable> map;
     private Controller controller;
+    private JLabel scoreOneillLabel;
+    private JLabel scoreJaffaLabel;
 
     public View(Controller cont) {
         super();
@@ -34,26 +36,62 @@ public class View extends JFrame {
         //Ablak parametereinek beallitasa
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setBounds(100, 100, 950, 820);
-        this.setLayout(new FlowLayout());
-        this.setVisible(true);
 
-        //Kepernyo es panel hozzaadasa
+        this.setBounds(100, 100, 844, 877);
+        setLayout(new BorderLayout());
+        // this.setLayout(new GridLayout(2, 1));
+
+        scoreOneillLabel = new JLabel("   0");
+        scoreJaffaLabel = new JLabel("   0");
+        JLabel nameOneillLabel = new JLabel("      Oneill:");
+        JLabel nameJaffaLabel = new JLabel("        Jaffa:");
+        JLabel splitterLabel = new JLabel("                ");
+
+        scoreOneillLabel.setForeground(new Color(230, 200, 0));
+        scoreJaffaLabel.setForeground(new Color(0, 200, 0));
+        nameOneillLabel.setForeground(new Color(230, 200, 0));
+        nameJaffaLabel.setForeground(new Color(0, 200, 0));
+        splitterLabel.setForeground(Color.WHITE);
+
+        Font font = new Font("Roboto", Font.BOLD, 30);
+        scoreOneillLabel.setFont(font);
+        scoreJaffaLabel.setFont(font);
+        nameOneillLabel.setFont(font);
+        nameJaffaLabel.setFont(font);
+        splitterLabel.setFont(font);
+
+        JPanel northPanel = new JPanel();
+        JPanel westPanel = new JPanel();
+        JPanel eastPanel = new JPanel();
+        JPanel southPanel = new JPanel();
+
+        northPanel.setBackground(new Color(70, 10, 20));
+        westPanel.setBackground(new Color(70, 10, 20));
+        eastPanel.setBackground(new Color(70, 10, 20));
+        southPanel.setBackground(new Color(70, 10, 20));
+
+        northPanel.add(new JLabel("   "));
+        westPanel.add(new JLabel("   "));
+        eastPanel.add(new JLabel("   "));
+        southPanel.setLayout(new GridLayout(1, 5));
+
+        southPanel.add(nameOneillLabel);
+        southPanel.add(scoreOneillLabel);
+        southPanel.add(splitterLabel);
+        southPanel.add(nameJaffaLabel);
+        southPanel.add(scoreJaffaLabel);
         screen = new Screen();
-        screen.setBounds(0, 0, 800, 820);
-//valtozas
-        JPanel resultPanel = new JPanel();
-        resultPanel.setBounds(800, 0, 150, 820);
-        resultPanel.setBackground(Color.YELLOW);
-        resultPanel.setLayout(new GridLayout(6, 1, 0, 0));
+        screen.setBounds(0, 0, 800, 800);
 
-        JLabel oLbl = new JLabel("Oneill");
-        oLbl.setSize(50, 50);
 
-        resultPanel.add(oLbl);
 
-        this.add(screen);
-        this.add(resultPanel);
+        add(northPanel, BorderLayout.NORTH);
+        add(westPanel, BorderLayout.WEST);
+        add(eastPanel, BorderLayout.EAST);
+        add(screen, BorderLayout.CENTER);
+        add(southPanel, BorderLayout.SOUTH);
+
+        this.setVisible(true);
     }
 
     public void drawMap(){

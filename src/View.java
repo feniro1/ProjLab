@@ -1,15 +1,7 @@
-import com.sun.org.apache.xml.internal.serializer.utils.SerializerMessages_zh_CN;
-
-import javax.imageio.ImageIO;
-import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * Created by Mate on 11/05/16.

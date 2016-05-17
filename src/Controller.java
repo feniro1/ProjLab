@@ -26,7 +26,15 @@ public class Controller implements KeyListener {
     public void start() {
         try {
             game.loadMap();
+            game.getPlayer("oneill").setPlayer(true);
+            game.getPlayer("jaffa").setPlayer(true);
+            game.getPlayer("oneill").setBox(null);
+            game.getPlayer("jaffa").setBox(null);
+            game.getPlayer("oneill").setLookDirection(Direction.Up);
+            game.getPlayer("jaffa").setLookDirection(Direction.Up);
             view.setList(game.getFirstElement(), game.getRow(), game.getColumn());
+            view.setScoreOneillLabel(0);
+            view.setScoreJaffaLabel(0);
             view.drawMap();
         } catch (IOException e) {
             e.printStackTrace();
@@ -151,11 +159,7 @@ public class Controller implements KeyListener {
         //Ha mindket jatekos meghalt, jatek vege
         if (!game.getPlayer("oneill").isAlive() && !game.getPlayer("jaffa").isAlive()) {
             int result = JOptionPane.showConfirmDialog(null, "Sajnaljuk, elvesztettetek a jatekot! Szeretnetek ujat jatszani?", "Mindket jatekos meghalt", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                game.getPlayer("oneill").setPlayer(true);
-                game.getPlayer("jaffa").setPlayer(true);
-                start();
-            }
+            if (result == JOptionPane.YES_OPTION) start();
             if (result == JOptionPane.NO_OPTION) System.exit(0);
             return true;
         }
@@ -164,17 +168,29 @@ public class Controller implements KeyListener {
         if ((game.getZPMNumber() - game.getPlayer("oneill").getZPMNumber() - game.getPlayer("jaffa").getZPMNumber()) == 0){
             if(game.getPlayer("oneill").getZPMNumber() > game.getPlayer("jaffa").getZPMNumber()) {
                 int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Oneill megnyerte a jatekot! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) start();
+                if (result == JOptionPane.YES_OPTION) {
+                    game.getPlayer("oneill").setZPMNumber(0);
+                    game.getPlayer("jaffa").setZPMNumber(0);
+                    start();
+                }
                 if (result == JOptionPane.NO_OPTION) System.exit(0);
-            }
+            }else
             if(game.getPlayer("oneill").getZPMNumber() < game.getPlayer("jaffa").getZPMNumber()) {
                 int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, Jaffa megnyerte a jatekot! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) start();
+                if (result == JOptionPane.YES_OPTION) {
+                    game.getPlayer("oneill").setZPMNumber(0);
+                    game.getPlayer("jaffa").setZPMNumber(0);
+                    start();
+                }
                 if (result == JOptionPane.NO_OPTION) System.exit(0);
-            }
+            }else
             if(game.getPlayer("oneill").getZPMNumber() == game.getPlayer("jaffa").getZPMNumber()) {
                 int result = JOptionPane.showConfirmDialog(null, "Gratulalunk, a jatek soran dontetlen szuletett, igy a jatekosok sikeresen hazajuthatnak! Szeretnel ujat jatszani?", "Felvettek az osszes ZPM-et", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) start();
+                if (result == JOptionPane.YES_OPTION) {
+                    game.getPlayer("oneill").setZPMNumber(0);
+                    game.getPlayer("jaffa").setZPMNumber(0);
+                    start();
+                }
                 if (result == JOptionPane.NO_OPTION) System.exit(0);
             }
             return true;

@@ -91,9 +91,5 @@ public abstract class MapElement {
         return player;
     }
 
-    public String symbol(){
-        return "";
-    }
-
     public abstract Drawable getDrawableClass();
 }
